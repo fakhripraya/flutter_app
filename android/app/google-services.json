@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "240644862410",
+    "project_id": "money-management-analytic",
+    "storage_bucket": "money-management-analytic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240644862410:android:f57bc288009b76a01a5f33",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg-LMMGTsjLkrmZDaRrrtSmwRasGxOHOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
