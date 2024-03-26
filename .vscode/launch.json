@@ -1,0 +1,53 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "flutter_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "capp_case",
+            "cwd": "capp_case",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "capp_case (profile mode)",
+            "cwd": "capp_case",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "capp_case (release mode)",
+            "cwd": "capp_case",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "app_core",
+            "cwd": "packages/app_core",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "app_core (profile mode)",
+            "cwd": "packages/app_core",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "app_core (release mode)",
+            "cwd": "packages/app_core",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
