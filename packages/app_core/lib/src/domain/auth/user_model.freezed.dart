@@ -21,6 +21,7 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserModel {
   String get id => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
 
@@ -35,7 +36,7 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
-  $Res call({String id, String email, String password});
+  $Res call({String id, String username, String email, String password});
 }
 
 /// @nodoc
@@ -52,6 +53,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @override
   $Res call({
     Object? id = null,
+    Object? username = null,
     Object? email = null,
     Object? password = null,
   }) {
@@ -59,6 +61,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -80,7 +86,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
       __$$UserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String email, String password});
+  $Res call({String id, String username, String email, String password});
 }
 
 /// @nodoc
@@ -95,6 +101,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? username = null,
     Object? email = null,
     Object? password = null,
   }) {
@@ -102,6 +109,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -118,7 +129,8 @@ class __$$UserModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserModelImpl implements _UserModel {
-  const _$UserModelImpl({this.id = '', this.email = '', this.password = ''});
+  const _$UserModelImpl(
+      {this.id = '', this.username = '', this.email = '', this.password = ''});
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
@@ -128,6 +140,9 @@ class _$UserModelImpl implements _UserModel {
   final String id;
   @override
   @JsonKey()
+  final String username;
+  @override
+  @JsonKey()
   final String email;
   @override
   @JsonKey()
@@ -135,7 +150,7 @@ class _$UserModelImpl implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, email: $email, password: $password)';
+    return 'UserModel(id: $id, username: $username, email: $email, password: $password)';
   }
 
   @override
@@ -144,6 +159,8 @@ class _$UserModelImpl implements _UserModel {
         (other.runtimeType == runtimeType &&
             other is _$UserModelImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
@@ -151,7 +168,7 @@ class _$UserModelImpl implements _UserModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, password);
+  int get hashCode => Object.hash(runtimeType, id, username, email, password);
 
   @JsonKey(ignore: true)
   @override
@@ -170,6 +187,7 @@ class _$UserModelImpl implements _UserModel {
 abstract class _UserModel implements UserModel {
   const factory _UserModel(
       {final String id,
+      final String username,
       final String email,
       final String password}) = _$UserModelImpl;
 
@@ -178,6 +196,8 @@ abstract class _UserModel implements UserModel {
 
   @override
   String get id;
+  @override
+  String get username;
   @override
   String get email;
   @override

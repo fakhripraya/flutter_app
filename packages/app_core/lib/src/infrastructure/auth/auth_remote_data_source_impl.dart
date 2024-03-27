@@ -1,3 +1,5 @@
+import 'dart:js_interop';
+
 import 'package:app_core/src/domain/auth/register_model.dart';
 import 'package:app_core/src/domain/auth/user_model.dart';
 import 'package:app_core/src/infrastructure/auth/auth_remote_data_source.dart';
@@ -9,40 +11,72 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   CollectionReference get _collection =>
       FirebaseFirestore.instance.collection('users');
 
-  Future<UserCredential> _signInWithGoogle() async {
-    // Trigger the authentication flow
+  Future<UserCredential?> _signInWithGoogle() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-    // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    if (googleUser == null) return null;
 
-    // Create a new credential
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+
     final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
     );
 
-    // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   @override
-  Future<bool> doRegister(RegisterModel register) {
-    // TODO: implement doLogin
-    throw UnimplementedError();
+  Future<bool> doRegister(RegisterModel register) async {
+    final users = await _collection
+        .where('email', isEqualTo: register.email.toLowerCase())
+        .get();
+
+    if (users.docs.isNotEmpty) {
+      return doLogin(register);
+    }
+
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: register.email,
+      password: register.password,
+    );
+
+    final doc = await _collection.add(UserModel(
+      email: register.email,
+      password: register.password,
+      username: register.email.split('@').first,
+    ).toJson());
+
+    final snapshot = await doc.get();
+
+    final userUpdate = UserModel.fromJson(
+      snapshot.data() as Map<String, dynamic>,
+    ).copyWith(id: doc.id);
+
+    await doc.update(userUpdate.toJson());
+
+    return true;
   }
 
   @override
-  Future<bool> doLogin(RegisterModel login) {
-    // TODO: implement doLogin
-    throw UnimplementedError();
+  Future<bool> doLogin(RegisterModel login) async {
+    final user = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: login.email,
+      password: login.password,
+    );
+    final checkUser = user.isDefinedAndNotNull;
+    if (!checkUser) return false;
+    return true;
   }
 
   @override
-  Future<bool> doLoginWithGoogle() {
-    // TODO: implement doLogin
-    throw UnimplementedError();
+  Future<bool> doLoginWithGoogle() async {
+    final user = await _signInWithGoogle();
+
+    if (user == null) return false;
+
+    return true;
   }
 
   @override
@@ -52,8 +86,16 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<UserModel?> getProfile() {
-    // TODO: implement getProfile
-    throw UnimplementedError();
+  Future<UserModel?> getProfile() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return null;
+
+    final docRef = await _collection
+        .where('email', isEqualTo: user.email!.toLowerCase())
+        .get();
+
+    final map = docRef.docs.first.data() as Map<String, dynamic>;
+
+    UserModel.fromJson(map);
   }
 }

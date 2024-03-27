@@ -10,31 +10,26 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<bool> doRegister(RegisterModel register) {
-    // TODO: implement doLogin
-    throw UnimplementedError();
+    return _remote.doRegister(register);
   }
 
   @override
   Future<bool> doLogin(RegisterModel login) {
-    // TODO: implement doLogin
-    throw UnimplementedError();
+    return _remote.doLogin(login);
   }
 
   @override
   Future<bool> doLoginWithGoogle() {
-    // TODO: implement doLogin
-    throw UnimplementedError();
+    return _remote.doLoginWithGoogle();
   }
 
   @override
   Future<bool> doLogout() {
-    // TODO: implement doLogout
-    throw UnimplementedError();
+    return _remote.doLogout();
   }
 
   @override
   Future<UserModel?> getProfile() {
-    // TODO: implement getProfile
-    throw UnimplementedError();
+    return _remote.getProfile();
   }
 }

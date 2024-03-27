@@ -8,6 +8,7 @@ part 'user_model.g.dart';
 class UserModel with _$UserModel {
   const factory UserModel({
     @Default('') String id,
+    @Default('') String username,
     @Default('') String email,
     @Default('') String password,
   }) = _UserModel;
