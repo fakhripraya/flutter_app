@@ -14,7 +14,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginStarted>(_started);
     on<DoLoginOrRegister>(_doLoginOrRegister);
     on<DoLoginOrRegisterWithGoogle>(_doLoginOrRegisterWithGoogle);
-    on<DoLogout>(_doLogout);
   }
 
   void _initial(LoginInitial e, Emitter<LoginState> emit) async {}
@@ -26,6 +25,4 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   void _doLoginOrRegisterWithGoogle(
       DoLoginOrRegisterWithGoogle e, Emitter<LoginState> emit) async {}
-
-  void _doLogout(DoLogout e, Emitter<LoginState> emit) async {}
 }

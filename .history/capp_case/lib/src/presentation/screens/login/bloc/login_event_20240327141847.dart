@@ -11,5 +11,4 @@ abstract class LoginEvent with _$LoginEvent {
       DoLoginOrRegister;
   const factory LoginEvent.doLoginOrRegisterWithGoogle() =
       DoLoginOrRegisterWithGoogle;
-  const factory LoginEvent.doLogout() = DoLogout;
 }
