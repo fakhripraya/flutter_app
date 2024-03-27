@@ -11,8 +11,9 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this._remote);
 
   @override
-  Future<bool> doRegister(RegisterModel register) =>
-      _remote.doRegister(register);
+  Future<bool> doRegister(RegisterModel register) async {
+    return await _remote.doRegister(register);
+  }
 
   @override
   Future<bool> doLogin(RegisterModel login) => _remote.doLogin(login);

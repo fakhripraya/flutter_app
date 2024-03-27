@@ -11,23 +11,20 @@ class AuthInteractor implements AuthUseCase {
   AuthInteractor(this._repository);
 
   @override
-  Future<bool> doLogin(RegisterModel login) {
-    return _repository.doLogin(login);
+  Future<bool> doLoginOrRegister(RegisterModel userRegisterModel) async {
+    final isRegistered = await _repository.doRegister(userRegisterModel);
+    if (isRegistered) return _repository.doLogin(userRegisterModel);
+    return isRegistered;
   }
 
   @override
-  Future<bool> doLoginWithGoogle() {
+  Future<bool> doLoginOrRegisterWithGoogle() {
     return _repository.doLoginWithGoogle();
   }
 
   @override
   Future<bool> doLogout() {
     return _repository.doLogout();
-  }
-
-  @override
-  Future<bool> doRegister(RegisterModel register) {
-    return _repository.doRegister(register);
   }
 
   @override
