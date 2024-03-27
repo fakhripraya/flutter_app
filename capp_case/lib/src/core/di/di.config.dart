@@ -8,6 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:app_core/app_core.dart' as _i6;
 import 'package:capp_case/src/core/services/navigation_service.dart' as _i3;
 import 'package:capp_case/src/presentation/screens/login/bloc/login_bloc.dart'
     as _i5;
@@ -30,8 +31,10 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i3.NavigationService>(() => _i3.NavigationService());
     gh.lazySingleton<_i4.SplashBloc>(
         () => _i4.SplashBloc(gh<_i3.NavigationService>()));
-    gh.lazySingleton<_i5.LoginBloc>(
-        () => _i5.LoginBloc(gh<_i3.NavigationService>()));
+    gh.lazySingleton<_i5.LoginBloc>(() => _i5.LoginBloc(
+          gh<_i3.NavigationService>(),
+          gh<_i6.AuthUseCase>(),
+        ));
     return this;
   }
 }

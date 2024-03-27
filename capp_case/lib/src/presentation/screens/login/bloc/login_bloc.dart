@@ -1,3 +1,4 @@
+import 'package:app_core/app_core.dart';
 import 'package:capp_case/src/core/constants/routes.dart';
 import 'package:capp_case/src/core/services/navigation_service.dart';
 import 'package:capp_case/src/presentation/screens/login/bloc/login_event.dart';
@@ -8,24 +9,44 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final NavigationService _navigation;
+  final AuthUseCase _authUseCase;
 
-  LoginBloc(this._navigation) : super(const LoginState()) {
+  LoginBloc(
+    this._navigation,
+    this._authUseCase,
+  ) : super(const LoginState()) {
     on<LoginInitial>(_initial);
     on<LoginStarted>(_started);
-    on<DoLoginOrRegister>(_doLoginOrRegister);
-    on<DoLoginOrRegisterWithGoogle>(_doLoginOrRegisterWithGoogle);
-    on<DoLogout>(_doLogout);
+    on<LoginDoLoginOrRegister>(_doLoginOrRegister);
+    on<LoginDoLoginOrRegisterWithGoogle>(_doLoginOrRegisterWithGoogle);
+    on<LoginDoLogout>(_doLogout);
   }
 
-  void _initial(LoginInitial e, Emitter<LoginState> emit) async {}
+  void _initial(
+    LoginInitial e,
+    Emitter<LoginState> emit,
+  ) async =>
+      emit(const LoginState());
 
-  void _started(LoginStarted e, Emitter<LoginState> emit) async {}
+  void _started(
+    LoginStarted e,
+    Emitter<LoginState> emit,
+  ) async {}
 
   void _doLoginOrRegister(
-      DoLoginOrRegister e, Emitter<LoginState> emit) async {}
+    LoginDoLoginOrRegister e,
+    Emitter<LoginState> emit,
+  ) async {}
 
   void _doLoginOrRegisterWithGoogle(
-      DoLoginOrRegisterWithGoogle e, Emitter<LoginState> emit) async {}
+    LoginDoLoginOrRegisterWithGoogle e,
+    Emitter<LoginState> emit,
+  ) async {
+    await _authUseCase.doLoginOrRegisterWithGoogle();
+  }
 
-  void _doLogout(DoLogout e, Emitter<LoginState> emit) async {}
+  void _doLogout(
+    LoginDoLogout e,
+    Emitter<LoginState> emit,
+  ) async {}
 }

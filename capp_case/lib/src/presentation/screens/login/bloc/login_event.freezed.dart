@@ -20,7 +20,7 @@ mixin _$LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() started,
-    required TResult Function(UserModel user) doLoginOrRegister,
+    required TResult Function(RegisterModel user) doLoginOrRegister,
     required TResult Function() doLoginOrRegisterWithGoogle,
     required TResult Function() doLogout,
   }) =>
@@ -29,7 +29,7 @@ mixin _$LoginEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? started,
-    TResult? Function(UserModel user)? doLoginOrRegister,
+    TResult? Function(RegisterModel user)? doLoginOrRegister,
     TResult? Function()? doLoginOrRegisterWithGoogle,
     TResult? Function()? doLogout,
   }) =>
@@ -38,7 +38,7 @@ mixin _$LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? started,
-    TResult Function(UserModel user)? doLoginOrRegister,
+    TResult Function(RegisterModel user)? doLoginOrRegister,
     TResult Function()? doLoginOrRegisterWithGoogle,
     TResult Function()? doLogout,
     required TResult orElse(),
@@ -48,30 +48,30 @@ mixin _$LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginInitial value) initial,
     required TResult Function(LoginStarted value) started,
-    required TResult Function(DoLoginOrRegister value) doLoginOrRegister,
-    required TResult Function(DoLoginOrRegisterWithGoogle value)
+    required TResult Function(LoginDoLoginOrRegister value) doLoginOrRegister,
+    required TResult Function(LoginDoLoginOrRegisterWithGoogle value)
         doLoginOrRegisterWithGoogle,
-    required TResult Function(DoLogout value) doLogout,
+    required TResult Function(LoginDoLogout value) doLogout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginInitial value)? initial,
     TResult? Function(LoginStarted value)? started,
-    TResult? Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult? Function(DoLoginOrRegisterWithGoogle value)?
+    TResult? Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult? Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult? Function(DoLogout value)? doLogout,
+    TResult? Function(LoginDoLogout value)? doLogout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginInitial value)? initial,
     TResult Function(LoginStarted value)? started,
-    TResult Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult Function(DoLoginOrRegisterWithGoogle value)?
+    TResult Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult Function(DoLogout value)? doLogout,
+    TResult Function(LoginDoLogout value)? doLogout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,7 +135,7 @@ class _$LoginInitialImpl implements LoginInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() started,
-    required TResult Function(UserModel user) doLoginOrRegister,
+    required TResult Function(RegisterModel user) doLoginOrRegister,
     required TResult Function() doLoginOrRegisterWithGoogle,
     required TResult Function() doLogout,
   }) {
@@ -147,7 +147,7 @@ class _$LoginInitialImpl implements LoginInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? started,
-    TResult? Function(UserModel user)? doLoginOrRegister,
+    TResult? Function(RegisterModel user)? doLoginOrRegister,
     TResult? Function()? doLoginOrRegisterWithGoogle,
     TResult? Function()? doLogout,
   }) {
@@ -159,7 +159,7 @@ class _$LoginInitialImpl implements LoginInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? started,
-    TResult Function(UserModel user)? doLoginOrRegister,
+    TResult Function(RegisterModel user)? doLoginOrRegister,
     TResult Function()? doLoginOrRegisterWithGoogle,
     TResult Function()? doLogout,
     required TResult orElse(),
@@ -175,10 +175,10 @@ class _$LoginInitialImpl implements LoginInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginInitial value) initial,
     required TResult Function(LoginStarted value) started,
-    required TResult Function(DoLoginOrRegister value) doLoginOrRegister,
-    required TResult Function(DoLoginOrRegisterWithGoogle value)
+    required TResult Function(LoginDoLoginOrRegister value) doLoginOrRegister,
+    required TResult Function(LoginDoLoginOrRegisterWithGoogle value)
         doLoginOrRegisterWithGoogle,
-    required TResult Function(DoLogout value) doLogout,
+    required TResult Function(LoginDoLogout value) doLogout,
   }) {
     return initial(this);
   }
@@ -188,10 +188,10 @@ class _$LoginInitialImpl implements LoginInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginInitial value)? initial,
     TResult? Function(LoginStarted value)? started,
-    TResult? Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult? Function(DoLoginOrRegisterWithGoogle value)?
+    TResult? Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult? Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult? Function(DoLogout value)? doLogout,
+    TResult? Function(LoginDoLogout value)? doLogout,
   }) {
     return initial?.call(this);
   }
@@ -201,10 +201,10 @@ class _$LoginInitialImpl implements LoginInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginInitial value)? initial,
     TResult Function(LoginStarted value)? started,
-    TResult Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult Function(DoLoginOrRegisterWithGoogle value)?
+    TResult Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult Function(DoLogout value)? doLogout,
+    TResult Function(LoginDoLogout value)? doLogout,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -258,7 +258,7 @@ class _$LoginStartedImpl implements LoginStarted {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() started,
-    required TResult Function(UserModel user) doLoginOrRegister,
+    required TResult Function(RegisterModel user) doLoginOrRegister,
     required TResult Function() doLoginOrRegisterWithGoogle,
     required TResult Function() doLogout,
   }) {
@@ -270,7 +270,7 @@ class _$LoginStartedImpl implements LoginStarted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? started,
-    TResult? Function(UserModel user)? doLoginOrRegister,
+    TResult? Function(RegisterModel user)? doLoginOrRegister,
     TResult? Function()? doLoginOrRegisterWithGoogle,
     TResult? Function()? doLogout,
   }) {
@@ -282,7 +282,7 @@ class _$LoginStartedImpl implements LoginStarted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? started,
-    TResult Function(UserModel user)? doLoginOrRegister,
+    TResult Function(RegisterModel user)? doLoginOrRegister,
     TResult Function()? doLoginOrRegisterWithGoogle,
     TResult Function()? doLogout,
     required TResult orElse(),
@@ -298,10 +298,10 @@ class _$LoginStartedImpl implements LoginStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginInitial value) initial,
     required TResult Function(LoginStarted value) started,
-    required TResult Function(DoLoginOrRegister value) doLoginOrRegister,
-    required TResult Function(DoLoginOrRegisterWithGoogle value)
+    required TResult Function(LoginDoLoginOrRegister value) doLoginOrRegister,
+    required TResult Function(LoginDoLoginOrRegisterWithGoogle value)
         doLoginOrRegisterWithGoogle,
-    required TResult Function(DoLogout value) doLogout,
+    required TResult Function(LoginDoLogout value) doLogout,
   }) {
     return started(this);
   }
@@ -311,10 +311,10 @@ class _$LoginStartedImpl implements LoginStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginInitial value)? initial,
     TResult? Function(LoginStarted value)? started,
-    TResult? Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult? Function(DoLoginOrRegisterWithGoogle value)?
+    TResult? Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult? Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult? Function(DoLogout value)? doLogout,
+    TResult? Function(LoginDoLogout value)? doLogout,
   }) {
     return started?.call(this);
   }
@@ -324,10 +324,10 @@ class _$LoginStartedImpl implements LoginStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginInitial value)? initial,
     TResult Function(LoginStarted value)? started,
-    TResult Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult Function(DoLoginOrRegisterWithGoogle value)?
+    TResult Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult Function(DoLogout value)? doLogout,
+    TResult Function(LoginDoLogout value)? doLogout,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -342,22 +342,24 @@ abstract class LoginStarted implements LoginEvent {
 }
 
 /// @nodoc
-abstract class _$$DoLoginOrRegisterImplCopyWith<$Res> {
-  factory _$$DoLoginOrRegisterImplCopyWith(_$DoLoginOrRegisterImpl value,
-          $Res Function(_$DoLoginOrRegisterImpl) then) =
-      __$$DoLoginOrRegisterImplCopyWithImpl<$Res>;
+abstract class _$$LoginDoLoginOrRegisterImplCopyWith<$Res> {
+  factory _$$LoginDoLoginOrRegisterImplCopyWith(
+          _$LoginDoLoginOrRegisterImpl value,
+          $Res Function(_$LoginDoLoginOrRegisterImpl) then) =
+      __$$LoginDoLoginOrRegisterImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserModel user});
+  $Res call({RegisterModel user});
 
-  $UserModelCopyWith<$Res> get user;
+  $RegisterModelCopyWith<$Res> get user;
 }
 
 /// @nodoc
-class __$$DoLoginOrRegisterImplCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$DoLoginOrRegisterImpl>
-    implements _$$DoLoginOrRegisterImplCopyWith<$Res> {
-  __$$DoLoginOrRegisterImplCopyWithImpl(_$DoLoginOrRegisterImpl _value,
-      $Res Function(_$DoLoginOrRegisterImpl) _then)
+class __$$LoginDoLoginOrRegisterImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$LoginDoLoginOrRegisterImpl>
+    implements _$$LoginDoLoginOrRegisterImplCopyWith<$Res> {
+  __$$LoginDoLoginOrRegisterImplCopyWithImpl(
+      _$LoginDoLoginOrRegisterImpl _value,
+      $Res Function(_$LoginDoLoginOrRegisterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -365,18 +367,18 @@ class __$$DoLoginOrRegisterImplCopyWithImpl<$Res>
   $Res call({
     Object? user = null,
   }) {
-    return _then(_$DoLoginOrRegisterImpl(
+    return _then(_$LoginDoLoginOrRegisterImpl(
       null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as RegisterModel,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res> get user {
-    return $UserModelCopyWith<$Res>(_value.user, (value) {
+  $RegisterModelCopyWith<$Res> get user {
+    return $RegisterModelCopyWith<$Res>(_value.user, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -384,11 +386,11 @@ class __$$DoLoginOrRegisterImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DoLoginOrRegisterImpl implements DoLoginOrRegister {
-  const _$DoLoginOrRegisterImpl(this.user);
+class _$LoginDoLoginOrRegisterImpl implements LoginDoLoginOrRegister {
+  const _$LoginDoLoginOrRegisterImpl(this.user);
 
   @override
-  final UserModel user;
+  final RegisterModel user;
 
   @override
   String toString() {
@@ -399,7 +401,7 @@ class _$DoLoginOrRegisterImpl implements DoLoginOrRegister {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DoLoginOrRegisterImpl &&
+            other is _$LoginDoLoginOrRegisterImpl &&
             (identical(other.user, user) || other.user == user));
   }
 
@@ -409,16 +411,16 @@ class _$DoLoginOrRegisterImpl implements DoLoginOrRegister {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DoLoginOrRegisterImplCopyWith<_$DoLoginOrRegisterImpl> get copyWith =>
-      __$$DoLoginOrRegisterImplCopyWithImpl<_$DoLoginOrRegisterImpl>(
-          this, _$identity);
+  _$$LoginDoLoginOrRegisterImplCopyWith<_$LoginDoLoginOrRegisterImpl>
+      get copyWith => __$$LoginDoLoginOrRegisterImplCopyWithImpl<
+          _$LoginDoLoginOrRegisterImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() started,
-    required TResult Function(UserModel user) doLoginOrRegister,
+    required TResult Function(RegisterModel user) doLoginOrRegister,
     required TResult Function() doLoginOrRegisterWithGoogle,
     required TResult Function() doLogout,
   }) {
@@ -430,7 +432,7 @@ class _$DoLoginOrRegisterImpl implements DoLoginOrRegister {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? started,
-    TResult? Function(UserModel user)? doLoginOrRegister,
+    TResult? Function(RegisterModel user)? doLoginOrRegister,
     TResult? Function()? doLoginOrRegisterWithGoogle,
     TResult? Function()? doLogout,
   }) {
@@ -442,7 +444,7 @@ class _$DoLoginOrRegisterImpl implements DoLoginOrRegister {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? started,
-    TResult Function(UserModel user)? doLoginOrRegister,
+    TResult Function(RegisterModel user)? doLoginOrRegister,
     TResult Function()? doLoginOrRegisterWithGoogle,
     TResult Function()? doLogout,
     required TResult orElse(),
@@ -458,10 +460,10 @@ class _$DoLoginOrRegisterImpl implements DoLoginOrRegister {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginInitial value) initial,
     required TResult Function(LoginStarted value) started,
-    required TResult Function(DoLoginOrRegister value) doLoginOrRegister,
-    required TResult Function(DoLoginOrRegisterWithGoogle value)
+    required TResult Function(LoginDoLoginOrRegister value) doLoginOrRegister,
+    required TResult Function(LoginDoLoginOrRegisterWithGoogle value)
         doLoginOrRegisterWithGoogle,
-    required TResult Function(DoLogout value) doLogout,
+    required TResult Function(LoginDoLogout value) doLogout,
   }) {
     return doLoginOrRegister(this);
   }
@@ -471,10 +473,10 @@ class _$DoLoginOrRegisterImpl implements DoLoginOrRegister {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginInitial value)? initial,
     TResult? Function(LoginStarted value)? started,
-    TResult? Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult? Function(DoLoginOrRegisterWithGoogle value)?
+    TResult? Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult? Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult? Function(DoLogout value)? doLogout,
+    TResult? Function(LoginDoLogout value)? doLogout,
   }) {
     return doLoginOrRegister?.call(this);
   }
@@ -484,10 +486,10 @@ class _$DoLoginOrRegisterImpl implements DoLoginOrRegister {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginInitial value)? initial,
     TResult Function(LoginStarted value)? started,
-    TResult Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult Function(DoLoginOrRegisterWithGoogle value)?
+    TResult Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult Function(DoLogout value)? doLogout,
+    TResult Function(LoginDoLogout value)? doLogout,
     required TResult orElse(),
   }) {
     if (doLoginOrRegister != null) {
@@ -497,38 +499,40 @@ class _$DoLoginOrRegisterImpl implements DoLoginOrRegister {
   }
 }
 
-abstract class DoLoginOrRegister implements LoginEvent {
-  const factory DoLoginOrRegister(final UserModel user) =
-      _$DoLoginOrRegisterImpl;
+abstract class LoginDoLoginOrRegister implements LoginEvent {
+  const factory LoginDoLoginOrRegister(final RegisterModel user) =
+      _$LoginDoLoginOrRegisterImpl;
 
-  UserModel get user;
+  RegisterModel get user;
   @JsonKey(ignore: true)
-  _$$DoLoginOrRegisterImplCopyWith<_$DoLoginOrRegisterImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$LoginDoLoginOrRegisterImplCopyWith<_$LoginDoLoginOrRegisterImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DoLoginOrRegisterWithGoogleImplCopyWith<$Res> {
-  factory _$$DoLoginOrRegisterWithGoogleImplCopyWith(
-          _$DoLoginOrRegisterWithGoogleImpl value,
-          $Res Function(_$DoLoginOrRegisterWithGoogleImpl) then) =
-      __$$DoLoginOrRegisterWithGoogleImplCopyWithImpl<$Res>;
+abstract class _$$LoginDoLoginOrRegisterWithGoogleImplCopyWith<$Res> {
+  factory _$$LoginDoLoginOrRegisterWithGoogleImplCopyWith(
+          _$LoginDoLoginOrRegisterWithGoogleImpl value,
+          $Res Function(_$LoginDoLoginOrRegisterWithGoogleImpl) then) =
+      __$$LoginDoLoginOrRegisterWithGoogleImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DoLoginOrRegisterWithGoogleImplCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$DoLoginOrRegisterWithGoogleImpl>
-    implements _$$DoLoginOrRegisterWithGoogleImplCopyWith<$Res> {
-  __$$DoLoginOrRegisterWithGoogleImplCopyWithImpl(
-      _$DoLoginOrRegisterWithGoogleImpl _value,
-      $Res Function(_$DoLoginOrRegisterWithGoogleImpl) _then)
+class __$$LoginDoLoginOrRegisterWithGoogleImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res,
+        _$LoginDoLoginOrRegisterWithGoogleImpl>
+    implements _$$LoginDoLoginOrRegisterWithGoogleImplCopyWith<$Res> {
+  __$$LoginDoLoginOrRegisterWithGoogleImplCopyWithImpl(
+      _$LoginDoLoginOrRegisterWithGoogleImpl _value,
+      $Res Function(_$LoginDoLoginOrRegisterWithGoogleImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DoLoginOrRegisterWithGoogleImpl implements DoLoginOrRegisterWithGoogle {
-  const _$DoLoginOrRegisterWithGoogleImpl();
+class _$LoginDoLoginOrRegisterWithGoogleImpl
+    implements LoginDoLoginOrRegisterWithGoogle {
+  const _$LoginDoLoginOrRegisterWithGoogleImpl();
 
   @override
   String toString() {
@@ -539,7 +543,7 @@ class _$DoLoginOrRegisterWithGoogleImpl implements DoLoginOrRegisterWithGoogle {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DoLoginOrRegisterWithGoogleImpl);
+            other is _$LoginDoLoginOrRegisterWithGoogleImpl);
   }
 
   @override
@@ -550,7 +554,7 @@ class _$DoLoginOrRegisterWithGoogleImpl implements DoLoginOrRegisterWithGoogle {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() started,
-    required TResult Function(UserModel user) doLoginOrRegister,
+    required TResult Function(RegisterModel user) doLoginOrRegister,
     required TResult Function() doLoginOrRegisterWithGoogle,
     required TResult Function() doLogout,
   }) {
@@ -562,7 +566,7 @@ class _$DoLoginOrRegisterWithGoogleImpl implements DoLoginOrRegisterWithGoogle {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? started,
-    TResult? Function(UserModel user)? doLoginOrRegister,
+    TResult? Function(RegisterModel user)? doLoginOrRegister,
     TResult? Function()? doLoginOrRegisterWithGoogle,
     TResult? Function()? doLogout,
   }) {
@@ -574,7 +578,7 @@ class _$DoLoginOrRegisterWithGoogleImpl implements DoLoginOrRegisterWithGoogle {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? started,
-    TResult Function(UserModel user)? doLoginOrRegister,
+    TResult Function(RegisterModel user)? doLoginOrRegister,
     TResult Function()? doLoginOrRegisterWithGoogle,
     TResult Function()? doLogout,
     required TResult orElse(),
@@ -590,10 +594,10 @@ class _$DoLoginOrRegisterWithGoogleImpl implements DoLoginOrRegisterWithGoogle {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginInitial value) initial,
     required TResult Function(LoginStarted value) started,
-    required TResult Function(DoLoginOrRegister value) doLoginOrRegister,
-    required TResult Function(DoLoginOrRegisterWithGoogle value)
+    required TResult Function(LoginDoLoginOrRegister value) doLoginOrRegister,
+    required TResult Function(LoginDoLoginOrRegisterWithGoogle value)
         doLoginOrRegisterWithGoogle,
-    required TResult Function(DoLogout value) doLogout,
+    required TResult Function(LoginDoLogout value) doLogout,
   }) {
     return doLoginOrRegisterWithGoogle(this);
   }
@@ -603,10 +607,10 @@ class _$DoLoginOrRegisterWithGoogleImpl implements DoLoginOrRegisterWithGoogle {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginInitial value)? initial,
     TResult? Function(LoginStarted value)? started,
-    TResult? Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult? Function(DoLoginOrRegisterWithGoogle value)?
+    TResult? Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult? Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult? Function(DoLogout value)? doLogout,
+    TResult? Function(LoginDoLogout value)? doLogout,
   }) {
     return doLoginOrRegisterWithGoogle?.call(this);
   }
@@ -616,10 +620,10 @@ class _$DoLoginOrRegisterWithGoogleImpl implements DoLoginOrRegisterWithGoogle {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginInitial value)? initial,
     TResult Function(LoginStarted value)? started,
-    TResult Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult Function(DoLoginOrRegisterWithGoogle value)?
+    TResult Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult Function(DoLogout value)? doLogout,
+    TResult Function(LoginDoLogout value)? doLogout,
     required TResult orElse(),
   }) {
     if (doLoginOrRegisterWithGoogle != null) {
@@ -629,31 +633,31 @@ class _$DoLoginOrRegisterWithGoogleImpl implements DoLoginOrRegisterWithGoogle {
   }
 }
 
-abstract class DoLoginOrRegisterWithGoogle implements LoginEvent {
-  const factory DoLoginOrRegisterWithGoogle() =
-      _$DoLoginOrRegisterWithGoogleImpl;
+abstract class LoginDoLoginOrRegisterWithGoogle implements LoginEvent {
+  const factory LoginDoLoginOrRegisterWithGoogle() =
+      _$LoginDoLoginOrRegisterWithGoogleImpl;
 }
 
 /// @nodoc
-abstract class _$$DoLogoutImplCopyWith<$Res> {
-  factory _$$DoLogoutImplCopyWith(
-          _$DoLogoutImpl value, $Res Function(_$DoLogoutImpl) then) =
-      __$$DoLogoutImplCopyWithImpl<$Res>;
+abstract class _$$LoginDoLogoutImplCopyWith<$Res> {
+  factory _$$LoginDoLogoutImplCopyWith(
+          _$LoginDoLogoutImpl value, $Res Function(_$LoginDoLogoutImpl) then) =
+      __$$LoginDoLogoutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DoLogoutImplCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$DoLogoutImpl>
-    implements _$$DoLogoutImplCopyWith<$Res> {
-  __$$DoLogoutImplCopyWithImpl(
-      _$DoLogoutImpl _value, $Res Function(_$DoLogoutImpl) _then)
+class __$$LoginDoLogoutImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$LoginDoLogoutImpl>
+    implements _$$LoginDoLogoutImplCopyWith<$Res> {
+  __$$LoginDoLogoutImplCopyWithImpl(
+      _$LoginDoLogoutImpl _value, $Res Function(_$LoginDoLogoutImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DoLogoutImpl implements DoLogout {
-  const _$DoLogoutImpl();
+class _$LoginDoLogoutImpl implements LoginDoLogout {
+  const _$LoginDoLogoutImpl();
 
   @override
   String toString() {
@@ -663,7 +667,7 @@ class _$DoLogoutImpl implements DoLogout {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DoLogoutImpl);
+        (other.runtimeType == runtimeType && other is _$LoginDoLogoutImpl);
   }
 
   @override
@@ -674,7 +678,7 @@ class _$DoLogoutImpl implements DoLogout {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() started,
-    required TResult Function(UserModel user) doLoginOrRegister,
+    required TResult Function(RegisterModel user) doLoginOrRegister,
     required TResult Function() doLoginOrRegisterWithGoogle,
     required TResult Function() doLogout,
   }) {
@@ -686,7 +690,7 @@ class _$DoLogoutImpl implements DoLogout {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? started,
-    TResult? Function(UserModel user)? doLoginOrRegister,
+    TResult? Function(RegisterModel user)? doLoginOrRegister,
     TResult? Function()? doLoginOrRegisterWithGoogle,
     TResult? Function()? doLogout,
   }) {
@@ -698,7 +702,7 @@ class _$DoLogoutImpl implements DoLogout {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? started,
-    TResult Function(UserModel user)? doLoginOrRegister,
+    TResult Function(RegisterModel user)? doLoginOrRegister,
     TResult Function()? doLoginOrRegisterWithGoogle,
     TResult Function()? doLogout,
     required TResult orElse(),
@@ -714,10 +718,10 @@ class _$DoLogoutImpl implements DoLogout {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginInitial value) initial,
     required TResult Function(LoginStarted value) started,
-    required TResult Function(DoLoginOrRegister value) doLoginOrRegister,
-    required TResult Function(DoLoginOrRegisterWithGoogle value)
+    required TResult Function(LoginDoLoginOrRegister value) doLoginOrRegister,
+    required TResult Function(LoginDoLoginOrRegisterWithGoogle value)
         doLoginOrRegisterWithGoogle,
-    required TResult Function(DoLogout value) doLogout,
+    required TResult Function(LoginDoLogout value) doLogout,
   }) {
     return doLogout(this);
   }
@@ -727,10 +731,10 @@ class _$DoLogoutImpl implements DoLogout {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginInitial value)? initial,
     TResult? Function(LoginStarted value)? started,
-    TResult? Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult? Function(DoLoginOrRegisterWithGoogle value)?
+    TResult? Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult? Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult? Function(DoLogout value)? doLogout,
+    TResult? Function(LoginDoLogout value)? doLogout,
   }) {
     return doLogout?.call(this);
   }
@@ -740,10 +744,10 @@ class _$DoLogoutImpl implements DoLogout {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginInitial value)? initial,
     TResult Function(LoginStarted value)? started,
-    TResult Function(DoLoginOrRegister value)? doLoginOrRegister,
-    TResult Function(DoLoginOrRegisterWithGoogle value)?
+    TResult Function(LoginDoLoginOrRegister value)? doLoginOrRegister,
+    TResult Function(LoginDoLoginOrRegisterWithGoogle value)?
         doLoginOrRegisterWithGoogle,
-    TResult Function(DoLogout value)? doLogout,
+    TResult Function(LoginDoLogout value)? doLogout,
     required TResult orElse(),
   }) {
     if (doLogout != null) {
@@ -753,6 +757,6 @@ class _$DoLogoutImpl implements DoLogout {
   }
 }
 
-abstract class DoLogout implements LoginEvent {
-  const factory DoLogout() = _$DoLogoutImpl;
+abstract class LoginDoLogout implements LoginEvent {
+  const factory LoginDoLogout() = _$LoginDoLogoutImpl;
 }
