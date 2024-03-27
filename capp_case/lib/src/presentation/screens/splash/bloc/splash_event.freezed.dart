@@ -19,32 +19,38 @@ mixin _$SplashEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? started,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SplashInitial value) initial,
+    required TResult Function(SplashStarted value) started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SplashInitial value)? initial,
+    TResult? Function(SplashStarted value)? started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SplashInitial value)? initial,
+    TResult Function(SplashStarted value)? started,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$SplashInitialImpl implements SplashInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() started,
   }) {
     return initial();
   }
@@ -115,6 +122,7 @@ class _$SplashInitialImpl implements SplashInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? started,
   }) {
     return initial?.call();
   }
@@ -123,6 +131,7 @@ class _$SplashInitialImpl implements SplashInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? started,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -135,6 +144,7 @@ class _$SplashInitialImpl implements SplashInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SplashInitial value) initial,
+    required TResult Function(SplashStarted value) started,
   }) {
     return initial(this);
   }
@@ -143,6 +153,7 @@ class _$SplashInitialImpl implements SplashInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SplashInitial value)? initial,
+    TResult? Function(SplashStarted value)? started,
   }) {
     return initial?.call(this);
   }
@@ -151,6 +162,7 @@ class _$SplashInitialImpl implements SplashInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SplashInitial value)? initial,
+    TResult Function(SplashStarted value)? started,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -162,4 +174,106 @@ class _$SplashInitialImpl implements SplashInitial {
 
 abstract class SplashInitial implements SplashEvent {
   const factory SplashInitial() = _$SplashInitialImpl;
+}
+
+/// @nodoc
+abstract class _$$SplashStartedImplCopyWith<$Res> {
+  factory _$$SplashStartedImplCopyWith(
+          _$SplashStartedImpl value, $Res Function(_$SplashStartedImpl) then) =
+      __$$SplashStartedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SplashStartedImplCopyWithImpl<$Res>
+    extends _$SplashEventCopyWithImpl<$Res, _$SplashStartedImpl>
+    implements _$$SplashStartedImplCopyWith<$Res> {
+  __$$SplashStartedImplCopyWithImpl(
+      _$SplashStartedImpl _value, $Res Function(_$SplashStartedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SplashStartedImpl implements SplashStarted {
+  const _$SplashStartedImpl();
+
+  @override
+  String toString() {
+    return 'SplashEvent.started()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SplashStartedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() started,
+  }) {
+    return started();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? started,
+  }) {
+    return started?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? started,
+    required TResult orElse(),
+  }) {
+    if (started != null) {
+      return started();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SplashInitial value) initial,
+    required TResult Function(SplashStarted value) started,
+  }) {
+    return started(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SplashInitial value)? initial,
+    TResult? Function(SplashStarted value)? started,
+  }) {
+    return started?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SplashInitial value)? initial,
+    TResult Function(SplashStarted value)? started,
+    required TResult orElse(),
+  }) {
+    if (started != null) {
+      return started(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SplashStarted implements SplashEvent {
+  const factory SplashStarted() = _$SplashStartedImpl;
 }

@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:app_core/src/domain/auth/register_model.dart';
 import 'package:app_core/src/domain/auth/user_model.dart';
 import 'package:app_core/src/infrastructure/auth/auth_remote_data_source.dart';
@@ -67,8 +65,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       email: login.email,
       password: login.password,
     );
-    final checkUser = user.isDefinedAndNotNull;
-    if (!checkUser) return false;
+    final checkUser = user.user;
+    if (checkUser == null) return false;
     return true;
   }
 
