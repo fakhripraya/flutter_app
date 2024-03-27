@@ -96,6 +96,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     final map = docRef.docs.first.data() as Map<String, dynamic>;
 
-    UserModel.fromJson(map);
+    return UserModel.fromJson(map);
   }
 }

@@ -11,27 +11,18 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this._remote);
 
   @override
-  Future<bool> doRegister(RegisterModel register) {
-    return _remote.doRegister(register);
-  }
+  Future<bool> doRegister(RegisterModel register) =>
+      _remote.doRegister(register);
 
   @override
-  Future<bool> doLogin(RegisterModel login) {
-    return _remote.doLogin(login);
-  }
+  Future<bool> doLogin(RegisterModel login) => _remote.doLogin(login);
 
   @override
-  Future<bool> doLoginWithGoogle() {
-    return _remote.doLoginWithGoogle();
-  }
+  Future<bool> doLoginWithGoogle() => _remote.doLoginWithGoogle();
 
   @override
-  Future<bool> doLogout() {
-    return _remote.doLogout();
-  }
+  Future<bool> doLogout() => _remote.doLogout();
 
   @override
-  Future<UserModel?> getProfile() {
-    return _remote.getProfile();
-  }
+  Future<UserModel?> getProfile() => _remote.getProfile();
 }
