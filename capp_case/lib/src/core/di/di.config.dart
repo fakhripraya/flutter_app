@@ -8,6 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:app_core/app_core.dart' as _i6;
 import 'package:capp_case/src/core/services/navigation_service.dart' as _i3;
 import 'package:capp_case/src/presentation/screens/home/bloc/home_bloc.dart'
     as _i5;

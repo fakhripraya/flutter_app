@@ -1,5 +1,5 @@
+import 'package:app_core/app_core.dart';
 import 'package:capp_case/src/core/constants/routes.dart';
-import 'package:capp_case/src/core/di/di.dart';
 import 'package:capp_case/src/core/services/navigation_service.dart';
 import 'package:capp_case/src/presentation/screens/login/bloc/login_bloc.dart';
 import 'package:capp_case/src/presentation/screens/login/login_screen.dart';
@@ -28,11 +28,11 @@ class App extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
-        _provider(getItCappCase<SplashBloc>()),
-        _provider(getItCappCase<LoginBloc>()),
+        _provider(getItAppCore<SplashBloc>()),
+        _provider(getItAppCore<LoginBloc>()),
       ],
       child: MaterialApp(
-        navigatorKey: getItCappCase<NavigationService>().navigatorKey,
+        navigatorKey: getItAppCore<NavigationService>().navigatorKey,
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.splash,
         routes: {

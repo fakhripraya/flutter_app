@@ -6,14 +6,9 @@ part 'login_event.freezed.dart';
 @freezed
 abstract class LoginEvent with _$LoginEvent {
   const factory LoginEvent.initial() = LoginInitial;
-
   const factory LoginEvent.started() = LoginStarted;
-
-  const factory LoginEvent.doLoginOrRegister(RegisterModel user) =
-      LoginDoLoginOrRegister;
-
+  const factory LoginEvent.doLoginOrRegister(UserModel user) =
+      DoLoginOrRegister;
   const factory LoginEvent.doLoginOrRegisterWithGoogle() =
-      LoginDoLoginOrRegisterWithGoogle;
-
-  const factory LoginEvent.doLogout() = LoginDoLogout;
+      DoLoginOrRegisterWithGoogle;
 }
