@@ -33,9 +33,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         .where('email', isEqualTo: register.email.toLowerCase())
         .get();
 
-    if (users.docs.isNotEmpty) {
-      return doLogin(register);
-    }
+    // check whether the user is an existing or not,
+    // if it exist return true, else it will go through some process and return false along the way
+    if (users.docs.isNotEmpty) return true;
 
     await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: register.email,
@@ -56,7 +56,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     await doc.update(userUpdate.toJson());
 
-    return true;
+    return false;
   }
 
   @override
