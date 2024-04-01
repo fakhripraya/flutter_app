@@ -1,5 +1,8 @@
+import 'package:app_core/app_core.dart';
+import 'package:capp_case/src/presentation/screens/home/bloc/home_bloc.dart';
+import 'package:capp_case/src/presentation/screens/home/bloc/home_event.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,16 +11,28 @@ class HomeScreen extends StatelessWidget {
     {'Pengeluaran Secondary': '-Rp.8000.000'},
   ];
 
-  SizedBox _buildList(BuildContext context) {
+  Widget _buildList(BuildContext context) {
+    context.read<HomeBloc>().add(const DoGetAllReports());
+    final isLoading =
+        context.select((HomeBloc bloc) => bloc.state.isReportLoading);
+    final reports = context.select((HomeBloc bloc) => bloc.state.reports);
+
+    if (isLoading) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
     return SizedBox(
         height: 300,
         child: ListView.builder(
             shrinkWrap: true,
-            itemCount: dummy.length,
+            itemCount: reports?.length,
             itemBuilder: (context, index) {
-              final mapEntry = dummy[index].entries.first;
-              final key = mapEntry.key;
-              final value = mapEntry.value;
+              final entry = reports?[index];
+              final id = entry?.id;
+              final title = entry?.title;
+
               return Container(
                 margin: const EdgeInsets.only(bottom: 20),
                 decoration: BoxDecoration(
@@ -28,8 +43,8 @@ class HomeScreen extends StatelessWidget {
                   onTap: () {
                     /// on tap event
                   },
-                  trailing: Text(value.toString()),
-                  title: Text(key),
+                  trailing: const Text("Rp.8000.000,00"),
+                  title: Text(entry != null ? '$title - $id' : ""),
                 ),
               );
             }));

@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HomeState {
   bool get isReportLoading => throw _privateConstructorUsedError;
-  dynamic get reports => throw _privateConstructorUsedError;
+  List<ReportModel>? get reports => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -29,7 +29,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({bool isReportLoading, dynamic reports});
+  $Res call({bool isReportLoading, List<ReportModel>? reports});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       reports: freezed == reports
           ? _value.reports
           : reports // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as List<ReportModel>?,
     ) as $Val);
   }
 }
@@ -69,7 +69,7 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       __$$HomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isReportLoading, dynamic reports});
+  $Res call({bool isReportLoading, List<ReportModel>? reports});
 }
 
 /// @nodoc
@@ -92,9 +92,9 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           : isReportLoading // ignore: cast_nullable_to_non_nullable
               as bool,
       reports: freezed == reports
-          ? _value.reports
+          ? _value._reports
           : reports // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as List<ReportModel>?,
     ));
   }
 }
@@ -102,14 +102,23 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomeStateImpl implements _HomeState {
-  const _$HomeStateImpl({this.isReportLoading = true, this.reports = null});
+  const _$HomeStateImpl(
+      {this.isReportLoading = true, final List<ReportModel>? reports = null})
+      : _reports = reports;
 
   @override
   @JsonKey()
   final bool isReportLoading;
+  final List<ReportModel>? _reports;
   @override
   @JsonKey()
-  final dynamic reports;
+  List<ReportModel>? get reports {
+    final value = _reports;
+    if (value == null) return null;
+    if (_reports is EqualUnmodifiableListView) return _reports;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
@@ -123,12 +132,12 @@ class _$HomeStateImpl implements _HomeState {
             other is _$HomeStateImpl &&
             (identical(other.isReportLoading, isReportLoading) ||
                 other.isReportLoading == isReportLoading) &&
-            const DeepCollectionEquality().equals(other.reports, reports));
+            const DeepCollectionEquality().equals(other._reports, _reports));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, isReportLoading,
-      const DeepCollectionEquality().hash(reports));
+      const DeepCollectionEquality().hash(_reports));
 
   @JsonKey(ignore: true)
   @override
@@ -139,12 +148,13 @@ class _$HomeStateImpl implements _HomeState {
 
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
-      {final bool isReportLoading, final dynamic reports}) = _$HomeStateImpl;
+      {final bool isReportLoading,
+      final List<ReportModel>? reports}) = _$HomeStateImpl;
 
   @override
   bool get isReportLoading;
   @override
-  dynamic get reports;
+  List<ReportModel>? get reports;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
