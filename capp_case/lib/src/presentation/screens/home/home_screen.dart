@@ -1,4 +1,3 @@
-import 'package:app_core/app_core.dart';
 import 'package:capp_case/src/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:capp_case/src/presentation/screens/home/bloc/home_event.dart';
 import 'package:flutter/material.dart';
@@ -6,10 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-  static final List<Map<String, dynamic>> dummy = [
-    {'Pengeluaran Primary': '-Rp.8000.000'},
-    {'Pengeluaran Secondary': '-Rp.8000.000'},
-  ];
 
   Widget _buildList(BuildContext context) {
     context.read<HomeBloc>().add(const DoGetAllReports());
