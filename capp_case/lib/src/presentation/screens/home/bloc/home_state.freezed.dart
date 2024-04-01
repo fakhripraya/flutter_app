@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomeState {
-  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isReportLoading => throw _privateConstructorUsedError;
+  dynamic get reports => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -28,7 +29,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({bool isLoading});
+  $Res call({bool isReportLoading, dynamic reports});
 }
 
 /// @nodoc
@@ -44,13 +45,18 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
+    Object? isReportLoading = null,
+    Object? reports = freezed,
   }) {
     return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
+      isReportLoading: null == isReportLoading
+          ? _value.isReportLoading
+          : isReportLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      reports: freezed == reports
+          ? _value.reports
+          : reports // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -63,7 +69,7 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       __$$HomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading});
+  $Res call({bool isReportLoading, dynamic reports});
 }
 
 /// @nodoc
@@ -77,13 +83,18 @@ class __$$HomeStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
+    Object? isReportLoading = null,
+    Object? reports = freezed,
   }) {
     return _then(_$HomeStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
+      isReportLoading: null == isReportLoading
+          ? _value.isReportLoading
+          : isReportLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      reports: freezed == reports
+          ? _value.reports
+          : reports // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -91,15 +102,18 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomeStateImpl implements _HomeState {
-  const _$HomeStateImpl({this.isLoading = false});
+  const _$HomeStateImpl({this.isReportLoading = true, this.reports = null});
 
   @override
   @JsonKey()
-  final bool isLoading;
+  final bool isReportLoading;
+  @override
+  @JsonKey()
+  final dynamic reports;
 
   @override
   String toString() {
-    return 'HomeState(isLoading: $isLoading)';
+    return 'HomeState(isReportLoading: $isReportLoading, reports: $reports)';
   }
 
   @override
@@ -107,12 +121,14 @@ class _$HomeStateImpl implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomeStateImpl &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+            (identical(other.isReportLoading, isReportLoading) ||
+                other.isReportLoading == isReportLoading) &&
+            const DeepCollectionEquality().equals(other.reports, reports));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading);
+  int get hashCode => Object.hash(runtimeType, isReportLoading,
+      const DeepCollectionEquality().hash(reports));
 
   @JsonKey(ignore: true)
   @override
@@ -122,10 +138,13 @@ class _$HomeStateImpl implements _HomeState {
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState({final bool isLoading}) = _$HomeStateImpl;
+  const factory _HomeState(
+      {final bool isReportLoading, final dynamic reports}) = _$HomeStateImpl;
 
   @override
-  bool get isLoading;
+  bool get isReportLoading;
+  @override
+  dynamic get reports;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
