@@ -3,4 +3,6 @@ import 'package:app_core/src/domain/transaction/report_model.dart';
 
 abstract class TransactionRepository {
   Future<List<ReportModel>> doGetAllReports(User user);
+
+  Future<bool> createReport(ReportModel report);
 }

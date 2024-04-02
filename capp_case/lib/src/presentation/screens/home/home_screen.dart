@@ -20,34 +20,36 @@ class HomeScreen extends StatelessWidget {
     }
 
     return SizedBox(
-        height: 300,
-        child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: reports?.length,
-            itemBuilder: (context, index) {
-              final entry = reports?[index];
-              final id = entry?.id;
-              final title = entry?.title;
+      height: 300,
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: reports?.length,
+        itemBuilder: (context, index) {
+          final entry = reports?[index];
+          final id = entry?.id;
+          final title = entry?.title;
 
-              return Container(
-                margin: const EdgeInsets.only(bottom: 20),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: ListTile(
-                  onTap: () {
-                    //FIXME: CHANGE VALUE WITH THE RIGHT PAGE ROUTE
-                    Navigator.restorablePushNamed(context, Routes.login);
-                  },
-                  trailing: const Text("Rp.8000.000,00"),
-                  title: Text(
-                    entry != null ? '$title - $id' : "",
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-              );
-            }));
+          return Container(
+            margin: const EdgeInsets.only(bottom: 20),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: ListTile(
+              onTap: () {
+                //FIXME: CHANGE VALUE WITH THE RIGHT PAGE ROUTE
+                Navigator.restorablePushNamed(context, Routes.login);
+              },
+              trailing: const Text("Rp.8000.000,00"),
+              title: Text(
+                entry != null ? '$title - $id' : "",
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 
   @override
@@ -190,8 +192,7 @@ class HomeScreen extends StatelessWidget {
             right: 16.0,
             child: FloatingActionButton(
               onPressed: () {
-                //FIXME: CHANGE VALUE WITH THE RIGHT PAGE ROUTE
-                Navigator.restorablePushNamed(context, Routes.login);
+                Navigator.restorablePushNamed(context, Routes.transaction);
               },
               backgroundColor: Colors.black,
               elevation: 6.0,

@@ -7,6 +7,8 @@ import 'package:capp_case/src/presentation/screens/login/bloc/login_bloc.dart';
 import 'package:capp_case/src/presentation/screens/login/login_screen.dart';
 import 'package:capp_case/src/presentation/screens/splash/bloc/splash_bloc.dart';
 import 'package:capp_case/src/presentation/screens/splash/splash_screen.dart';
+import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_bloc.dart';
+import 'package:capp_case/src/presentation/screens/transaction/transaction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
@@ -33,6 +35,7 @@ class App extends StatelessWidget {
         _provider(getItCappCase<SplashBloc>()),
         _provider(getItCappCase<LoginBloc>()),
         _provider(getItCappCase<HomeBloc>()),
+        _provider(getItCappCase<TransactionBloc>()),
       ],
       child: MaterialApp(
         navigatorKey: getItCappCase<NavigationService>().navigatorKey,
@@ -42,6 +45,7 @@ class App extends StatelessWidget {
           Routes.splash: (_) => const SplashScreen(),
           Routes.login: (_) => const LoginScreen(),
           Routes.home: (_) => const HomeScreen(),
+          Routes.transaction: (_) => const TransactionScreen(),
         },
       ),
     );

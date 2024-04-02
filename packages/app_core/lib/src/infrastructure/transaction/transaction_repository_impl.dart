@@ -15,4 +15,9 @@ class TransactionRepositoryImpl implements TransactionRepository {
     await Future.delayed(const Duration(seconds: 5));
     return _remote.doGetAllReports(user);
   }
+
+  @override
+  Future<bool> createReport(ReportModel report) {
+    return _remote.createReport(report);
+  }
 }

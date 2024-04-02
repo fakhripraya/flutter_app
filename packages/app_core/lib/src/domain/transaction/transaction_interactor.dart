@@ -14,4 +14,9 @@ class TransactionInteractor implements TransactionUseCase {
   Future<List<ReportModel>> doGetAllReports(User user) {
     return _repository.doGetAllReports(user);
   }
+
+  @override
+  Future<bool> createReport(ReportModel report) {
+   return _repository.createReport(report);
+  }
 }

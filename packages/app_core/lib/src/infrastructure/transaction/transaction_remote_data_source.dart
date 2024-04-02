@@ -3,4 +3,10 @@ import 'package:app_core/src/domain/transaction/report_model.dart';
 
 abstract class TransactionRemoteDataSource {
   Future<List<ReportModel>> doGetAllReports(User user);
+
+  Future<bool> createReport(ReportModel report);
+
+  Future<bool> updateReport(ReportModel report);
+
+  Future<bool> removeReport(ReportModel report);
 }

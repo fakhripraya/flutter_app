@@ -11,15 +11,40 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
 
   Future<List<ReportModel>> _getReport(User user) async {
     final query = await _collection.where('user_id', isEqualTo: user.id).get();
-    final reports = query.docs
+    return query.docs
         .map((doc) => ReportModel.fromJson(doc.data() as Map<String, dynamic>))
         .toList();
-    return reports;
   }
 
   @override
-  Future<List<ReportModel>> doGetAllReports(User user) async {
-    final reports = await _getReport(user);
-    return reports;
+  Future<List<ReportModel>> doGetAllReports(User user) => _getReport(user);
+
+  @override
+  Future<bool> createReport(ReportModel report) async {
+    try {
+      final docRef = await _collection.add(report.toJson());
+      final snapshot = await docRef.get();
+      final data = ReportModel.fromJson(
+        snapshot.data() as Map<String, dynamic>,
+      ).copyWith(id: docRef.id);
+      await docRef.update(data.toJson());
+      return true;
+    } catch (_) {
+      return false;
+    }
   }
+
+  @override
+  Future<bool> removeReport(ReportModel report) => _collection
+      .doc(report.id)
+      .delete()
+      .then((_) => true)
+      .catchError((_) => false);
+
+  @override
+  Future<bool> updateReport(ReportModel report) => _collection
+      .doc(report.id)
+      .update(report.toJson())
+      .then((_) => true)
+      .catchError((_) => false);
 }
