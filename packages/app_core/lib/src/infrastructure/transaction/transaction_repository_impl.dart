@@ -11,7 +11,8 @@ class TransactionRepositoryImpl implements TransactionRepository {
   TransactionRepositoryImpl(this._remote);
 
   @override
-  Future<List<ReportModel>> doGetAllReports(UserModel user) async {
+  Future<List<ReportModel>> doGetAllReports(User user) async {
+    await Future.delayed(const Duration(seconds: 5));
     return _remote.doGetAllReports(user);
   }
 }

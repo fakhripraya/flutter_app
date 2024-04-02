@@ -35,7 +35,7 @@ class App extends StatelessWidget {
       child: MaterialApp(
         navigatorKey: getItCappCase<NavigationService>().navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.splash,
+        initialRoute: Routes.home,
         routes: {
           Routes.splash: (_) => const SplashScreen(),
           Routes.login: (_) => const LoginScreen(),
