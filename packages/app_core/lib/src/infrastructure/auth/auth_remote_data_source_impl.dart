@@ -89,13 +89,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   Future<UserModel?> getProfile() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return null;
-
     final docRef = await _collection
         .where('email', isEqualTo: user.email!.toLowerCase())
         .get();
-
     final map = docRef.docs.first.data() as Map<String, dynamic>;
-
     return UserModel.fromJson(map);
   }
 }
