@@ -9,7 +9,7 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
   CollectionReference get _collection =>
       FirebaseFirestore.instance.collection('reports');
 
-  Future<List<ReportModel>> _getReport(UserModel user) async {
+  Future<List<ReportModel>> _getReport(User user) async {
     final query = await _collection.where('user_id', isEqualTo: user.id).get();
     final reports = query.docs
         .map((doc) => ReportModel.fromJson(doc.data() as Map<String, dynamic>))
@@ -18,7 +18,7 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
   }
 
   @override
-  Future<List<ReportModel>> doGetAllReports(UserModel user) async {
+  Future<List<ReportModel>> doGetAllReports(User user) async {
     final reports = await _getReport(user);
     return reports;
   }
