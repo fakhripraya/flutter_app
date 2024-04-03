@@ -34,49 +34,62 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         .get();
 
     // check whether the user is an existing or not,
-    // if it exist return true, else it will go through some process and return false along the way
+    // if it exists return true, else it will go through some process and return false along the way
     if (users.docs.isNotEmpty) return true;
 
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: register.email,
-      password: register.password,
-    );
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: register.email,
+        password: register.password,
+      );
 
-    final doc = await _collection.add(UserModel(
-      email: register.email,
-      password: register.password,
-      username: register.email.split('@').first,
-    ).toJson());
+      final doc = await _collection.add(UserModel(
+        email: register.email,
+        password: register.password,
+        username: register.email.split('@').first,
+      ).toJson());
 
-    final snapshot = await doc.get();
+      final snapshot = await doc.get();
 
-    final userUpdate = UserModel.fromJson(
-      snapshot.data() as Map<String, dynamic>,
-    ).copyWith(id: doc.id);
+      final userUpdate = UserModel.fromJson(
+        snapshot.data() as Map<String, dynamic>,
+      ).copyWith(id: doc.id);
 
-    await doc.update(userUpdate.toJson());
-
-    return false;
+      await doc.update(userUpdate.toJson());
+      return true;
+    } catch (e) {
+      print("Error registering user: $e");
+      return false; // Return false in case of any error during registration
+    }
   }
 
   @override
   Future<bool> doLogin(RegisterModel login) async {
-    final user = await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: login.email,
-      password: login.password,
-    );
-    final checkUser = user.user;
-    if (checkUser == null) return false;
-    return true;
+    try {
+      final userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: login.email,
+        password: login.password,
+      );
+      final checkUser = userCredential.user;
+      if (checkUser == null) return false;
+      return true;
+    } catch (e) {
+      print("Error login user: $e");
+      return false;
+    }
   }
 
   @override
   Future<bool> doLoginWithGoogle() async {
-    final user = await _signInWithGoogle();
-
-    if (user == null) return false;
-
-    return true;
+    try {
+      final user = await _signInWithGoogle();
+      if (user == null) return false;
+      return true;
+    } catch (e) {
+      print("Error login with goole user: $e");
+      return false;
+    }
   }
 
   @override

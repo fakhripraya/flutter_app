@@ -1,7 +1,6 @@
 import 'package:capp_case/src/core/constants/routes.dart';
 import 'package:capp_case/src/core/di/di.dart';
 import 'package:capp_case/src/core/services/navigation_service.dart';
-import 'package:capp_case/src/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:capp_case/src/presentation/screens/home/home_screen.dart';
 import 'package:capp_case/src/presentation/screens/login/bloc/login_bloc.dart';
 import 'package:capp_case/src/presentation/screens/login/login_screen.dart';
@@ -34,13 +33,12 @@ class App extends StatelessWidget {
       providers: [
         _provider(getItCappCase<SplashBloc>()),
         _provider(getItCappCase<LoginBloc>()),
-        _provider(getItCappCase<HomeBloc>()),
         _provider(getItCappCase<TransactionBloc>()),
       ],
       child: MaterialApp(
         navigatorKey: getItCappCase<NavigationService>().navigatorKey,
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.home,
+        initialRoute: Routes.splash,
         routes: {
           Routes.splash: (_) => const SplashScreen(),
           Routes.login: (_) => const LoginScreen(),

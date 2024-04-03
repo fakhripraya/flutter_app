@@ -1,4 +1,3 @@
-import 'package:app_core/src/domain/transaction/transaction_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'report_model.freezed.dart';
