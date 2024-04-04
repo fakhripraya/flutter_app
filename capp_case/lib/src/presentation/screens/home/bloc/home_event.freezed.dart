@@ -21,6 +21,7 @@ mixin _$HomeEvent {
     required TResult Function() initial,
     required TResult Function() started,
     required TResult Function() doGetAllReports,
+    required TResult Function(BuildContext context) showCreateReportBottomSheet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$HomeEvent {
     TResult? Function()? initial,
     TResult? Function()? started,
     TResult? Function()? doGetAllReports,
+    TResult? Function(BuildContext context)? showCreateReportBottomSheet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$HomeEvent {
     TResult Function()? initial,
     TResult Function()? started,
     TResult Function()? doGetAllReports,
+    TResult Function(BuildContext context)? showCreateReportBottomSheet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,8 @@ mixin _$HomeEvent {
     required TResult Function(HomeInitial value) initial,
     required TResult Function(HomeStarted value) started,
     required TResult Function(DoGetAllReports value) doGetAllReports,
+    required TResult Function(HomeShowCreateReportBottomSheet value)
+        showCreateReportBottomSheet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,8 @@ mixin _$HomeEvent {
     TResult? Function(HomeInitial value)? initial,
     TResult? Function(HomeStarted value)? started,
     TResult? Function(DoGetAllReports value)? doGetAllReports,
+    TResult? Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +64,8 @@ mixin _$HomeEvent {
     TResult Function(HomeInitial value)? initial,
     TResult Function(HomeStarted value)? started,
     TResult Function(DoGetAllReports value)? doGetAllReports,
+    TResult Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +129,7 @@ class _$HomeInitialImpl implements HomeInitial {
     required TResult Function() initial,
     required TResult Function() started,
     required TResult Function() doGetAllReports,
+    required TResult Function(BuildContext context) showCreateReportBottomSheet,
   }) {
     return initial();
   }
@@ -130,6 +140,7 @@ class _$HomeInitialImpl implements HomeInitial {
     TResult? Function()? initial,
     TResult? Function()? started,
     TResult? Function()? doGetAllReports,
+    TResult? Function(BuildContext context)? showCreateReportBottomSheet,
   }) {
     return initial?.call();
   }
@@ -140,6 +151,7 @@ class _$HomeInitialImpl implements HomeInitial {
     TResult Function()? initial,
     TResult Function()? started,
     TResult Function()? doGetAllReports,
+    TResult Function(BuildContext context)? showCreateReportBottomSheet,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -154,6 +166,8 @@ class _$HomeInitialImpl implements HomeInitial {
     required TResult Function(HomeInitial value) initial,
     required TResult Function(HomeStarted value) started,
     required TResult Function(DoGetAllReports value) doGetAllReports,
+    required TResult Function(HomeShowCreateReportBottomSheet value)
+        showCreateReportBottomSheet,
   }) {
     return initial(this);
   }
@@ -164,6 +178,8 @@ class _$HomeInitialImpl implements HomeInitial {
     TResult? Function(HomeInitial value)? initial,
     TResult? Function(HomeStarted value)? started,
     TResult? Function(DoGetAllReports value)? doGetAllReports,
+    TResult? Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
   }) {
     return initial?.call(this);
   }
@@ -174,6 +190,8 @@ class _$HomeInitialImpl implements HomeInitial {
     TResult Function(HomeInitial value)? initial,
     TResult Function(HomeStarted value)? started,
     TResult Function(DoGetAllReports value)? doGetAllReports,
+    TResult Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -228,6 +246,7 @@ class _$HomeStartedImpl implements HomeStarted {
     required TResult Function() initial,
     required TResult Function() started,
     required TResult Function() doGetAllReports,
+    required TResult Function(BuildContext context) showCreateReportBottomSheet,
   }) {
     return started();
   }
@@ -238,6 +257,7 @@ class _$HomeStartedImpl implements HomeStarted {
     TResult? Function()? initial,
     TResult? Function()? started,
     TResult? Function()? doGetAllReports,
+    TResult? Function(BuildContext context)? showCreateReportBottomSheet,
   }) {
     return started?.call();
   }
@@ -248,6 +268,7 @@ class _$HomeStartedImpl implements HomeStarted {
     TResult Function()? initial,
     TResult Function()? started,
     TResult Function()? doGetAllReports,
+    TResult Function(BuildContext context)? showCreateReportBottomSheet,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -262,6 +283,8 @@ class _$HomeStartedImpl implements HomeStarted {
     required TResult Function(HomeInitial value) initial,
     required TResult Function(HomeStarted value) started,
     required TResult Function(DoGetAllReports value) doGetAllReports,
+    required TResult Function(HomeShowCreateReportBottomSheet value)
+        showCreateReportBottomSheet,
   }) {
     return started(this);
   }
@@ -272,6 +295,8 @@ class _$HomeStartedImpl implements HomeStarted {
     TResult? Function(HomeInitial value)? initial,
     TResult? Function(HomeStarted value)? started,
     TResult? Function(DoGetAllReports value)? doGetAllReports,
+    TResult? Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
   }) {
     return started?.call(this);
   }
@@ -282,6 +307,8 @@ class _$HomeStartedImpl implements HomeStarted {
     TResult Function(HomeInitial value)? initial,
     TResult Function(HomeStarted value)? started,
     TResult Function(DoGetAllReports value)? doGetAllReports,
+    TResult Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -336,6 +363,7 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     required TResult Function() initial,
     required TResult Function() started,
     required TResult Function() doGetAllReports,
+    required TResult Function(BuildContext context) showCreateReportBottomSheet,
   }) {
     return doGetAllReports();
   }
@@ -346,6 +374,7 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     TResult? Function()? initial,
     TResult? Function()? started,
     TResult? Function()? doGetAllReports,
+    TResult? Function(BuildContext context)? showCreateReportBottomSheet,
   }) {
     return doGetAllReports?.call();
   }
@@ -356,6 +385,7 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     TResult Function()? initial,
     TResult Function()? started,
     TResult Function()? doGetAllReports,
+    TResult Function(BuildContext context)? showCreateReportBottomSheet,
     required TResult orElse(),
   }) {
     if (doGetAllReports != null) {
@@ -370,6 +400,8 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     required TResult Function(HomeInitial value) initial,
     required TResult Function(HomeStarted value) started,
     required TResult Function(DoGetAllReports value) doGetAllReports,
+    required TResult Function(HomeShowCreateReportBottomSheet value)
+        showCreateReportBottomSheet,
   }) {
     return doGetAllReports(this);
   }
@@ -380,6 +412,8 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     TResult? Function(HomeInitial value)? initial,
     TResult? Function(HomeStarted value)? started,
     TResult? Function(DoGetAllReports value)? doGetAllReports,
+    TResult? Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
   }) {
     return doGetAllReports?.call(this);
   }
@@ -390,6 +424,8 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     TResult Function(HomeInitial value)? initial,
     TResult Function(HomeStarted value)? started,
     TResult Function(DoGetAllReports value)? doGetAllReports,
+    TResult Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
     required TResult orElse(),
   }) {
     if (doGetAllReports != null) {
@@ -401,4 +437,160 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
 
 abstract class DoGetAllReports implements HomeEvent {
   const factory DoGetAllReports() = _$DoGetAllReportsImpl;
+}
+
+/// @nodoc
+abstract class _$$HomeShowCreateReportBottomSheetImplCopyWith<$Res> {
+  factory _$$HomeShowCreateReportBottomSheetImplCopyWith(
+          _$HomeShowCreateReportBottomSheetImpl value,
+          $Res Function(_$HomeShowCreateReportBottomSheetImpl) then) =
+      __$$HomeShowCreateReportBottomSheetImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$HomeShowCreateReportBottomSheetImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$HomeShowCreateReportBottomSheetImpl>
+    implements _$$HomeShowCreateReportBottomSheetImplCopyWith<$Res> {
+  __$$HomeShowCreateReportBottomSheetImplCopyWithImpl(
+      _$HomeShowCreateReportBottomSheetImpl _value,
+      $Res Function(_$HomeShowCreateReportBottomSheetImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$HomeShowCreateReportBottomSheetImpl(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HomeShowCreateReportBottomSheetImpl
+    implements HomeShowCreateReportBottomSheet {
+  const _$HomeShowCreateReportBottomSheetImpl({required this.context});
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'HomeEvent.showCreateReportBottomSheet(context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeShowCreateReportBottomSheetImpl &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomeShowCreateReportBottomSheetImplCopyWith<
+          _$HomeShowCreateReportBottomSheetImpl>
+      get copyWith => __$$HomeShowCreateReportBottomSheetImplCopyWithImpl<
+          _$HomeShowCreateReportBottomSheetImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() started,
+    required TResult Function() doGetAllReports,
+    required TResult Function(BuildContext context) showCreateReportBottomSheet,
+  }) {
+    return showCreateReportBottomSheet(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? started,
+    TResult? Function()? doGetAllReports,
+    TResult? Function(BuildContext context)? showCreateReportBottomSheet,
+  }) {
+    return showCreateReportBottomSheet?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? started,
+    TResult Function()? doGetAllReports,
+    TResult Function(BuildContext context)? showCreateReportBottomSheet,
+    required TResult orElse(),
+  }) {
+    if (showCreateReportBottomSheet != null) {
+      return showCreateReportBottomSheet(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeInitial value) initial,
+    required TResult Function(HomeStarted value) started,
+    required TResult Function(DoGetAllReports value) doGetAllReports,
+    required TResult Function(HomeShowCreateReportBottomSheet value)
+        showCreateReportBottomSheet,
+  }) {
+    return showCreateReportBottomSheet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomeInitial value)? initial,
+    TResult? Function(HomeStarted value)? started,
+    TResult? Function(DoGetAllReports value)? doGetAllReports,
+    TResult? Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
+  }) {
+    return showCreateReportBottomSheet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeInitial value)? initial,
+    TResult Function(HomeStarted value)? started,
+    TResult Function(DoGetAllReports value)? doGetAllReports,
+    TResult Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
+    required TResult orElse(),
+  }) {
+    if (showCreateReportBottomSheet != null) {
+      return showCreateReportBottomSheet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeShowCreateReportBottomSheet implements HomeEvent {
+  const factory HomeShowCreateReportBottomSheet(
+          {required final BuildContext context}) =
+      _$HomeShowCreateReportBottomSheetImpl;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$HomeShowCreateReportBottomSheetImplCopyWith<
+          _$HomeShowCreateReportBottomSheetImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

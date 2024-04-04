@@ -9,6 +9,7 @@ import 'package:capp_case/src/presentation/screens/splash/bloc/splash_bloc.dart'
 import 'package:capp_case/src/presentation/screens/splash/splash_screen.dart';
 import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_bloc.dart';
 import 'package:capp_case/src/presentation/screens/transaction/transaction_screen.dart';
+import 'package:capp_case/src/presentation/theme/custom_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
@@ -38,6 +39,7 @@ class App extends StatelessWidget {
         _provider(getItCappCase<TransactionBloc>()),
       ],
       child: MaterialApp(
+        theme: CustomTheme.theme,
         navigatorKey: getItCappCase<NavigationService>().navigatorKey,
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.splash,

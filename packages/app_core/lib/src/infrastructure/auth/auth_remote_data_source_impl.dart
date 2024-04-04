@@ -11,8 +11,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   CollectionReference get _collection =>
       FirebaseFirestore.instance.collection('users');
 
+  GoogleSignIn get _googleSignIn => GoogleSignIn();
+
   Future<UserCredential?> _signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
 
     if (googleUser == null) return null;
 
@@ -43,20 +45,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         password: register.password,
       );
 
-      final doc = await _collection.add(UserModel(
-        email: register.email,
-        password: register.password,
-        username: register.email.split('@').first,
-      ).toJson());
-
-      final snapshot = await doc.get();
-
-      final userUpdate = UserModel.fromJson(
-        snapshot.data() as Map<String, dynamic>,
-      ).copyWith(id: doc.id);
-
-      await doc.update(userUpdate.toJson());
-      return true;
+      return _insertOne(register.toJson());
     } catch (e) {
       print("Error registering user: $e");
       return false; // Return false in case of any error during registration
@@ -80,12 +69,37 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
   }
 
+  Future<List<UserModel>> _getUserByEmail(String email) async {
+    final snapshot = await _collection.where('email', isEqualTo: email).get();
+    return snapshot.docs
+        .map((e) => UserModel.fromJson(e.data() as Map<String, dynamic>))
+        .toList();
+  }
+
+  Future<bool> _insertOne(Map<String, dynamic> data) async {
+    final docRef = await _collection.add(data);
+    final snapshot = await docRef.get();
+
+    final user = UserModel.fromJson(
+      snapshot.data() as Map<String, dynamic>,
+    ).copyWith(id: docRef.id);
+
+    return docRef
+        .update(user.copyWith(username: user.email.split('@').first).toJson())
+        .then((_) => true)
+        .catchError((_) => false);
+  }
+
   @override
   Future<bool> doLoginWithGoogle() async {
     try {
-      final user = await _signInWithGoogle();
-      if (user == null) return false;
-      return true;
+      final userCredential = await _signInWithGoogle();
+      if (userCredential == null) return false;
+      final users = await _getUserByEmail('${userCredential.user?.email}');
+      if (users.isNotEmpty) return true;
+      return _insertOne(UserModel(
+        email: '${userCredential.user?.email}',
+      ).toJson());
     } catch (e) {
       print("Error login with goole user: $e");
       return false;
@@ -93,19 +107,18 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<bool> doLogout() {
-    // TODO: implement doLogout
-    throw UnimplementedError();
+  Future<bool> doLogout() async {
+    await FirebaseAuth.instance.signOut();
+    await _googleSignIn.signOut();
+    return true;
   }
 
   @override
   Future<UserModel?> getProfile() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return null;
-    final docRef = await _collection
-        .where('email', isEqualTo: user.email!.toLowerCase())
-        .get();
-    final map = docRef.docs.first.data() as Map<String, dynamic>;
-    return UserModel.fromJson(map);
+    return _getUserByEmail('${user.email}')
+        .then((values) => values.firstOrNull)
+        .catchError((_) => null);
   }
 }

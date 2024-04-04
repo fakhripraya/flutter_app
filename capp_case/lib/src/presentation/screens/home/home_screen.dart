@@ -192,7 +192,9 @@ class HomeScreen extends StatelessWidget {
             right: 16.0,
             child: FloatingActionButton(
               onPressed: () {
-                Navigator.restorablePushNamed(context, Routes.transaction);
+                context
+                    .read<HomeBloc>()
+                    .add(HomeShowCreateReportBottomSheet(context: context));
               },
               backgroundColor: Colors.black,
               elevation: 6.0,
