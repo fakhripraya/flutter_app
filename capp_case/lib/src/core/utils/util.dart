@@ -10,4 +10,8 @@ extension NavigatorOrMessage on BuildContext {
   void pop() {
     Navigator.pop(this);
   }
+
+  void pushNamed(String route) {
+    Navigator.pushNamed(this, route);
+  }
 }

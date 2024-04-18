@@ -210,9 +210,9 @@ class HomeScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: ListTile(
-                          // leading: const CircleAvatar(
-                          //   child: Icon(Icons.report),
-                          // ),
+                          leading: const CircleAvatar(
+                            child: Icon(Icons.report),
+                          ),
                           trailing: IconButton(
                             onPressed: () {
                               context.read<HomeBloc>().add(HomeRemoveOneReport(

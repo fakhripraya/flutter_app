@@ -20,7 +20,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginStarted>(_started);
     on<LoginDoLoginOrRegister>(_doLoginOrRegister);
     on<LoginDoLoginOrRegisterWithGoogle>(_doLoginOrRegisterWithGoogle);
-    on<LoginDoLogout>(_doLogout);
   }
 
   void _initial(
@@ -38,15 +37,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     LoginDoLoginOrRegister e,
     Emitter<LoginState> emit,
   ) async {
-    emit(const LoginState(isLoading: true));
+    emit(state.copyWith(isLoading: true));
     var isSuccess = await _authUseCase.doLoginOrRegister(e.user);
-    emit(const LoginState(isLoading: false));
+    emit(state.copyWith(isLoading: false));
     _navigation.pop();
     if (isSuccess) {
       _navigation.pushRemoveUntil(Routes.home);
     } else {
       emit(
-        const LoginState(
+        state.copyWith(
           isLoading: false,
           errorMessage: LoginConstants.errorMessage,
         ),
@@ -58,24 +57,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     LoginDoLoginOrRegisterWithGoogle e,
     Emitter<LoginState> emit,
   ) async {
-    emit(const LoginState(isLoading: true));
+    emit(state.copyWith(isLoading: true));
     var isSuccess = await _authUseCase.doLoginOrRegisterWithGoogle();
-    emit(const LoginState(isLoading: false));
+    emit(state.copyWith(isLoading: false));
     _navigation.pop();
     if (isSuccess) {
       _navigation.pushRemoveUntil(Routes.home);
     } else {
       emit(
-        const LoginState(
+        state.copyWith(
           isLoading: false,
           errorMessage: LoginConstants.errorMessage,
         ),
       );
     }
   }
-
-  void _doLogout(
-    LoginDoLogout e,
-    Emitter<LoginState> emit,
-  ) async {}
 }
