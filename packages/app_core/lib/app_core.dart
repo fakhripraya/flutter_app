@@ -9,4 +9,3 @@ export 'package:app_core/src/domain/transaction/transaction_repository.dart';
 export 'package:app_core/src/domain/transaction/transaction_use_case.dart';
 export 'package:app_core/src/domain/transaction/transaction_model.dart';
 export 'package:app_core/src/domain/transaction/report_model.dart';
-export 'package:app_core/src/infrastructure/auth/auth_remote_data_source.dart';

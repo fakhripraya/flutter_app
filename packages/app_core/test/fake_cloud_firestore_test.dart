@@ -6,16 +6,4 @@ void main() async {
     'username': 'Bob',
   });
   final snapshot = await instance.collection('users').get();
-  print(snapshot.docs.length); // 1
-  print(snapshot.docs.first.get('username')); // 'Bob'
-  print(instance.dump());
 }
-
-// Prints out:
-// {
-//   "users": {
-//     "z": {
-//       "name": "Bob"
-//     }
-//   }
-// }

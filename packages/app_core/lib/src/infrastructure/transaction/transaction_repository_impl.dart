@@ -12,12 +12,17 @@ class TransactionRepositoryImpl implements TransactionRepository {
 
   @override
   Future<List<ReportModel>> doGetAllReports(User user) async {
-    await Future.delayed(const Duration(seconds: 5));
+    /// await Future.delayed(const Duration(seconds: 5));
     return _remote.doGetAllReports(user);
   }
 
   @override
   Future<bool> createReport(ReportModel report) {
     return _remote.createReport(report);
+  }
+
+  @override
+  Future<bool> removeOne(ReportModel report) {
+    return _remote.removeReport(report);
   }
 }

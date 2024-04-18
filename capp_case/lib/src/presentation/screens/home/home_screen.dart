@@ -23,11 +23,11 @@ class HomeScreen extends StatelessWidget {
       height: 300,
       child: ListView.builder(
         shrinkWrap: true,
-        itemCount: reports?.length,
+        itemCount: reports.length,
         itemBuilder: (context, index) {
-          final entry = reports?[index];
-          final id = entry?.id;
-          final title = entry?.title;
+          final entry = reports[index];
+          final id = entry.id;
+          final title = entry.title;
 
           return Container(
             margin: const EdgeInsets.only(bottom: 20),
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
               },
               trailing: const Text("Rp.8000.000,00"),
               title: Text(
-                entry != null ? '$title - $id' : "",
+                '$title - $id',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
@@ -54,17 +54,24 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<HomeBloc>().add(const HomeStarted());
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Hi, Fakhri',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Builder(
+          builder: (ctx) {
+            final state = ctx.watch<HomeBloc>().state;
+            return Text(
+              'Hi, ${state.user.username}',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            );
+          },
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              //
+              /// do something
             },
           ),
         ],
@@ -178,8 +185,52 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Center(
-                child: _buildList(context),
+              Builder(
+                builder: (ctx) {
+                  final state = ctx.watch<HomeBloc>().state;
+                  final reports = state.reports;
+
+                  if (state.isReportLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+
+                  return ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: reports.length,
+                    itemBuilder: (context, index) {
+                      final report = reports[index];
+                      final id = report.id;
+                      final title = report.title;
+
+                      return Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: ListTile(
+                          // leading: const CircleAvatar(
+                          //   child: Icon(Icons.report),
+                          // ),
+                          trailing: IconButton(
+                            onPressed: () {
+                              context.read<HomeBloc>().add(HomeRemoveOneReport(
+                                  context: context, report: report));
+                            },
+                            icon: const Icon(Icons.delete),
+                          ),
+                          title: Text(
+                            title,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),
@@ -192,9 +243,7 @@ class HomeScreen extends StatelessWidget {
             right: 16.0,
             child: FloatingActionButton(
               onPressed: () {
-                context
-                    .read<HomeBloc>()
-                    .add(HomeShowCreateReportBottomSheet(context: context));
+                _showCreateReport(context);
               },
               backgroundColor: Colors.black,
               elevation: 6.0,
@@ -207,6 +256,66 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void _showCreateReport(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Text(
+                'Create Report',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 26,
+                ),
+              ),
+              const SizedBox(height: 16),
+              const Text("Why is this report issued?"),
+              const SizedBox(height: 4),
+              TextField(
+                onChanged: (value) {
+                  context
+                      .read<HomeBloc>()
+                      .add(HomeSetReportTitle(value: value));
+                },
+                style: const TextStyle(fontSize: 14),
+                decoration: const InputDecoration(
+                  hintText: 'Write...',
+                ),
+              ),
+              const SizedBox(height: 16),
+              Builder(
+                builder: (ctx) {
+                  final state = ctx.watch<HomeBloc>().state;
+                  VoidCallback? onPressed;
+
+                  if (state.reportTitle.isNotEmpty) {
+                    onPressed = () {
+                      context.read<HomeBloc>().add(
+                          HomeShowCreateReportBottomSheet(context: context));
+                    };
+                  }
+
+                  if (state.isReportCreateLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+
+                  return ElevatedButton(
+                    onPressed: onPressed,
+                    child: const Text('Create'),
+                  );
+                },
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

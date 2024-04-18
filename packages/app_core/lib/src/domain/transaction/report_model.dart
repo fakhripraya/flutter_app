@@ -10,6 +10,7 @@ class ReportModel with _$ReportModel {
     @Default('') String id,
     @Default('') String title,
     @Default('') String userId,
+    @Default('') String createdAt,
   }) = _ReportModel;
 
   factory ReportModel.fromJson(Map<String, dynamic> json) =>

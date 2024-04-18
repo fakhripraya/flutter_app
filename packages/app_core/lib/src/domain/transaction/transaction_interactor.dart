@@ -17,6 +17,11 @@ class TransactionInteractor implements TransactionUseCase {
 
   @override
   Future<bool> createReport(ReportModel report) {
-   return _repository.createReport(report);
+    return _repository.createReport(report);
+  }
+
+  @override
+  Future<bool> removeOne(ReportModel report) {
+    return _repository.removeOne(report);
   }
 }

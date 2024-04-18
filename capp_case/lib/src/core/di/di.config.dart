@@ -32,8 +32,10 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    gh.lazySingleton<_i3.HomeBloc>(
-        () => _i3.HomeBloc(gh<_i4.TransactionUseCase>()));
+    gh.lazySingleton<_i3.HomeBloc>(() => _i3.HomeBloc(
+          gh<_i4.TransactionUseCase>(),
+          gh<_i4.AuthUseCase>(),
+        ));
     gh.lazySingleton<_i5.NavigationService>(() => _i5.NavigationService());
     gh.lazySingleton<_i6.SplashBloc>(() => _i6.SplashBloc(
           gh<_i5.NavigationService>(),

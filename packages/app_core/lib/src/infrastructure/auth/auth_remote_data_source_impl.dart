@@ -47,7 +47,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
       return _insertOne(register.toJson());
     } catch (e) {
-      print("Error registering user: $e");
       return false; // Return false in case of any error during registration
     }
   }
@@ -64,7 +63,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       if (checkUser == null) return false;
       return true;
     } catch (e) {
-      print("Error login user: $e");
       return false;
     }
   }
@@ -101,7 +99,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         email: '${userCredential.user?.email}',
       ).toJson());
     } catch (e) {
-      print("Error login with goole user: $e");
       return false;
     }
   }
@@ -117,6 +114,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   Future<UserModel?> getProfile() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return null;
+
     return _getUserByEmail('${user.email}')
         .then((values) => values.firstOrNull)
         .catchError((_) => null);

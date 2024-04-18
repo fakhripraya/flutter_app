@@ -22,6 +22,9 @@ mixin _$HomeEvent {
     required TResult Function() started,
     required TResult Function() doGetAllReports,
     required TResult Function(BuildContext context) showCreateReportBottomSheet,
+    required TResult Function(String value) setReportTitle,
+    required TResult Function(BuildContext context, ReportModel report)
+        removeOneReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$HomeEvent {
     TResult? Function()? started,
     TResult? Function()? doGetAllReports,
     TResult? Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult? Function(String value)? setReportTitle,
+    TResult? Function(BuildContext context, ReportModel report)?
+        removeOneReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,8 @@ mixin _$HomeEvent {
     TResult Function()? started,
     TResult Function()? doGetAllReports,
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult Function(String value)? setReportTitle,
+    TResult Function(BuildContext context, ReportModel report)? removeOneReport,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +56,8 @@ mixin _$HomeEvent {
     required TResult Function(DoGetAllReports value) doGetAllReports,
     required TResult Function(HomeShowCreateReportBottomSheet value)
         showCreateReportBottomSheet,
+    required TResult Function(HomeSetReportTitle value) setReportTitle,
+    required TResult Function(HomeRemoveOneReport value) removeOneReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +67,8 @@ mixin _$HomeEvent {
     TResult? Function(DoGetAllReports value)? doGetAllReports,
     TResult? Function(HomeShowCreateReportBottomSheet value)?
         showCreateReportBottomSheet,
+    TResult? Function(HomeSetReportTitle value)? setReportTitle,
+    TResult? Function(HomeRemoveOneReport value)? removeOneReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +78,8 @@ mixin _$HomeEvent {
     TResult Function(DoGetAllReports value)? doGetAllReports,
     TResult Function(HomeShowCreateReportBottomSheet value)?
         showCreateReportBottomSheet,
+    TResult Function(HomeSetReportTitle value)? setReportTitle,
+    TResult Function(HomeRemoveOneReport value)? removeOneReport,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,6 +144,9 @@ class _$HomeInitialImpl implements HomeInitial {
     required TResult Function() started,
     required TResult Function() doGetAllReports,
     required TResult Function(BuildContext context) showCreateReportBottomSheet,
+    required TResult Function(String value) setReportTitle,
+    required TResult Function(BuildContext context, ReportModel report)
+        removeOneReport,
   }) {
     return initial();
   }
@@ -141,6 +158,9 @@ class _$HomeInitialImpl implements HomeInitial {
     TResult? Function()? started,
     TResult? Function()? doGetAllReports,
     TResult? Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult? Function(String value)? setReportTitle,
+    TResult? Function(BuildContext context, ReportModel report)?
+        removeOneReport,
   }) {
     return initial?.call();
   }
@@ -152,6 +172,8 @@ class _$HomeInitialImpl implements HomeInitial {
     TResult Function()? started,
     TResult Function()? doGetAllReports,
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult Function(String value)? setReportTitle,
+    TResult Function(BuildContext context, ReportModel report)? removeOneReport,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -168,6 +190,8 @@ class _$HomeInitialImpl implements HomeInitial {
     required TResult Function(DoGetAllReports value) doGetAllReports,
     required TResult Function(HomeShowCreateReportBottomSheet value)
         showCreateReportBottomSheet,
+    required TResult Function(HomeSetReportTitle value) setReportTitle,
+    required TResult Function(HomeRemoveOneReport value) removeOneReport,
   }) {
     return initial(this);
   }
@@ -180,6 +204,8 @@ class _$HomeInitialImpl implements HomeInitial {
     TResult? Function(DoGetAllReports value)? doGetAllReports,
     TResult? Function(HomeShowCreateReportBottomSheet value)?
         showCreateReportBottomSheet,
+    TResult? Function(HomeSetReportTitle value)? setReportTitle,
+    TResult? Function(HomeRemoveOneReport value)? removeOneReport,
   }) {
     return initial?.call(this);
   }
@@ -192,6 +218,8 @@ class _$HomeInitialImpl implements HomeInitial {
     TResult Function(DoGetAllReports value)? doGetAllReports,
     TResult Function(HomeShowCreateReportBottomSheet value)?
         showCreateReportBottomSheet,
+    TResult Function(HomeSetReportTitle value)? setReportTitle,
+    TResult Function(HomeRemoveOneReport value)? removeOneReport,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -247,6 +275,9 @@ class _$HomeStartedImpl implements HomeStarted {
     required TResult Function() started,
     required TResult Function() doGetAllReports,
     required TResult Function(BuildContext context) showCreateReportBottomSheet,
+    required TResult Function(String value) setReportTitle,
+    required TResult Function(BuildContext context, ReportModel report)
+        removeOneReport,
   }) {
     return started();
   }
@@ -258,6 +289,9 @@ class _$HomeStartedImpl implements HomeStarted {
     TResult? Function()? started,
     TResult? Function()? doGetAllReports,
     TResult? Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult? Function(String value)? setReportTitle,
+    TResult? Function(BuildContext context, ReportModel report)?
+        removeOneReport,
   }) {
     return started?.call();
   }
@@ -269,6 +303,8 @@ class _$HomeStartedImpl implements HomeStarted {
     TResult Function()? started,
     TResult Function()? doGetAllReports,
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult Function(String value)? setReportTitle,
+    TResult Function(BuildContext context, ReportModel report)? removeOneReport,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -285,6 +321,8 @@ class _$HomeStartedImpl implements HomeStarted {
     required TResult Function(DoGetAllReports value) doGetAllReports,
     required TResult Function(HomeShowCreateReportBottomSheet value)
         showCreateReportBottomSheet,
+    required TResult Function(HomeSetReportTitle value) setReportTitle,
+    required TResult Function(HomeRemoveOneReport value) removeOneReport,
   }) {
     return started(this);
   }
@@ -297,6 +335,8 @@ class _$HomeStartedImpl implements HomeStarted {
     TResult? Function(DoGetAllReports value)? doGetAllReports,
     TResult? Function(HomeShowCreateReportBottomSheet value)?
         showCreateReportBottomSheet,
+    TResult? Function(HomeSetReportTitle value)? setReportTitle,
+    TResult? Function(HomeRemoveOneReport value)? removeOneReport,
   }) {
     return started?.call(this);
   }
@@ -309,6 +349,8 @@ class _$HomeStartedImpl implements HomeStarted {
     TResult Function(DoGetAllReports value)? doGetAllReports,
     TResult Function(HomeShowCreateReportBottomSheet value)?
         showCreateReportBottomSheet,
+    TResult Function(HomeSetReportTitle value)? setReportTitle,
+    TResult Function(HomeRemoveOneReport value)? removeOneReport,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -364,6 +406,9 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     required TResult Function() started,
     required TResult Function() doGetAllReports,
     required TResult Function(BuildContext context) showCreateReportBottomSheet,
+    required TResult Function(String value) setReportTitle,
+    required TResult Function(BuildContext context, ReportModel report)
+        removeOneReport,
   }) {
     return doGetAllReports();
   }
@@ -375,6 +420,9 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     TResult? Function()? started,
     TResult? Function()? doGetAllReports,
     TResult? Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult? Function(String value)? setReportTitle,
+    TResult? Function(BuildContext context, ReportModel report)?
+        removeOneReport,
   }) {
     return doGetAllReports?.call();
   }
@@ -386,6 +434,8 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     TResult Function()? started,
     TResult Function()? doGetAllReports,
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult Function(String value)? setReportTitle,
+    TResult Function(BuildContext context, ReportModel report)? removeOneReport,
     required TResult orElse(),
   }) {
     if (doGetAllReports != null) {
@@ -402,6 +452,8 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     required TResult Function(DoGetAllReports value) doGetAllReports,
     required TResult Function(HomeShowCreateReportBottomSheet value)
         showCreateReportBottomSheet,
+    required TResult Function(HomeSetReportTitle value) setReportTitle,
+    required TResult Function(HomeRemoveOneReport value) removeOneReport,
   }) {
     return doGetAllReports(this);
   }
@@ -414,6 +466,8 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     TResult? Function(DoGetAllReports value)? doGetAllReports,
     TResult? Function(HomeShowCreateReportBottomSheet value)?
         showCreateReportBottomSheet,
+    TResult? Function(HomeSetReportTitle value)? setReportTitle,
+    TResult? Function(HomeRemoveOneReport value)? removeOneReport,
   }) {
     return doGetAllReports?.call(this);
   }
@@ -426,6 +480,8 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     TResult Function(DoGetAllReports value)? doGetAllReports,
     TResult Function(HomeShowCreateReportBottomSheet value)?
         showCreateReportBottomSheet,
+    TResult Function(HomeSetReportTitle value)? setReportTitle,
+    TResult Function(HomeRemoveOneReport value)? removeOneReport,
     required TResult orElse(),
   }) {
     if (doGetAllReports != null) {
@@ -512,6 +568,9 @@ class _$HomeShowCreateReportBottomSheetImpl
     required TResult Function() started,
     required TResult Function() doGetAllReports,
     required TResult Function(BuildContext context) showCreateReportBottomSheet,
+    required TResult Function(String value) setReportTitle,
+    required TResult Function(BuildContext context, ReportModel report)
+        removeOneReport,
   }) {
     return showCreateReportBottomSheet(context);
   }
@@ -523,6 +582,9 @@ class _$HomeShowCreateReportBottomSheetImpl
     TResult? Function()? started,
     TResult? Function()? doGetAllReports,
     TResult? Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult? Function(String value)? setReportTitle,
+    TResult? Function(BuildContext context, ReportModel report)?
+        removeOneReport,
   }) {
     return showCreateReportBottomSheet?.call(context);
   }
@@ -534,6 +596,8 @@ class _$HomeShowCreateReportBottomSheetImpl
     TResult Function()? started,
     TResult Function()? doGetAllReports,
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult Function(String value)? setReportTitle,
+    TResult Function(BuildContext context, ReportModel report)? removeOneReport,
     required TResult orElse(),
   }) {
     if (showCreateReportBottomSheet != null) {
@@ -550,6 +614,8 @@ class _$HomeShowCreateReportBottomSheetImpl
     required TResult Function(DoGetAllReports value) doGetAllReports,
     required TResult Function(HomeShowCreateReportBottomSheet value)
         showCreateReportBottomSheet,
+    required TResult Function(HomeSetReportTitle value) setReportTitle,
+    required TResult Function(HomeRemoveOneReport value) removeOneReport,
   }) {
     return showCreateReportBottomSheet(this);
   }
@@ -562,6 +628,8 @@ class _$HomeShowCreateReportBottomSheetImpl
     TResult? Function(DoGetAllReports value)? doGetAllReports,
     TResult? Function(HomeShowCreateReportBottomSheet value)?
         showCreateReportBottomSheet,
+    TResult? Function(HomeSetReportTitle value)? setReportTitle,
+    TResult? Function(HomeRemoveOneReport value)? removeOneReport,
   }) {
     return showCreateReportBottomSheet?.call(this);
   }
@@ -574,6 +642,8 @@ class _$HomeShowCreateReportBottomSheetImpl
     TResult Function(DoGetAllReports value)? doGetAllReports,
     TResult Function(HomeShowCreateReportBottomSheet value)?
         showCreateReportBottomSheet,
+    TResult Function(HomeSetReportTitle value)? setReportTitle,
+    TResult Function(HomeRemoveOneReport value)? removeOneReport,
     required TResult orElse(),
   }) {
     if (showCreateReportBottomSheet != null) {
@@ -593,4 +663,353 @@ abstract class HomeShowCreateReportBottomSheet implements HomeEvent {
   _$$HomeShowCreateReportBottomSheetImplCopyWith<
           _$HomeShowCreateReportBottomSheetImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeSetReportTitleImplCopyWith<$Res> {
+  factory _$$HomeSetReportTitleImplCopyWith(_$HomeSetReportTitleImpl value,
+          $Res Function(_$HomeSetReportTitleImpl) then) =
+      __$$HomeSetReportTitleImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$HomeSetReportTitleImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$HomeSetReportTitleImpl>
+    implements _$$HomeSetReportTitleImplCopyWith<$Res> {
+  __$$HomeSetReportTitleImplCopyWithImpl(_$HomeSetReportTitleImpl _value,
+      $Res Function(_$HomeSetReportTitleImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$HomeSetReportTitleImpl(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HomeSetReportTitleImpl implements HomeSetReportTitle {
+  const _$HomeSetReportTitleImpl({required this.value});
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'HomeEvent.setReportTitle(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeSetReportTitleImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomeSetReportTitleImplCopyWith<_$HomeSetReportTitleImpl> get copyWith =>
+      __$$HomeSetReportTitleImplCopyWithImpl<_$HomeSetReportTitleImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() started,
+    required TResult Function() doGetAllReports,
+    required TResult Function(BuildContext context) showCreateReportBottomSheet,
+    required TResult Function(String value) setReportTitle,
+    required TResult Function(BuildContext context, ReportModel report)
+        removeOneReport,
+  }) {
+    return setReportTitle(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? started,
+    TResult? Function()? doGetAllReports,
+    TResult? Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult? Function(String value)? setReportTitle,
+    TResult? Function(BuildContext context, ReportModel report)?
+        removeOneReport,
+  }) {
+    return setReportTitle?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? started,
+    TResult Function()? doGetAllReports,
+    TResult Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult Function(String value)? setReportTitle,
+    TResult Function(BuildContext context, ReportModel report)? removeOneReport,
+    required TResult orElse(),
+  }) {
+    if (setReportTitle != null) {
+      return setReportTitle(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeInitial value) initial,
+    required TResult Function(HomeStarted value) started,
+    required TResult Function(DoGetAllReports value) doGetAllReports,
+    required TResult Function(HomeShowCreateReportBottomSheet value)
+        showCreateReportBottomSheet,
+    required TResult Function(HomeSetReportTitle value) setReportTitle,
+    required TResult Function(HomeRemoveOneReport value) removeOneReport,
+  }) {
+    return setReportTitle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomeInitial value)? initial,
+    TResult? Function(HomeStarted value)? started,
+    TResult? Function(DoGetAllReports value)? doGetAllReports,
+    TResult? Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
+    TResult? Function(HomeSetReportTitle value)? setReportTitle,
+    TResult? Function(HomeRemoveOneReport value)? removeOneReport,
+  }) {
+    return setReportTitle?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeInitial value)? initial,
+    TResult Function(HomeStarted value)? started,
+    TResult Function(DoGetAllReports value)? doGetAllReports,
+    TResult Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
+    TResult Function(HomeSetReportTitle value)? setReportTitle,
+    TResult Function(HomeRemoveOneReport value)? removeOneReport,
+    required TResult orElse(),
+  }) {
+    if (setReportTitle != null) {
+      return setReportTitle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeSetReportTitle implements HomeEvent {
+  const factory HomeSetReportTitle({required final String value}) =
+      _$HomeSetReportTitleImpl;
+
+  String get value;
+  @JsonKey(ignore: true)
+  _$$HomeSetReportTitleImplCopyWith<_$HomeSetReportTitleImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeRemoveOneReportImplCopyWith<$Res> {
+  factory _$$HomeRemoveOneReportImplCopyWith(_$HomeRemoveOneReportImpl value,
+          $Res Function(_$HomeRemoveOneReportImpl) then) =
+      __$$HomeRemoveOneReportImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context, ReportModel report});
+
+  $ReportModelCopyWith<$Res> get report;
+}
+
+/// @nodoc
+class __$$HomeRemoveOneReportImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$HomeRemoveOneReportImpl>
+    implements _$$HomeRemoveOneReportImplCopyWith<$Res> {
+  __$$HomeRemoveOneReportImplCopyWithImpl(_$HomeRemoveOneReportImpl _value,
+      $Res Function(_$HomeRemoveOneReportImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? report = null,
+  }) {
+    return _then(_$HomeRemoveOneReportImpl(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      report: null == report
+          ? _value.report
+          : report // ignore: cast_nullable_to_non_nullable
+              as ReportModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ReportModelCopyWith<$Res> get report {
+    return $ReportModelCopyWith<$Res>(_value.report, (value) {
+      return _then(_value.copyWith(report: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$HomeRemoveOneReportImpl implements HomeRemoveOneReport {
+  const _$HomeRemoveOneReportImpl(
+      {required this.context, required this.report});
+
+  @override
+  final BuildContext context;
+  @override
+  final ReportModel report;
+
+  @override
+  String toString() {
+    return 'HomeEvent.removeOneReport(context: $context, report: $report)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeRemoveOneReportImpl &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.report, report) || other.report == report));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, report);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomeRemoveOneReportImplCopyWith<_$HomeRemoveOneReportImpl> get copyWith =>
+      __$$HomeRemoveOneReportImplCopyWithImpl<_$HomeRemoveOneReportImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() started,
+    required TResult Function() doGetAllReports,
+    required TResult Function(BuildContext context) showCreateReportBottomSheet,
+    required TResult Function(String value) setReportTitle,
+    required TResult Function(BuildContext context, ReportModel report)
+        removeOneReport,
+  }) {
+    return removeOneReport(context, report);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? started,
+    TResult? Function()? doGetAllReports,
+    TResult? Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult? Function(String value)? setReportTitle,
+    TResult? Function(BuildContext context, ReportModel report)?
+        removeOneReport,
+  }) {
+    return removeOneReport?.call(context, report);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? started,
+    TResult Function()? doGetAllReports,
+    TResult Function(BuildContext context)? showCreateReportBottomSheet,
+    TResult Function(String value)? setReportTitle,
+    TResult Function(BuildContext context, ReportModel report)? removeOneReport,
+    required TResult orElse(),
+  }) {
+    if (removeOneReport != null) {
+      return removeOneReport(context, report);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeInitial value) initial,
+    required TResult Function(HomeStarted value) started,
+    required TResult Function(DoGetAllReports value) doGetAllReports,
+    required TResult Function(HomeShowCreateReportBottomSheet value)
+        showCreateReportBottomSheet,
+    required TResult Function(HomeSetReportTitle value) setReportTitle,
+    required TResult Function(HomeRemoveOneReport value) removeOneReport,
+  }) {
+    return removeOneReport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomeInitial value)? initial,
+    TResult? Function(HomeStarted value)? started,
+    TResult? Function(DoGetAllReports value)? doGetAllReports,
+    TResult? Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
+    TResult? Function(HomeSetReportTitle value)? setReportTitle,
+    TResult? Function(HomeRemoveOneReport value)? removeOneReport,
+  }) {
+    return removeOneReport?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeInitial value)? initial,
+    TResult Function(HomeStarted value)? started,
+    TResult Function(DoGetAllReports value)? doGetAllReports,
+    TResult Function(HomeShowCreateReportBottomSheet value)?
+        showCreateReportBottomSheet,
+    TResult Function(HomeSetReportTitle value)? setReportTitle,
+    TResult Function(HomeRemoveOneReport value)? removeOneReport,
+    required TResult orElse(),
+  }) {
+    if (removeOneReport != null) {
+      return removeOneReport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeRemoveOneReport implements HomeEvent {
+  const factory HomeRemoveOneReport(
+      {required final BuildContext context,
+      required final ReportModel report}) = _$HomeRemoveOneReportImpl;
+
+  BuildContext get context;
+  ReportModel get report;
+  @JsonKey(ignore: true)
+  _$$HomeRemoveOneReportImplCopyWith<_$HomeRemoveOneReportImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

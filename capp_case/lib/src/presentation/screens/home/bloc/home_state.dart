@@ -7,6 +7,9 @@ part 'home_state.freezed.dart';
 class HomeState with _$HomeState {
   const factory HomeState({
     @Default(true) bool isReportLoading,
-    @Default(null) List<ReportModel>? reports,
+    @Default([]) List<ReportModel> reports,
+    @Default('') String reportTitle,
+    @Default(UserModel()) UserModel user,
+    @Default(false) bool isReportCreateLoading,
   }) = _HomeState;
 }

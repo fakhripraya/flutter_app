@@ -17,7 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HomeState {
   bool get isReportLoading => throw _privateConstructorUsedError;
-  List<ReportModel>? get reports => throw _privateConstructorUsedError;
+  List<ReportModel> get reports => throw _privateConstructorUsedError;
+  String get reportTitle => throw _privateConstructorUsedError;
+  UserModel get user => throw _privateConstructorUsedError;
+  bool get isReportCreateLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -29,7 +32,14 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({bool isReportLoading, List<ReportModel>? reports});
+  $Res call(
+      {bool isReportLoading,
+      List<ReportModel> reports,
+      String reportTitle,
+      UserModel user,
+      bool isReportCreateLoading});
+
+  $UserModelCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -46,18 +56,41 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @override
   $Res call({
     Object? isReportLoading = null,
-    Object? reports = freezed,
+    Object? reports = null,
+    Object? reportTitle = null,
+    Object? user = null,
+    Object? isReportCreateLoading = null,
   }) {
     return _then(_value.copyWith(
       isReportLoading: null == isReportLoading
           ? _value.isReportLoading
           : isReportLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      reports: freezed == reports
+      reports: null == reports
           ? _value.reports
           : reports // ignore: cast_nullable_to_non_nullable
-              as List<ReportModel>?,
+              as List<ReportModel>,
+      reportTitle: null == reportTitle
+          ? _value.reportTitle
+          : reportTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+      isReportCreateLoading: null == isReportCreateLoading
+          ? _value.isReportCreateLoading
+          : isReportCreateLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
   }
 }
 
@@ -69,7 +102,15 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       __$$HomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isReportLoading, List<ReportModel>? reports});
+  $Res call(
+      {bool isReportLoading,
+      List<ReportModel> reports,
+      String reportTitle,
+      UserModel user,
+      bool isReportCreateLoading});
+
+  @override
+  $UserModelCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -84,17 +125,32 @@ class __$$HomeStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isReportLoading = null,
-    Object? reports = freezed,
+    Object? reports = null,
+    Object? reportTitle = null,
+    Object? user = null,
+    Object? isReportCreateLoading = null,
   }) {
     return _then(_$HomeStateImpl(
       isReportLoading: null == isReportLoading
           ? _value.isReportLoading
           : isReportLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      reports: freezed == reports
+      reports: null == reports
           ? _value._reports
           : reports // ignore: cast_nullable_to_non_nullable
-              as List<ReportModel>?,
+              as List<ReportModel>,
+      reportTitle: null == reportTitle
+          ? _value.reportTitle
+          : reportTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+      isReportCreateLoading: null == isReportCreateLoading
+          ? _value.isReportCreateLoading
+          : isReportCreateLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -103,26 +159,38 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 
 class _$HomeStateImpl implements _HomeState {
   const _$HomeStateImpl(
-      {this.isReportLoading = true, final List<ReportModel>? reports = null})
+      {this.isReportLoading = true,
+      final List<ReportModel> reports = const [],
+      this.reportTitle = '',
+      this.user = const UserModel(),
+      this.isReportCreateLoading = false})
       : _reports = reports;
 
   @override
   @JsonKey()
   final bool isReportLoading;
-  final List<ReportModel>? _reports;
+  final List<ReportModel> _reports;
   @override
   @JsonKey()
-  List<ReportModel>? get reports {
-    final value = _reports;
-    if (value == null) return null;
+  List<ReportModel> get reports {
     if (_reports is EqualUnmodifiableListView) return _reports;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_reports);
   }
 
   @override
+  @JsonKey()
+  final String reportTitle;
+  @override
+  @JsonKey()
+  final UserModel user;
+  @override
+  @JsonKey()
+  final bool isReportCreateLoading;
+
+  @override
   String toString() {
-    return 'HomeState(isReportLoading: $isReportLoading, reports: $reports)';
+    return 'HomeState(isReportLoading: $isReportLoading, reports: $reports, reportTitle: $reportTitle, user: $user, isReportCreateLoading: $isReportCreateLoading)';
   }
 
   @override
@@ -132,12 +200,22 @@ class _$HomeStateImpl implements _HomeState {
             other is _$HomeStateImpl &&
             (identical(other.isReportLoading, isReportLoading) ||
                 other.isReportLoading == isReportLoading) &&
-            const DeepCollectionEquality().equals(other._reports, _reports));
+            const DeepCollectionEquality().equals(other._reports, _reports) &&
+            (identical(other.reportTitle, reportTitle) ||
+                other.reportTitle == reportTitle) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.isReportCreateLoading, isReportCreateLoading) ||
+                other.isReportCreateLoading == isReportCreateLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isReportLoading,
-      const DeepCollectionEquality().hash(_reports));
+  int get hashCode => Object.hash(
+      runtimeType,
+      isReportLoading,
+      const DeepCollectionEquality().hash(_reports),
+      reportTitle,
+      user,
+      isReportCreateLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -149,12 +227,21 @@ class _$HomeStateImpl implements _HomeState {
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {final bool isReportLoading,
-      final List<ReportModel>? reports}) = _$HomeStateImpl;
+      final List<ReportModel> reports,
+      final String reportTitle,
+      final UserModel user,
+      final bool isReportCreateLoading}) = _$HomeStateImpl;
 
   @override
   bool get isReportLoading;
   @override
-  List<ReportModel>? get reports;
+  List<ReportModel> get reports;
+  @override
+  String get reportTitle;
+  @override
+  UserModel get user;
+  @override
+  bool get isReportCreateLoading;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>

@@ -5,4 +5,6 @@ abstract class TransactionUseCase {
   Future<List<ReportModel>> doGetAllReports(User user);
 
   Future<bool> createReport(ReportModel report);
+
+  Future<bool> removeOne(ReportModel report);
 }

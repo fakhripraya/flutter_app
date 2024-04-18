@@ -23,6 +23,7 @@ mixin _$ReportModel {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
+  String get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,7 @@ abstract class $ReportModelCopyWith<$Res> {
           ReportModel value, $Res Function(ReportModel) then) =
       _$ReportModelCopyWithImpl<$Res, ReportModel>;
   @useResult
-  $Res call({String id, String title, String userId});
+  $Res call({String id, String title, String userId, String createdAt});
 }
 
 /// @nodoc
@@ -55,6 +56,7 @@ class _$ReportModelCopyWithImpl<$Res, $Val extends ReportModel>
     Object? id = null,
     Object? title = null,
     Object? userId = null,
+    Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -69,6 +71,10 @@ class _$ReportModelCopyWithImpl<$Res, $Val extends ReportModel>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -81,7 +87,7 @@ abstract class _$$ReportModelImplCopyWith<$Res>
       __$$ReportModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String title, String userId});
+  $Res call({String id, String title, String userId, String createdAt});
 }
 
 /// @nodoc
@@ -98,6 +104,7 @@ class __$$ReportModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? userId = null,
+    Object? createdAt = null,
   }) {
     return _then(_$ReportModelImpl(
       id: null == id
@@ -112,6 +119,10 @@ class __$$ReportModelImplCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -119,7 +130,8 @@ class __$$ReportModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ReportModelImpl implements _ReportModel {
-  const _$ReportModelImpl({this.id = '', this.title = '', this.userId = ''});
+  const _$ReportModelImpl(
+      {this.id = '', this.title = '', this.userId = '', this.createdAt = ''});
 
   factory _$ReportModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReportModelImplFromJson(json);
@@ -133,10 +145,13 @@ class _$ReportModelImpl implements _ReportModel {
   @override
   @JsonKey()
   final String userId;
+  @override
+  @JsonKey()
+  final String createdAt;
 
   @override
   String toString() {
-    return 'ReportModel(id: $id, title: $title, userId: $userId)';
+    return 'ReportModel(id: $id, title: $title, userId: $userId, createdAt: $createdAt)';
   }
 
   @override
@@ -146,12 +161,14 @@ class _$ReportModelImpl implements _ReportModel {
             other is _$ReportModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.userId, userId) || other.userId == userId));
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, userId);
+  int get hashCode => Object.hash(runtimeType, id, title, userId, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +188,8 @@ abstract class _ReportModel implements ReportModel {
   const factory _ReportModel(
       {final String id,
       final String title,
-      final String userId}) = _$ReportModelImpl;
+      final String userId,
+      final String createdAt}) = _$ReportModelImpl;
 
   factory _ReportModel.fromJson(Map<String, dynamic> json) =
       _$ReportModelImpl.fromJson;
@@ -182,6 +200,8 @@ abstract class _ReportModel implements ReportModel {
   String get title;
   @override
   String get userId;
+  @override
+  String get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$ReportModelImplCopyWith<_$ReportModelImpl> get copyWith =>

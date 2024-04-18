@@ -10,7 +10,8 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
       FirebaseFirestore.instance.collection('reports');
 
   Future<List<ReportModel>> _getReport(User user) async {
-    final query = await _collection.where('user_id', isEqualTo: user.id).get();
+    final query = await _collection.where('userId', isEqualTo: user.id).get();
+
     return query.docs
         .map((doc) => ReportModel.fromJson(doc.data() as Map<String, dynamic>))
         .toList();

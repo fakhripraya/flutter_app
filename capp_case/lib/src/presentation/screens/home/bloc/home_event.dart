@@ -1,3 +1,4 @@
+import 'package:app_core/app_core.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,4 +15,13 @@ abstract class HomeEvent with _$HomeEvent {
   const factory HomeEvent.showCreateReportBottomSheet({
     required final BuildContext context,
   }) = HomeShowCreateReportBottomSheet;
+
+  const factory HomeEvent.setReportTitle({
+    required String value,
+  }) = HomeSetReportTitle;
+
+  const factory HomeEvent.removeOneReport({
+    required BuildContext context,
+    required final ReportModel report,
+  }) = HomeRemoveOneReport;
 }

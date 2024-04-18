@@ -11,6 +11,7 @@ _$ReportModelImpl _$$ReportModelImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String? ?? '',
       title: json['title'] as String? ?? '',
       userId: json['userId'] as String? ?? '',
+      createdAt: json['createdAt'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$ReportModelImplToJson(_$ReportModelImpl instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$$ReportModelImplToJson(_$ReportModelImpl instance) =>
       'id': instance.id,
       'title': instance.title,
       'userId': instance.userId,
+      'createdAt': instance.createdAt,
     };
