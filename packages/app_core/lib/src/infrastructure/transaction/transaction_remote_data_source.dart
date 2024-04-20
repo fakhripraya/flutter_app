@@ -1,5 +1,4 @@
-import 'package:app_core/src/domain/auth/user_model.dart';
-import 'package:app_core/src/domain/transaction/report_model.dart';
+import 'package:app_core/app_core.dart';
 
 abstract class TransactionRemoteDataSource {
   Future<List<ReportModel>> doGetAllReports(User user);
@@ -9,4 +8,10 @@ abstract class TransactionRemoteDataSource {
   Future<bool> updateReport(ReportModel report);
 
   Future<bool> removeReport(ReportModel report);
+
+  Future<List<TransactionModel>> getTransactions(String reportId);
+
+  Future<bool> removeOneTransaction(String transactionId);
+
+  Future<bool> updateOneTransaction(TransactionModel transaction);
 }
