@@ -1,6 +1,8 @@
 import 'package:capp_case/src/core/constants/routes.dart';
 import 'package:capp_case/src/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:capp_case/src/presentation/screens/home/bloc/home_event.dart';
+import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_bloc.dart';
+import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -200,7 +202,6 @@ class HomeScreen extends StatelessWidget {
                     itemCount: reports.length,
                     itemBuilder: (context, index) {
                       final report = reports[index];
-                      final id = report.id;
                       final title = report.title;
 
                       return Container(
@@ -210,6 +211,11 @@ class HomeScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: ListTile(
+                          onTap: () {
+                            context
+                                .read<TransactionBloc>()
+                                .add(TransactionSetReport(report: report));
+                          },
                           leading: const CircleAvatar(
                             child: Icon(Icons.report),
                           ),

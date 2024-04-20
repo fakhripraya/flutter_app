@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TransactionState {
   String get expanseTitle => throw _privateConstructorUsedError;
   int get expanseAmount => throw _privateConstructorUsedError;
+  ReportModel get report => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TransactionStateCopyWith<TransactionState> get copyWith =>
@@ -30,7 +31,9 @@ abstract class $TransactionStateCopyWith<$Res> {
           TransactionState value, $Res Function(TransactionState) then) =
       _$TransactionStateCopyWithImpl<$Res, TransactionState>;
   @useResult
-  $Res call({String expanseTitle, int expanseAmount});
+  $Res call({String expanseTitle, int expanseAmount, ReportModel report});
+
+  $ReportModelCopyWith<$Res> get report;
 }
 
 /// @nodoc
@@ -48,6 +51,7 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
   $Res call({
     Object? expanseTitle = null,
     Object? expanseAmount = null,
+    Object? report = null,
   }) {
     return _then(_value.copyWith(
       expanseTitle: null == expanseTitle
@@ -58,7 +62,19 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
           ? _value.expanseAmount
           : expanseAmount // ignore: cast_nullable_to_non_nullable
               as int,
+      report: null == report
+          ? _value.report
+          : report // ignore: cast_nullable_to_non_nullable
+              as ReportModel,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ReportModelCopyWith<$Res> get report {
+    return $ReportModelCopyWith<$Res>(_value.report, (value) {
+      return _then(_value.copyWith(report: value) as $Val);
+    });
   }
 }
 
@@ -70,7 +86,10 @@ abstract class _$$TransactionStateImplCopyWith<$Res>
       __$$TransactionStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String expanseTitle, int expanseAmount});
+  $Res call({String expanseTitle, int expanseAmount, ReportModel report});
+
+  @override
+  $ReportModelCopyWith<$Res> get report;
 }
 
 /// @nodoc
@@ -86,6 +105,7 @@ class __$$TransactionStateImplCopyWithImpl<$Res>
   $Res call({
     Object? expanseTitle = null,
     Object? expanseAmount = null,
+    Object? report = null,
   }) {
     return _then(_$TransactionStateImpl(
       expanseTitle: null == expanseTitle
@@ -96,6 +116,10 @@ class __$$TransactionStateImplCopyWithImpl<$Res>
           ? _value.expanseAmount
           : expanseAmount // ignore: cast_nullable_to_non_nullable
               as int,
+      report: null == report
+          ? _value.report
+          : report // ignore: cast_nullable_to_non_nullable
+              as ReportModel,
     ));
   }
 }
@@ -104,7 +128,9 @@ class __$$TransactionStateImplCopyWithImpl<$Res>
 
 class _$TransactionStateImpl implements _TransactionState {
   const _$TransactionStateImpl(
-      {this.expanseTitle = '', this.expanseAmount = 0});
+      {this.expanseTitle = '',
+      this.expanseAmount = 0,
+      this.report = const ReportModel()});
 
   @override
   @JsonKey()
@@ -112,10 +138,13 @@ class _$TransactionStateImpl implements _TransactionState {
   @override
   @JsonKey()
   final int expanseAmount;
+  @override
+  @JsonKey()
+  final ReportModel report;
 
   @override
   String toString() {
-    return 'TransactionState(expanseTitle: $expanseTitle, expanseAmount: $expanseAmount)';
+    return 'TransactionState(expanseTitle: $expanseTitle, expanseAmount: $expanseAmount, report: $report)';
   }
 
   @override
@@ -126,11 +155,13 @@ class _$TransactionStateImpl implements _TransactionState {
             (identical(other.expanseTitle, expanseTitle) ||
                 other.expanseTitle == expanseTitle) &&
             (identical(other.expanseAmount, expanseAmount) ||
-                other.expanseAmount == expanseAmount));
+                other.expanseAmount == expanseAmount) &&
+            (identical(other.report, report) || other.report == report));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, expanseTitle, expanseAmount);
+  int get hashCode =>
+      Object.hash(runtimeType, expanseTitle, expanseAmount, report);
 
   @JsonKey(ignore: true)
   @override
@@ -143,12 +174,15 @@ class _$TransactionStateImpl implements _TransactionState {
 abstract class _TransactionState implements TransactionState {
   const factory _TransactionState(
       {final String expanseTitle,
-      final int expanseAmount}) = _$TransactionStateImpl;
+      final int expanseAmount,
+      final ReportModel report}) = _$TransactionStateImpl;
 
   @override
   String get expanseTitle;
   @override
   int get expanseAmount;
+  @override
+  ReportModel get report;
   @override
   @JsonKey(ignore: true)
   _$$TransactionStateImplCopyWith<_$TransactionStateImpl> get copyWith =>

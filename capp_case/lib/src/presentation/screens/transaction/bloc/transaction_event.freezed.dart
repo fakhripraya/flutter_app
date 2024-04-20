@@ -20,18 +20,21 @@ mixin _$TransactionEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() started,
+    required TResult Function(ReportModel report) setReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? started,
+    TResult? Function(ReportModel report)? setReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? started,
+    TResult Function(ReportModel report)? setReport,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$TransactionEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(TransactionInitial value) initial,
     required TResult Function(TransactionStarted value) started,
+    required TResult Function(TransactionSetReport value) setReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TransactionInitial value)? initial,
     TResult? Function(TransactionStarted value)? started,
+    TResult? Function(TransactionSetReport value)? setReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TransactionInitial value)? initial,
     TResult Function(TransactionStarted value)? started,
+    TResult Function(TransactionSetReport value)? setReport,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$TransactionInitialImpl implements TransactionInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() started,
+    required TResult Function(ReportModel report) setReport,
   }) {
     return initial();
   }
@@ -123,6 +130,7 @@ class _$TransactionInitialImpl implements TransactionInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? started,
+    TResult? Function(ReportModel report)? setReport,
   }) {
     return initial?.call();
   }
@@ -132,6 +140,7 @@ class _$TransactionInitialImpl implements TransactionInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? started,
+    TResult Function(ReportModel report)? setReport,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -145,6 +154,7 @@ class _$TransactionInitialImpl implements TransactionInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(TransactionInitial value) initial,
     required TResult Function(TransactionStarted value) started,
+    required TResult Function(TransactionSetReport value) setReport,
   }) {
     return initial(this);
   }
@@ -154,6 +164,7 @@ class _$TransactionInitialImpl implements TransactionInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TransactionInitial value)? initial,
     TResult? Function(TransactionStarted value)? started,
+    TResult? Function(TransactionSetReport value)? setReport,
   }) {
     return initial?.call(this);
   }
@@ -163,6 +174,7 @@ class _$TransactionInitialImpl implements TransactionInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TransactionInitial value)? initial,
     TResult Function(TransactionStarted value)? started,
+    TResult Function(TransactionSetReport value)? setReport,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -216,6 +228,7 @@ class _$TransactionStartedImpl implements TransactionStarted {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() started,
+    required TResult Function(ReportModel report) setReport,
   }) {
     return started();
   }
@@ -225,6 +238,7 @@ class _$TransactionStartedImpl implements TransactionStarted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? started,
+    TResult? Function(ReportModel report)? setReport,
   }) {
     return started?.call();
   }
@@ -234,6 +248,7 @@ class _$TransactionStartedImpl implements TransactionStarted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? started,
+    TResult Function(ReportModel report)? setReport,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -247,6 +262,7 @@ class _$TransactionStartedImpl implements TransactionStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(TransactionInitial value) initial,
     required TResult Function(TransactionStarted value) started,
+    required TResult Function(TransactionSetReport value) setReport,
   }) {
     return started(this);
   }
@@ -256,6 +272,7 @@ class _$TransactionStartedImpl implements TransactionStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TransactionInitial value)? initial,
     TResult? Function(TransactionStarted value)? started,
+    TResult? Function(TransactionSetReport value)? setReport,
   }) {
     return started?.call(this);
   }
@@ -265,6 +282,7 @@ class _$TransactionStartedImpl implements TransactionStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TransactionInitial value)? initial,
     TResult Function(TransactionStarted value)? started,
+    TResult Function(TransactionSetReport value)? setReport,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -276,4 +294,156 @@ class _$TransactionStartedImpl implements TransactionStarted {
 
 abstract class TransactionStarted implements TransactionEvent {
   const factory TransactionStarted() = _$TransactionStartedImpl;
+}
+
+/// @nodoc
+abstract class _$$TransactionSetReportImplCopyWith<$Res> {
+  factory _$$TransactionSetReportImplCopyWith(_$TransactionSetReportImpl value,
+          $Res Function(_$TransactionSetReportImpl) then) =
+      __$$TransactionSetReportImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ReportModel report});
+
+  $ReportModelCopyWith<$Res> get report;
+}
+
+/// @nodoc
+class __$$TransactionSetReportImplCopyWithImpl<$Res>
+    extends _$TransactionEventCopyWithImpl<$Res, _$TransactionSetReportImpl>
+    implements _$$TransactionSetReportImplCopyWith<$Res> {
+  __$$TransactionSetReportImplCopyWithImpl(_$TransactionSetReportImpl _value,
+      $Res Function(_$TransactionSetReportImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? report = null,
+  }) {
+    return _then(_$TransactionSetReportImpl(
+      report: null == report
+          ? _value.report
+          : report // ignore: cast_nullable_to_non_nullable
+              as ReportModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ReportModelCopyWith<$Res> get report {
+    return $ReportModelCopyWith<$Res>(_value.report, (value) {
+      return _then(_value.copyWith(report: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$TransactionSetReportImpl implements TransactionSetReport {
+  const _$TransactionSetReportImpl({required this.report});
+
+  @override
+  final ReportModel report;
+
+  @override
+  String toString() {
+    return 'TransactionEvent.setReport(report: $report)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TransactionSetReportImpl &&
+            (identical(other.report, report) || other.report == report));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, report);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TransactionSetReportImplCopyWith<_$TransactionSetReportImpl>
+      get copyWith =>
+          __$$TransactionSetReportImplCopyWithImpl<_$TransactionSetReportImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() started,
+    required TResult Function(ReportModel report) setReport,
+  }) {
+    return setReport(report);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? started,
+    TResult? Function(ReportModel report)? setReport,
+  }) {
+    return setReport?.call(report);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? started,
+    TResult Function(ReportModel report)? setReport,
+    required TResult orElse(),
+  }) {
+    if (setReport != null) {
+      return setReport(report);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TransactionInitial value) initial,
+    required TResult Function(TransactionStarted value) started,
+    required TResult Function(TransactionSetReport value) setReport,
+  }) {
+    return setReport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TransactionInitial value)? initial,
+    TResult? Function(TransactionStarted value)? started,
+    TResult? Function(TransactionSetReport value)? setReport,
+  }) {
+    return setReport?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TransactionInitial value)? initial,
+    TResult Function(TransactionStarted value)? started,
+    TResult Function(TransactionSetReport value)? setReport,
+    required TResult orElse(),
+  }) {
+    if (setReport != null) {
+      return setReport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TransactionSetReport implements TransactionEvent {
+  const factory TransactionSetReport({required final ReportModel report}) =
+      _$TransactionSetReportImpl;
+
+  ReportModel get report;
+  @JsonKey(ignore: true)
+  _$$TransactionSetReportImplCopyWith<_$TransactionSetReportImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
