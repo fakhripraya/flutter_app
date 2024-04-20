@@ -16,7 +16,6 @@ import 'package:capp_case/src/presentation/screens/login/bloc/login_bloc.dart'
     as _i7;
 import 'package:capp_case/src/presentation/screens/splash/bloc/splash_bloc.dart'
     as _i8;
-    as _i7;
 import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_bloc.dart'
     as _i4;
 import 'package:get_it/get_it.dart' as _i1;
@@ -44,13 +43,6 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i6.AuthUseCase>(),
         ));
     gh.lazySingleton<_i8.SplashBloc>(() => _i8.SplashBloc(
-          gh<_i3.NavigationService>(),
-          gh<_i6.AuthUseCase>(),
-    gh.lazySingleton<_i7.SplashBloc>(() => _i7.SplashBloc(
-          gh<_i3.NavigationService>(),
-          gh<_i6.AuthUseCase>(),
-        ));
-    gh.lazySingleton<_i8.LoginBloc>(() => _i8.LoginBloc(
           gh<_i3.NavigationService>(),
           gh<_i6.AuthUseCase>(),
         ));
