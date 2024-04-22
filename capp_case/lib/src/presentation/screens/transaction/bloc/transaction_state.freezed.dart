@@ -16,9 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TransactionState {
-  String get expanseTitle => throw _privateConstructorUsedError;
-  int get expanseAmount => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  int get amount => throw _privateConstructorUsedError;
+  String get createdAt => throw _privateConstructorUsedError;
   ReportModel get report => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TransactionStateCopyWith<TransactionState> get copyWith =>
@@ -31,7 +33,12 @@ abstract class $TransactionStateCopyWith<$Res> {
           TransactionState value, $Res Function(TransactionState) then) =
       _$TransactionStateCopyWithImpl<$Res, TransactionState>;
   @useResult
-  $Res call({String expanseTitle, int expanseAmount, ReportModel report});
+  $Res call(
+      {String title,
+      int amount,
+      String createdAt,
+      ReportModel report,
+      String type});
 
   $ReportModelCopyWith<$Res> get report;
 }
@@ -49,23 +56,33 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? expanseTitle = null,
-    Object? expanseAmount = null,
+    Object? title = null,
+    Object? amount = null,
+    Object? createdAt = null,
     Object? report = null,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
-      expanseTitle: null == expanseTitle
-          ? _value.expanseTitle
-          : expanseTitle // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
-      expanseAmount: null == expanseAmount
-          ? _value.expanseAmount
-          : expanseAmount // ignore: cast_nullable_to_non_nullable
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
               as int,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
       report: null == report
           ? _value.report
           : report // ignore: cast_nullable_to_non_nullable
               as ReportModel,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -86,7 +103,12 @@ abstract class _$$TransactionStateImplCopyWith<$Res>
       __$$TransactionStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String expanseTitle, int expanseAmount, ReportModel report});
+  $Res call(
+      {String title,
+      int amount,
+      String createdAt,
+      ReportModel report,
+      String type});
 
   @override
   $ReportModelCopyWith<$Res> get report;
@@ -103,23 +125,33 @@ class __$$TransactionStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? expanseTitle = null,
-    Object? expanseAmount = null,
+    Object? title = null,
+    Object? amount = null,
+    Object? createdAt = null,
     Object? report = null,
+    Object? type = null,
   }) {
     return _then(_$TransactionStateImpl(
-      expanseTitle: null == expanseTitle
-          ? _value.expanseTitle
-          : expanseTitle // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
-      expanseAmount: null == expanseAmount
-          ? _value.expanseAmount
-          : expanseAmount // ignore: cast_nullable_to_non_nullable
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
               as int,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
       report: null == report
           ? _value.report
           : report // ignore: cast_nullable_to_non_nullable
               as ReportModel,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -128,23 +160,31 @@ class __$$TransactionStateImplCopyWithImpl<$Res>
 
 class _$TransactionStateImpl implements _TransactionState {
   const _$TransactionStateImpl(
-      {this.expanseTitle = '',
-      this.expanseAmount = 0,
-      this.report = const ReportModel()});
+      {this.title = '',
+      this.amount = 0,
+      this.createdAt = '',
+      this.report = const ReportModel(),
+      this.type = TypeTransaction.expense});
 
   @override
   @JsonKey()
-  final String expanseTitle;
+  final String title;
   @override
   @JsonKey()
-  final int expanseAmount;
+  final int amount;
+  @override
+  @JsonKey()
+  final String createdAt;
   @override
   @JsonKey()
   final ReportModel report;
+  @override
+  @JsonKey()
+  final String type;
 
   @override
   String toString() {
-    return 'TransactionState(expanseTitle: $expanseTitle, expanseAmount: $expanseAmount, report: $report)';
+    return 'TransactionState(title: $title, amount: $amount, createdAt: $createdAt, report: $report, type: $type)';
   }
 
   @override
@@ -152,16 +192,17 @@ class _$TransactionStateImpl implements _TransactionState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TransactionStateImpl &&
-            (identical(other.expanseTitle, expanseTitle) ||
-                other.expanseTitle == expanseTitle) &&
-            (identical(other.expanseAmount, expanseAmount) ||
-                other.expanseAmount == expanseAmount) &&
-            (identical(other.report, report) || other.report == report));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.report, report) || other.report == report) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, expanseTitle, expanseAmount, report);
+      Object.hash(runtimeType, title, amount, createdAt, report, type);
 
   @JsonKey(ignore: true)
   @override
@@ -173,16 +214,22 @@ class _$TransactionStateImpl implements _TransactionState {
 
 abstract class _TransactionState implements TransactionState {
   const factory _TransactionState(
-      {final String expanseTitle,
-      final int expanseAmount,
-      final ReportModel report}) = _$TransactionStateImpl;
+      {final String title,
+      final int amount,
+      final String createdAt,
+      final ReportModel report,
+      final String type}) = _$TransactionStateImpl;
 
   @override
-  String get expanseTitle;
+  String get title;
   @override
-  int get expanseAmount;
+  int get amount;
+  @override
+  String get createdAt;
   @override
   ReportModel get report;
+  @override
+  String get type;
   @override
   @JsonKey(ignore: true)
   _$$TransactionStateImplCopyWith<_$TransactionStateImpl> get copyWith =>
