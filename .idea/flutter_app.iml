@@ -54,6 +54,9 @@
       <excludeFolder url="file://$MODULE_DIR$/capp_case/ios/.symlinks/plugins/google_sign_in_ios/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/capp_case/ios/.symlinks/plugins/google_sign_in_ios/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/capp_case/ios/.symlinks/plugins/google_sign_in_ios/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/app_core/flutter_app/packages/app_core/src/domain/models/generate/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/app_core/flutter_app/packages/app_core/src/domain/models/generate/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/app_core/flutter_app/packages/app_core/src/domain/models/generate/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
