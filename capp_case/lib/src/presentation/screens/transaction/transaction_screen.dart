@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -47,6 +45,8 @@ class _TransactionScreenState extends State<TransactionScreen> {
           _expanseAndIncomeWidget(),
           const SizedBox(height: 24),
           _expanseWidget(),
+          const SizedBox(height: 24),
+          _incomeWidget(),
         ],
       ),
     );
@@ -144,7 +144,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(24),
+              padding: const EdgeInsets.all(24),
               child: const Text(
                 'Add Income',
                 textAlign: TextAlign.center,
@@ -160,27 +160,59 @@ class _TransactionScreenState extends State<TransactionScreen> {
     );
   }
 
-  Widget _expanseWidget() {
-    return const Column(
+  Widget _titleAndMore({
+    required String title,
+    void Function()? onPressed,
+  }) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Expanse',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
+        Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
+        GestureDetector(
+          onTap: () {},
+          child: const Text(
+            'More',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
             ),
-            Text(
-              'More',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        )
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _transactionCardWidget() {
+    return Container(
+      child: Row(
+        children: [
+          Column(
+            children: [
+              Text('Expanse'),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _expanseWidget() {
+    return Column(
+      children: [
+        _titleAndMore(title: 'Expanse'),
+      ],
+    );
+  }
+
+  Widget _incomeWidget() {
+    return Column(
+      children: [
+        _titleAndMore(title: 'Income'),
       ],
     );
   }
