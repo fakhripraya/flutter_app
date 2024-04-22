@@ -96,6 +96,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       createAt: state.createdAt,
       reportId: state.report.id,
       userId: user.id,
+      type: state.type,
     );
 
     final result = await _transactionUseCase.createTransaction(transaction);

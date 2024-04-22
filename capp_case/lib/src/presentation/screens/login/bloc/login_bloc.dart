@@ -66,7 +66,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     } else {
       emit(
         state.copyWith(
-          isLoading: false,
           errorMessage: LoginConstants.errorMessage,
         ),
       );

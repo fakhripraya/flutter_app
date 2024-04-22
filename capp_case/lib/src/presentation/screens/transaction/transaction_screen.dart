@@ -47,7 +47,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
 
   void _reset() {
     final createdAt = DateTime.now().toIso8601String();
-    _dateTextController.text = createdAt;
+    _dateTextController.text = createdAt.dateFormat();
     _dateController.text = createdAt;
     _titleController.text = '';
     _amountController.text = '';
