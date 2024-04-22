@@ -9,10 +9,9 @@ class TransactionModel with _$TransactionModel {
   const factory TransactionModel({
     @Default('') String id,
     @Default('') String title,
-    @Default('') String description,
-    @Default('') String amount,
+    @Default(0) int amount,
     @Default('') String createAt,
-    @Default('') String typeId,
+    @Default('') String type,
     @Default('') String userId,
     @Default('') String reportId,
   }) = _TransactionModel;

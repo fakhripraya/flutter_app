@@ -12,32 +12,29 @@ class TransactionInteractor implements TransactionUseCase {
   TransactionInteractor(this._repository);
 
   @override
-  Future<List<ReportModel>> doGetAllReports(User user) {
-    return _repository.doGetAllReports(user);
-  }
+  Future<List<ReportModel>> doGetAllReports(User user) =>
+      _repository.doGetAllReports(user);
 
   @override
-  Future<bool> createReport(ReportModel report) {
-    return _repository.createReport(report);
-  }
+  Future<bool> createReport(ReportModel report) =>
+      _repository.createReport(report);
 
   @override
-  Future<bool> removeOne(ReportModel report) {
-    return _repository.removeOne(report);
-  }
+  Future<bool> removeOne(ReportModel report) => _repository.removeOne(report);
 
   @override
-  Future<List<TransactionModel>> getTransactions(String reportId) {
-    return _repository.getTransactions(reportId);
-  }
+  Future<List<TransactionModel>> getTransactions(String reportId) =>
+      _repository.getTransactions(reportId);
 
   @override
-  Future<bool> removeOneTransaction(String transactionId) {
-    return _repository.removeOneTransaction(transactionId);
-  }
+  Future<bool> removeOneTransaction(String transactionId) =>
+      _repository.removeOneTransaction(transactionId);
 
   @override
-  Future<bool> updateOneTransaction(TransactionModel transaction) {
-    return _repository.updateOneTransaction(transaction);
-  }
+  Future<bool> updateOneTransaction(TransactionModel transaction) =>
+      _repository.updateOneTransaction(transaction);
+
+  @override
+  Future<bool> createTransaction(TransactionModel transaction) =>
+      _repository.createTransaction(transaction);
 }

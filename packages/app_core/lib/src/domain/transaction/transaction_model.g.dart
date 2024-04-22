@@ -11,10 +11,9 @@ _$TransactionModelImpl _$$TransactionModelImplFromJson(
     _$TransactionModelImpl(
       id: json['id'] as String? ?? '',
       title: json['title'] as String? ?? '',
-      description: json['description'] as String? ?? '',
-      amount: json['amount'] as String? ?? '',
+      amount: json['amount'] as int? ?? 0,
       createAt: json['createAt'] as String? ?? '',
-      typeId: json['typeId'] as String? ?? '',
+      type: json['type'] as String? ?? '',
       userId: json['userId'] as String? ?? '',
       reportId: json['reportId'] as String? ?? '',
     );
@@ -24,10 +23,9 @@ Map<String, dynamic> _$$TransactionModelImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
-      'description': instance.description,
       'amount': instance.amount,
       'createAt': instance.createAt,
-      'typeId': instance.typeId,
+      'type': instance.type,
       'userId': instance.userId,
       'reportId': instance.reportId,
     };

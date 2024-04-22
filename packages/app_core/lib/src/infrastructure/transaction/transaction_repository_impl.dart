@@ -32,4 +32,8 @@ class TransactionRepositoryImpl implements TransactionRepository {
   @override
   Future<bool> updateOneTransaction(TransactionModel transaction) =>
       _remote.updateOneTransaction(transaction);
+
+  @override
+  Future<bool> createTransaction(TransactionModel transaction) =>
+      _remote.createTransaction(transaction);
 }

@@ -22,10 +22,9 @@ TransactionModel _$TransactionModelFromJson(Map<String, dynamic> json) {
 mixin _$TransactionModel {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get amount => throw _privateConstructorUsedError;
+  int get amount => throw _privateConstructorUsedError;
   String get createAt => throw _privateConstructorUsedError;
-  String get typeId => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   String get reportId => throw _privateConstructorUsedError;
 
@@ -44,10 +43,9 @@ abstract class $TransactionModelCopyWith<$Res> {
   $Res call(
       {String id,
       String title,
-      String description,
-      String amount,
+      int amount,
       String createAt,
-      String typeId,
+      String type,
       String userId,
       String reportId});
 }
@@ -67,10 +65,9 @@ class _$TransactionModelCopyWithImpl<$Res, $Val extends TransactionModel>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? description = null,
     Object? amount = null,
     Object? createAt = null,
-    Object? typeId = null,
+    Object? type = null,
     Object? userId = null,
     Object? reportId = null,
   }) {
@@ -83,21 +80,17 @@ class _$TransactionModelCopyWithImpl<$Res, $Val extends TransactionModel>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       createAt: null == createAt
           ? _value.createAt
           : createAt // ignore: cast_nullable_to_non_nullable
               as String,
-      typeId: null == typeId
-          ? _value.typeId
-          : typeId // ignore: cast_nullable_to_non_nullable
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as String,
       userId: null == userId
           ? _value.userId
@@ -122,10 +115,9 @@ abstract class _$$TransactionModelImplCopyWith<$Res>
   $Res call(
       {String id,
       String title,
-      String description,
-      String amount,
+      int amount,
       String createAt,
-      String typeId,
+      String type,
       String userId,
       String reportId});
 }
@@ -143,10 +135,9 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? description = null,
     Object? amount = null,
     Object? createAt = null,
-    Object? typeId = null,
+    Object? type = null,
     Object? userId = null,
     Object? reportId = null,
   }) {
@@ -159,21 +150,17 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       createAt: null == createAt
           ? _value.createAt
           : createAt // ignore: cast_nullable_to_non_nullable
               as String,
-      typeId: null == typeId
-          ? _value.typeId
-          : typeId // ignore: cast_nullable_to_non_nullable
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as String,
       userId: null == userId
           ? _value.userId
@@ -193,10 +180,9 @@ class _$TransactionModelImpl implements _TransactionModel {
   const _$TransactionModelImpl(
       {this.id = '',
       this.title = '',
-      this.description = '',
-      this.amount = '',
+      this.amount = 0,
       this.createAt = '',
-      this.typeId = '',
+      this.type = '',
       this.userId = '',
       this.reportId = ''});
 
@@ -211,16 +197,13 @@ class _$TransactionModelImpl implements _TransactionModel {
   final String title;
   @override
   @JsonKey()
-  final String description;
-  @override
-  @JsonKey()
-  final String amount;
+  final int amount;
   @override
   @JsonKey()
   final String createAt;
   @override
   @JsonKey()
-  final String typeId;
+  final String type;
   @override
   @JsonKey()
   final String userId;
@@ -230,7 +213,7 @@ class _$TransactionModelImpl implements _TransactionModel {
 
   @override
   String toString() {
-    return 'TransactionModel(id: $id, title: $title, description: $description, amount: $amount, createAt: $createAt, typeId: $typeId, userId: $userId, reportId: $reportId)';
+    return 'TransactionModel(id: $id, title: $title, amount: $amount, createAt: $createAt, type: $type, userId: $userId, reportId: $reportId)';
   }
 
   @override
@@ -240,12 +223,10 @@ class _$TransactionModelImpl implements _TransactionModel {
             other is _$TransactionModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.createAt, createAt) ||
                 other.createAt == createAt) &&
-            (identical(other.typeId, typeId) || other.typeId == typeId) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.reportId, reportId) ||
                 other.reportId == reportId));
@@ -253,8 +234,8 @@ class _$TransactionModelImpl implements _TransactionModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, description, amount,
-      createAt, typeId, userId, reportId);
+  int get hashCode => Object.hash(
+      runtimeType, id, title, amount, createAt, type, userId, reportId);
 
   @JsonKey(ignore: true)
   @override
@@ -275,10 +256,9 @@ abstract class _TransactionModel implements TransactionModel {
   const factory _TransactionModel(
       {final String id,
       final String title,
-      final String description,
-      final String amount,
+      final int amount,
       final String createAt,
-      final String typeId,
+      final String type,
       final String userId,
       final String reportId}) = _$TransactionModelImpl;
 
@@ -290,13 +270,11 @@ abstract class _TransactionModel implements TransactionModel {
   @override
   String get title;
   @override
-  String get description;
-  @override
-  String get amount;
+  int get amount;
   @override
   String get createAt;
   @override
-  String get typeId;
+  String get type;
   @override
   String get userId;
   @override

@@ -9,6 +9,8 @@ abstract class TransactionRemoteDataSource {
 
   Future<bool> removeReport(ReportModel report);
 
+  Future<bool> createTransaction(TransactionModel transaction);
+
   Future<List<TransactionModel>> getTransactions(String reportId);
 
   Future<bool> removeOneTransaction(String transactionId);

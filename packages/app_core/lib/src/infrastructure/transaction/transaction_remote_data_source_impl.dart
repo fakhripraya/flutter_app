@@ -55,9 +55,16 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
       .catchError((_) => false);
 
   @override
-  Future<List<TransactionModel>> getTransactions(String reportId) {
-    // TODO: implement getTransactions
-    throw UnimplementedError();
+  Future<List<TransactionModel>> getTransactions(String reportId) async {
+    final snapshot = await _transactionCollection
+        .where('reportId', isEqualTo: reportId)
+        .get();
+
+    return snapshot.docs
+        .map((e) => TransactionModel.fromJson(
+              e.data() as Map<String, dynamic>,
+            ).copyWith(id: e.id))
+        .toList();
   }
 
   @override
@@ -70,5 +77,20 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
   Future<bool> updateOneTransaction(TransactionModel transaction) {
     // TODO: implement updateOneTransaction
     throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> createTransaction(TransactionModel transaction) async {
+    final doc = await _transactionCollection.add(transaction.toJson());
+    final snapshot = await doc.get();
+
+    final mTransaction = TransactionModel.fromJson(
+      snapshot.data() as Map<String, dynamic>,
+    ).copyWith(id: doc.id);
+
+    return doc
+        .update(mTransaction.toJson())
+        .then((_) => true)
+        .catchError((_) => false);
   }
 }

@@ -7,6 +7,8 @@ abstract class TransactionUseCase {
 
   Future<bool> removeOne(ReportModel report);
 
+  Future<bool> createTransaction(TransactionModel transaction);
+
   Future<List<TransactionModel>> getTransactions(String reportId);
 
   Future<bool> removeOneTransaction(String transactionId);
