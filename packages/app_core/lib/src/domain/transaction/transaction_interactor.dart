@@ -37,4 +37,10 @@ class TransactionInteractor implements TransactionUseCase {
   @override
   Future<bool> createTransaction(TransactionModel transaction) =>
       _repository.createTransaction(transaction);
+
+  @override
+  Future<List<TransactionModel>> getIncomes() {
+    // TODO: implement getIncomes
+    throw UnimplementedError();
+  }
 }

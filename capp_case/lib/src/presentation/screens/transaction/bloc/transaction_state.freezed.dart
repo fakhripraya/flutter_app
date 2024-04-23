@@ -21,6 +21,8 @@ mixin _$TransactionState {
   String get createdAt => throw _privateConstructorUsedError;
   ReportModel get report => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
+  List<TransactionModel> get expenses => throw _privateConstructorUsedError;
+  List<TransactionModel> get incomes => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TransactionStateCopyWith<TransactionState> get copyWith =>
@@ -38,7 +40,9 @@ abstract class $TransactionStateCopyWith<$Res> {
       int amount,
       String createdAt,
       ReportModel report,
-      String type});
+      String type,
+      List<TransactionModel> expenses,
+      List<TransactionModel> incomes});
 
   $ReportModelCopyWith<$Res> get report;
 }
@@ -61,6 +65,8 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
     Object? createdAt = null,
     Object? report = null,
     Object? type = null,
+    Object? expenses = null,
+    Object? incomes = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -83,6 +89,14 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      expenses: null == expenses
+          ? _value.expenses
+          : expenses // ignore: cast_nullable_to_non_nullable
+              as List<TransactionModel>,
+      incomes: null == incomes
+          ? _value.incomes
+          : incomes // ignore: cast_nullable_to_non_nullable
+              as List<TransactionModel>,
     ) as $Val);
   }
 
@@ -108,7 +122,9 @@ abstract class _$$TransactionStateImplCopyWith<$Res>
       int amount,
       String createdAt,
       ReportModel report,
-      String type});
+      String type,
+      List<TransactionModel> expenses,
+      List<TransactionModel> incomes});
 
   @override
   $ReportModelCopyWith<$Res> get report;
@@ -130,6 +146,8 @@ class __$$TransactionStateImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? report = null,
     Object? type = null,
+    Object? expenses = null,
+    Object? incomes = null,
   }) {
     return _then(_$TransactionStateImpl(
       title: null == title
@@ -152,6 +170,14 @@ class __$$TransactionStateImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      expenses: null == expenses
+          ? _value._expenses
+          : expenses // ignore: cast_nullable_to_non_nullable
+              as List<TransactionModel>,
+      incomes: null == incomes
+          ? _value._incomes
+          : incomes // ignore: cast_nullable_to_non_nullable
+              as List<TransactionModel>,
     ));
   }
 }
@@ -164,7 +190,11 @@ class _$TransactionStateImpl implements _TransactionState {
       this.amount = 0,
       this.createdAt = '',
       this.report = const ReportModel(),
-      this.type = TypeTransaction.expense});
+      this.type = TypeTransaction.expense,
+      final List<TransactionModel> expenses = const [],
+      final List<TransactionModel> incomes = const []})
+      : _expenses = expenses,
+        _incomes = incomes;
 
   @override
   @JsonKey()
@@ -181,10 +211,27 @@ class _$TransactionStateImpl implements _TransactionState {
   @override
   @JsonKey()
   final String type;
+  final List<TransactionModel> _expenses;
+  @override
+  @JsonKey()
+  List<TransactionModel> get expenses {
+    if (_expenses is EqualUnmodifiableListView) return _expenses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_expenses);
+  }
+
+  final List<TransactionModel> _incomes;
+  @override
+  @JsonKey()
+  List<TransactionModel> get incomes {
+    if (_incomes is EqualUnmodifiableListView) return _incomes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_incomes);
+  }
 
   @override
   String toString() {
-    return 'TransactionState(title: $title, amount: $amount, createdAt: $createdAt, report: $report, type: $type)';
+    return 'TransactionState(title: $title, amount: $amount, createdAt: $createdAt, report: $report, type: $type, expenses: $expenses, incomes: $incomes)';
   }
 
   @override
@@ -197,12 +244,21 @@ class _$TransactionStateImpl implements _TransactionState {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.report, report) || other.report == report) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality().equals(other._expenses, _expenses) &&
+            const DeepCollectionEquality().equals(other._incomes, _incomes));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, title, amount, createdAt, report, type);
+  int get hashCode => Object.hash(
+      runtimeType,
+      title,
+      amount,
+      createdAt,
+      report,
+      type,
+      const DeepCollectionEquality().hash(_expenses),
+      const DeepCollectionEquality().hash(_incomes));
 
   @JsonKey(ignore: true)
   @override
@@ -218,7 +274,9 @@ abstract class _TransactionState implements TransactionState {
       final int amount,
       final String createdAt,
       final ReportModel report,
-      final String type}) = _$TransactionStateImpl;
+      final String type,
+      final List<TransactionModel> expenses,
+      final List<TransactionModel> incomes}) = _$TransactionStateImpl;
 
   @override
   String get title;
@@ -230,6 +288,10 @@ abstract class _TransactionState implements TransactionState {
   ReportModel get report;
   @override
   String get type;
+  @override
+  List<TransactionModel> get expenses;
+  @override
+  List<TransactionModel> get incomes;
   @override
   @JsonKey(ignore: true)
   _$$TransactionStateImplCopyWith<_$TransactionStateImpl> get copyWith =>

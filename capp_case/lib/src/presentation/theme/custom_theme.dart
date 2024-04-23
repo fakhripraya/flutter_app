@@ -31,9 +31,23 @@ class CustomTheme {
       focusedBorder: outlineInputBorder,
     );
 
+    const appBarTheme = AppBarTheme(
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      backgroundColor: Colors.black,
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        color: Colors.white,
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+
     return theme.copyWith(
       elevatedButtonTheme: elevatedButtonThemeData,
       inputDecorationTheme: inputDecorationTheme,
+      appBarTheme: appBarTheme,
     );
   }
 }

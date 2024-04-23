@@ -72,14 +72,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: Theme.of(context).iconTheme.copyWith(color: Colors.white),
-        titleTextStyle: const TextStyle(
-          fontSize: 16,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
-        backgroundColor: Colors.black,
-        centerTitle: true,
         title: Builder(
           builder: (ctx) {
             final title = ctx.watch<TransactionBloc>().state.report.title;

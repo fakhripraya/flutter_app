@@ -12,5 +12,7 @@ class TransactionState with _$TransactionState {
     @Default('') String createdAt,
     @Default(ReportModel()) ReportModel report,
     @Default(TypeTransaction.expense) String type,
+    @Default([]) List<TransactionModel> expenses,
+    @Default([]) List<TransactionModel> incomes,
   }) = _TransactionState;
 }

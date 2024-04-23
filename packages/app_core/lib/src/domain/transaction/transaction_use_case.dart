@@ -14,4 +14,6 @@ abstract class TransactionUseCase {
   Future<bool> removeOneTransaction(String transactionId);
 
   Future<bool> updateOneTransaction(TransactionModel transaction);
+
+  Future<List<TransactionModel>> getIncomes();
 }
