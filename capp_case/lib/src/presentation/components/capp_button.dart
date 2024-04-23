@@ -5,6 +5,7 @@ class CAPPElevatedButton extends StatelessWidget {
   final String text;
   final Widget? icon;
   final Color? textColor;
+  final double? textSize;
   final Color? backgroundColor;
   final EdgeInsetsGeometry? padding;
   final BoxConstraints? containerBoxConstraints;
@@ -15,6 +16,7 @@ class CAPPElevatedButton extends StatelessWidget {
       required this.text,
       this.icon,
       this.textColor,
+      this.textSize,
       this.backgroundColor,
       this.padding,
       this.containerBoxConstraints});
@@ -32,6 +34,7 @@ class CAPPElevatedButton extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
+              fontSize: textSize,
               color: textColor ?? Colors.black,
             ),
           ),

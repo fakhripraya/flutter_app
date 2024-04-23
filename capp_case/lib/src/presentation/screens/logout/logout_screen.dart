@@ -67,9 +67,10 @@ class LogoutScreen extends StatelessWidget {
                     text: 'Logout',
                     backgroundColor: Colors.black,
                     textColor: Colors.white,
-                    padding: const EdgeInsets.all(8),
+                    textSize: 18,
+                    padding: const EdgeInsets.all(0),
                     containerBoxConstraints:
-                        const BoxConstraints(minHeight: 58, maxWidth: 250),
+                        const BoxConstraints(minHeight: 58, maxWidth: 275),
                   ),
                 ],
               ),
