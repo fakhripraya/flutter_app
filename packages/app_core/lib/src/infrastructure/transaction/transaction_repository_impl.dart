@@ -36,4 +36,12 @@ class TransactionRepositoryImpl implements TransactionRepository {
   @override
   Future<bool> createTransaction(TransactionModel transaction) =>
       _remote.createTransaction(transaction);
+
+  @override
+  Future<List<TransactionModel>> getExpenses(String reportId) =>
+      _remote.getExpenses(reportId);
+
+  @override
+  Future<List<TransactionModel>> getIncomes(String reportId) =>
+      _remote.getIncomes(reportId);
 }

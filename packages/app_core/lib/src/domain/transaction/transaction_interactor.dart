@@ -39,8 +39,12 @@ class TransactionInteractor implements TransactionUseCase {
       _repository.createTransaction(transaction);
 
   @override
-  Future<List<TransactionModel>> getIncomes() {
-    // TODO: implement getIncomes
-    throw UnimplementedError();
+  Future<List<TransactionModel>> getIncomes(String reportId) {
+   return _repository.getIncomes(reportId);
+  }
+
+  @override
+  Future<List<TransactionModel>> getExpenses(String reportId) {
+   return _repository.getExpenses(reportId);
   }
 }

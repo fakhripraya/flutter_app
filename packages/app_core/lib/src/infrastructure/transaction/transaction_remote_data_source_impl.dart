@@ -61,9 +61,7 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
         .get();
 
     return snapshot.docs
-        .map((e) => TransactionModel.fromJson(
-              e.data() as Map<String, dynamic>,
-            ).copyWith(id: e.id))
+        .map((e) => TransactionModel.fromJson(e.data() as Map<String, dynamic>))
         .toList();
   }
 
@@ -92,5 +90,29 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
         .update(mTransaction.toJson())
         .then((_) => true)
         .catchError((_) => false);
+  }
+
+  @override
+  Future<List<TransactionModel>> getExpenses(String reportId) async {
+    final snapshot = await _transactionCollection
+        .where('reportId', isEqualTo: reportId)
+        .where('type', isEqualTo: 'expense')
+        .get();
+
+    return snapshot.docs
+        .map((e) => TransactionModel.fromJson(e.data() as Map<String, dynamic>))
+        .toList();
+  }
+
+  @override
+  Future<List<TransactionModel>> getIncomes(String reportId) async {
+    final snapshot = await _transactionCollection
+        .where('reportId', isEqualTo: reportId)
+        .where('type', isEqualTo: 'income')
+        .get();
+
+    return snapshot.docs
+        .map((e) => TransactionModel.fromJson(e.data() as Map<String, dynamic>))
+        .toList();
   }
 }

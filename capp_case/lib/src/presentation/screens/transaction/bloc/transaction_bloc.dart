@@ -35,7 +35,11 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   void _started(
     TransactionStarted event,
     Emitter<TransactionState> emit,
-  ) {}
+  ) async {
+    final expense = await _transactionUseCase.getExpenses(state.report.id);
+    final incomes = await _transactionUseCase.getIncomes(state.report.id);
+    emit(state.copyWith(expenses: expense, incomes: incomes));
+  }
 
   void _setType(
     TransactionSetType event,
@@ -102,6 +106,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     final result = await _transactionUseCase.createTransaction(transaction);
     if (!result) result;
     event.callback();
+    add(const TransactionStarted());
     _navigation.pop();
   }
 }

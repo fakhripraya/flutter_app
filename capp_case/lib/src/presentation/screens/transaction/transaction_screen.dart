@@ -395,7 +395,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
     );
   }
 
-  Widget _transactionCardWidget() {
+  Widget _transactionCardWidget(TransactionModel trx) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -404,33 +404,33 @@ class _TransactionScreenState extends State<TransactionScreen> {
           color: Colors.black,
         ),
       ),
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Expanse',
-                style: TextStyle(
+                trx.type.toCapital(),
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text('Bayar Internet'),
+              Text(trx.title),
             ],
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                'Friday, 12 Mei 2024',
-                style: TextStyle(
+                trx.createAt.dateFormat(),
+                style: const TextStyle(
                   fontSize: 12,
                 ),
               ),
               Text(
-                'Rp200.000',
-                style: TextStyle(
+                trx.amount.idr(),
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -446,10 +446,10 @@ class _TransactionScreenState extends State<TransactionScreen> {
       children: [
         _titleAndMore(title: 'Expanse'),
         Builder(
-          builder: (context) {
-            const transactions = [1, 2, 3];
+          builder: (ctx) {
+            final expenses = ctx.watch<TransactionBloc>().state.expenses;
             return _transactionsWidget(
-              transactions: [],
+              transactions: expenses,
             );
           },
         ),
@@ -464,12 +464,13 @@ class _TransactionScreenState extends State<TransactionScreen> {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return _transactionCardWidget();
+        final transaction = transactions[index];
+        return _transactionCardWidget(transaction);
       },
       separatorBuilder: (context, index) {
         return const SizedBox(height: 16);
       },
-      itemCount: 3,
+      itemCount: transactions.length,
     );
   }
 
@@ -478,9 +479,10 @@ class _TransactionScreenState extends State<TransactionScreen> {
       children: [
         _titleAndMore(title: 'Income'),
         Builder(
-          builder: (context) {
+          builder: (ctx) {
+            final incomes = ctx.watch<TransactionBloc>().state.incomes;
             return _transactionsWidget(
-              transactions: [],
+              transactions: incomes,
             );
           },
         ),
