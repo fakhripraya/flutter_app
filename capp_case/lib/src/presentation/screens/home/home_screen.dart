@@ -9,50 +9,63 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  Widget _buildList(BuildContext context) {
-    context.read<HomeBloc>().add(const DoGetAllReports());
-    final isLoading =
-        context.select((HomeBloc bloc) => bloc.state.isReportLoading);
-    final reports = context.select((HomeBloc bloc) => bloc.state.reports);
+  void _showCreateReport(BuildContext context) => showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Padding(
+            padding: const EdgeInsets.all(32),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Text(
+                  'Create Report',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 26,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Text("Why is this report issued?"),
+                const SizedBox(height: 4),
+                TextField(
+                  onChanged: (value) {
+                    context
+                        .read<HomeBloc>()
+                        .add(HomeSetReportTitle(value: value));
+                  },
+                  style: const TextStyle(fontSize: 14),
+                  decoration: const InputDecoration(
+                    hintText: 'Write...',
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Builder(
+                  builder: (ctx) {
+                    final state = ctx.watch<HomeBloc>().state;
+                    VoidCallback? onPressed;
 
-    if (isLoading) {
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
-    }
+                    if (state.reportTitle.isNotEmpty) {
+                      onPressed = () {
+                        context.read<HomeBloc>().add(
+                            HomeShowCreateReportBottomSheet(context: context));
+                      };
+                    }
 
-    return SizedBox(
-      height: 300,
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: reports.length,
-        itemBuilder: (context, index) {
-          final entry = reports[index];
-          final id = entry.id;
-          final title = entry.title;
+                    if (state.isReportCreateLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
 
-          return Container(
-            margin: const EdgeInsets.only(bottom: 20),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: ListTile(
-              onTap: () {
-                //FIXME: CHANGE VALUE WITH THE RIGHT PAGE ROUTE
-                Navigator.restorablePushNamed(context, Routes.login);
-              },
-              trailing: const Text("Rp.8000.000,00"),
-              title: Text(
-                '$title - $id',
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
+                    return ElevatedButton(
+                      onPressed: onPressed,
+                      child: const Text('Create'),
+                    );
+                  },
+                ),
+              ],
             ),
           );
         },
-      ),
-    );
-  }
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +87,7 @@ class HomeScreen extends StatelessWidget {
             icon: const Icon(Icons.settings),
             onPressed: () {
               /// do something
+              Navigator.restorablePushNamed(context, Routes.logout);
             },
           ),
         ],
@@ -262,66 +276,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  void _showCreateReport(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Padding(
-          padding: const EdgeInsets.all(32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Text(
-                'Create Report',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 26,
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text("Why is this report issued?"),
-              const SizedBox(height: 4),
-              TextField(
-                onChanged: (value) {
-                  context
-                      .read<HomeBloc>()
-                      .add(HomeSetReportTitle(value: value));
-                },
-                style: const TextStyle(fontSize: 14),
-                decoration: const InputDecoration(
-                  hintText: 'Write...',
-                ),
-              ),
-              const SizedBox(height: 16),
-              Builder(
-                builder: (ctx) {
-                  final state = ctx.watch<HomeBloc>().state;
-                  VoidCallback? onPressed;
-
-                  if (state.reportTitle.isNotEmpty) {
-                    onPressed = () {
-                      context.read<HomeBloc>().add(
-                          HomeShowCreateReportBottomSheet(context: context));
-                    };
-                  }
-
-                  if (state.isReportCreateLoading) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-
-                  return ElevatedButton(
-                    onPressed: onPressed,
-                    child: const Text('Create'),
-                  );
-                },
-              ),
-            ],
-          ),
-        );
-      },
     );
   }
 }

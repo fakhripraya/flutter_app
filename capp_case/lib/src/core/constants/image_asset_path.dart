@@ -3,4 +3,5 @@ class ImageAssetPath {
   static final budget = _getPath('budget.png');
   static final money = _getPath('ic_money.png');
   static final google = _getPath('ic_google.png');
+  static final placeholderPFP = _getPath('placeholder_pfp.png');
 }

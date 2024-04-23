@@ -6,25 +6,29 @@ class CAPPElevatedButton extends StatelessWidget {
   final Widget? icon;
   final Color? textColor;
   final Color? backgroundColor;
+  final EdgeInsetsGeometry? padding;
+  final BoxConstraints? containerBoxConstraints;
 
-  const CAPPElevatedButton({
-    super.key,
-    required this.onPressed,
-    required this.text,
-    this.icon,
-    this.textColor,
-    this.backgroundColor,
-  });
+  const CAPPElevatedButton(
+      {super.key,
+      required this.onPressed,
+      required this.text,
+      this.icon,
+      this.textColor,
+      this.backgroundColor,
+      this.padding,
+      this.containerBoxConstraints});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      constraints: const BoxConstraints(minHeight: 58),
+      constraints:
+          containerBoxConstraints ?? const BoxConstraints(minHeight: 58),
       child: ElevatedButton.icon(
         icon: icon ?? const SizedBox(),
         label: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: padding ?? const EdgeInsets.all(16.0),
           child: Text(
             text,
             style: TextStyle(
