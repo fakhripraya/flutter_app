@@ -29,14 +29,11 @@ class CAPPElevatedButton extends StatelessWidget {
           containerBoxConstraints ?? const BoxConstraints(minHeight: 58),
       child: ElevatedButton.icon(
         icon: icon ?? const SizedBox(),
-        label: Padding(
-          padding: padding ?? const EdgeInsets.all(16.0),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: textSize,
-              color: textColor ?? Colors.black,
-            ),
+        label: Text(
+          text,
+          style: TextStyle(
+            fontSize: textSize,
+            color: textColor ?? Colors.black,
           ),
         ),
         style: ElevatedButton.styleFrom(

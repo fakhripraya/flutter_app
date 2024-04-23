@@ -117,23 +117,49 @@ class _TransactionScreenState extends State<TransactionScreen> {
           Row(
             children: [
               Expanded(
-                child: _titleAndSubtitle(
-                  title: 'TOTAL EXPANSE',
-                  subtitle: 'Rp400.000.000',
+                child: Builder(
+                  builder: (ctx) {
+                    final price =
+                        ctx.watch<TransactionBloc>().state.expenses.calculate();
+
+                    return _titleAndSubtitle(
+                      title: 'TOTAL EXPANSE',
+                      subtitle: price.idr(),
+                    );
+                  },
                 ),
               ),
               Expanded(
-                child: _titleAndSubtitle(
-                  title: 'TOTAL INCOME',
-                  subtitle: 'Rp400.000.000',
+                child: Builder(
+                  builder: (ctx) {
+                    final price =
+                        ctx.watch<TransactionBloc>().state.incomes.calculate();
+
+                    return _titleAndSubtitle(
+                      title: 'TOTAL INCOME',
+                      subtitle: price.idr(),
+                    );
+                  },
                 ),
               ),
             ],
           ),
           const SizedBox(height: 16),
-          _titleAndSubtitle(
-            title: 'MY CURRENT AMOUNT',
-            subtitle: 'Rp400.000.000',
+          Builder(
+            builder: (ctx) {
+              final priceIncome =
+                  ctx.watch<TransactionBloc>().state.incomes.calculate();
+
+              final priceExpense =
+                  ctx.watch<TransactionBloc>().state.expenses.calculate();
+
+              final price = priceIncome - priceExpense;
+
+              return _titleAndSubtitle(
+                title: 'MY CURRENT AMOUNT',
+                subtitle: price.idr(),
+              );
+            },
           ),
         ],
       ),

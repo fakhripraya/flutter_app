@@ -1,3 +1,4 @@
+import 'package:app_core/app_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -38,5 +39,17 @@ extension IntUtils on int {
 extension StringDateFormat on String {
   String dateFormat() {
     return DateFormat("EEEE, dd MMMM yyyy").format(DateTime.parse(this));
+  }
+}
+
+extension TrasactionUtils on List<TransactionModel> {
+  int calculate() {
+    int price = 0;
+
+    for (var trx in this) {
+      price += trx.amount;
+    }
+
+    return price;
   }
 }
