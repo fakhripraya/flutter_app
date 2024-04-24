@@ -93,11 +93,19 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
   }
 
   @override
-  Future<List<TransactionModel>> getExpenses(String reportId) async {
-    final snapshot = await _transactionCollection
-        .where('reportId', isEqualTo: reportId)
-        .where('type', isEqualTo: 'expense')
-        .get();
+  Future<List<TransactionModel>> getExpenses(
+      String? reportId, String? userId) async {
+    var query = _transactionCollection.where('type', isEqualTo: 'expense');
+
+    if (reportId != null) {
+      query = query.where('reportId', isEqualTo: reportId);
+    }
+
+    if (userId != null) {
+      query = query.where('userId', isEqualTo: userId);
+    }
+
+    final snapshot = await query.get();
 
     return snapshot.docs
         .map((e) => TransactionModel.fromJson(e.data() as Map<String, dynamic>))
@@ -105,11 +113,19 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
   }
 
   @override
-  Future<List<TransactionModel>> getIncomes(String reportId) async {
-    final snapshot = await _transactionCollection
-        .where('reportId', isEqualTo: reportId)
-        .where('type', isEqualTo: 'income')
-        .get();
+  Future<List<TransactionModel>> getIncomes(
+      String? reportId, String? userId) async {
+    var query = _transactionCollection.where('type', isEqualTo: 'income');
+
+    if (reportId != null) {
+      query = query.where('reportId', isEqualTo: reportId);
+    }
+
+    if (userId != null) {
+      query = query.where('userId', isEqualTo: userId);
+    }
+
+    final snapshot = await query.get();
 
     return snapshot.docs
         .map((e) => TransactionModel.fromJson(e.data() as Map<String, dynamic>))

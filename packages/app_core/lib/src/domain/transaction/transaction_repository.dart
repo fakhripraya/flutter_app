@@ -17,7 +17,7 @@ abstract class TransactionRepository {
 
   Future<bool> updateOneTransaction(TransactionModel transaction);
 
-  Future<List<TransactionModel>> getIncomes(String reportId);
+  Future<List<TransactionModel>> getIncomes(String? reportId, String? userId);
 
-  Future<List<TransactionModel>> getExpenses(String reportId);
+  Future<List<TransactionModel>> getExpenses(String? reportId, String? userId);
 }

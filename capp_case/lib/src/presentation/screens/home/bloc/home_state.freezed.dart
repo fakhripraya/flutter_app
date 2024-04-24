@@ -21,6 +21,8 @@ mixin _$HomeState {
   String get reportTitle => throw _privateConstructorUsedError;
   UserModel get user => throw _privateConstructorUsedError;
   bool get isReportCreateLoading => throw _privateConstructorUsedError;
+  List<TransactionModel> get expenses => throw _privateConstructorUsedError;
+  List<TransactionModel> get incomes => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -37,7 +39,9 @@ abstract class $HomeStateCopyWith<$Res> {
       List<ReportModel> reports,
       String reportTitle,
       UserModel user,
-      bool isReportCreateLoading});
+      bool isReportCreateLoading,
+      List<TransactionModel> expenses,
+      List<TransactionModel> incomes});
 
   $UserModelCopyWith<$Res> get user;
 }
@@ -60,6 +64,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? reportTitle = null,
     Object? user = null,
     Object? isReportCreateLoading = null,
+    Object? expenses = null,
+    Object? incomes = null,
   }) {
     return _then(_value.copyWith(
       isReportLoading: null == isReportLoading
@@ -82,6 +88,14 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.isReportCreateLoading
           : isReportCreateLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      expenses: null == expenses
+          ? _value.expenses
+          : expenses // ignore: cast_nullable_to_non_nullable
+              as List<TransactionModel>,
+      incomes: null == incomes
+          ? _value.incomes
+          : incomes // ignore: cast_nullable_to_non_nullable
+              as List<TransactionModel>,
     ) as $Val);
   }
 
@@ -107,7 +121,9 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       List<ReportModel> reports,
       String reportTitle,
       UserModel user,
-      bool isReportCreateLoading});
+      bool isReportCreateLoading,
+      List<TransactionModel> expenses,
+      List<TransactionModel> incomes});
 
   @override
   $UserModelCopyWith<$Res> get user;
@@ -129,6 +145,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? reportTitle = null,
     Object? user = null,
     Object? isReportCreateLoading = null,
+    Object? expenses = null,
+    Object? incomes = null,
   }) {
     return _then(_$HomeStateImpl(
       isReportLoading: null == isReportLoading
@@ -151,6 +169,14 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.isReportCreateLoading
           : isReportCreateLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      expenses: null == expenses
+          ? _value._expenses
+          : expenses // ignore: cast_nullable_to_non_nullable
+              as List<TransactionModel>,
+      incomes: null == incomes
+          ? _value._incomes
+          : incomes // ignore: cast_nullable_to_non_nullable
+              as List<TransactionModel>,
     ));
   }
 }
@@ -163,8 +189,12 @@ class _$HomeStateImpl implements _HomeState {
       final List<ReportModel> reports = const [],
       this.reportTitle = '',
       this.user = const UserModel(),
-      this.isReportCreateLoading = false})
-      : _reports = reports;
+      this.isReportCreateLoading = false,
+      final List<TransactionModel> expenses = const [],
+      final List<TransactionModel> incomes = const []})
+      : _reports = reports,
+        _expenses = expenses,
+        _incomes = incomes;
 
   @override
   @JsonKey()
@@ -187,10 +217,27 @@ class _$HomeStateImpl implements _HomeState {
   @override
   @JsonKey()
   final bool isReportCreateLoading;
+  final List<TransactionModel> _expenses;
+  @override
+  @JsonKey()
+  List<TransactionModel> get expenses {
+    if (_expenses is EqualUnmodifiableListView) return _expenses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_expenses);
+  }
+
+  final List<TransactionModel> _incomes;
+  @override
+  @JsonKey()
+  List<TransactionModel> get incomes {
+    if (_incomes is EqualUnmodifiableListView) return _incomes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_incomes);
+  }
 
   @override
   String toString() {
-    return 'HomeState(isReportLoading: $isReportLoading, reports: $reports, reportTitle: $reportTitle, user: $user, isReportCreateLoading: $isReportCreateLoading)';
+    return 'HomeState(isReportLoading: $isReportLoading, reports: $reports, reportTitle: $reportTitle, user: $user, isReportCreateLoading: $isReportCreateLoading, expenses: $expenses, incomes: $incomes)';
   }
 
   @override
@@ -205,7 +252,9 @@ class _$HomeStateImpl implements _HomeState {
                 other.reportTitle == reportTitle) &&
             (identical(other.user, user) || other.user == user) &&
             (identical(other.isReportCreateLoading, isReportCreateLoading) ||
-                other.isReportCreateLoading == isReportCreateLoading));
+                other.isReportCreateLoading == isReportCreateLoading) &&
+            const DeepCollectionEquality().equals(other._expenses, _expenses) &&
+            const DeepCollectionEquality().equals(other._incomes, _incomes));
   }
 
   @override
@@ -215,7 +264,9 @@ class _$HomeStateImpl implements _HomeState {
       const DeepCollectionEquality().hash(_reports),
       reportTitle,
       user,
-      isReportCreateLoading);
+      isReportCreateLoading,
+      const DeepCollectionEquality().hash(_expenses),
+      const DeepCollectionEquality().hash(_incomes));
 
   @JsonKey(ignore: true)
   @override
@@ -230,7 +281,9 @@ abstract class _HomeState implements HomeState {
       final List<ReportModel> reports,
       final String reportTitle,
       final UserModel user,
-      final bool isReportCreateLoading}) = _$HomeStateImpl;
+      final bool isReportCreateLoading,
+      final List<TransactionModel> expenses,
+      final List<TransactionModel> incomes}) = _$HomeStateImpl;
 
   @override
   bool get isReportLoading;
@@ -242,6 +295,10 @@ abstract class _HomeState implements HomeState {
   UserModel get user;
   @override
   bool get isReportCreateLoading;
+  @override
+  List<TransactionModel> get expenses;
+  @override
+  List<TransactionModel> get incomes;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>

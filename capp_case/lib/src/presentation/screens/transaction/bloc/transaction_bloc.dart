@@ -36,8 +36,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     TransactionStarted event,
     Emitter<TransactionState> emit,
   ) async {
-    final expense = await _transactionUseCase.getExpenses(state.report.id);
-    final incomes = await _transactionUseCase.getIncomes(state.report.id);
+    final expense =
+        await _transactionUseCase.getExpenses(state.report.id, null);
+    final incomes = await _transactionUseCase.getIncomes(state.report.id, null);
     emit(state.copyWith(expenses: expense, incomes: incomes));
   }
 

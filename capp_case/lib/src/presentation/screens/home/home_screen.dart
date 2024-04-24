@@ -1,4 +1,5 @@
 import 'package:capp_case/src/core/constants/routes.dart';
+import 'package:capp_case/src/core/utils/util.dart';
 import 'package:capp_case/src/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:capp_case/src/presentation/screens/home/bloc/home_event.dart';
 import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_bloc.dart';
@@ -115,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                           Container(
                             alignment: Alignment.centerLeft,
                             child: const Text(
-                              'April 2024',
+                              'Grand Total',
                               style: TextStyle(
                                   fontSize: 24, fontWeight: FontWeight.bold),
                             ),
@@ -125,35 +126,59 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               Container(
                                   alignment: Alignment.centerLeft,
-                                  child: const Column(
+                                  child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'Total Expense',
+                                      const Text(
+                                        'Expense',
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      Text(
-                                        'Rp.1000.000',
+                                      Builder(
+                                        builder: (ctx) {
+                                          final expenses = ctx
+                                              .watch<HomeBloc>()
+                                              .state
+                                              .expenses
+                                              .calculate();
+                                          return Text(
+                                            expenses.idr(),
+                                            style: const TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24),
+                                          );
+                                        },
                                       ),
                                     ],
                                   )),
                               Container(
                                   alignment: Alignment.centerLeft,
-                                  child: const Column(
+                                  child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'Total Income',
+                                      const Text(
+                                        'Income',
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      Text(
-                                        'Rp.1000.000',
+                                      Builder(
+                                        builder: (ctx) {
+                                          final incomes = ctx
+                                              .watch<HomeBloc>()
+                                              .state
+                                              .incomes
+                                              .calculate();
+                                          return Text(
+                                            incomes.idr(),
+                                            style: const TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24),
+                                          );
+                                        },
                                       ),
                                     ],
                                   )),
@@ -165,7 +190,7 @@ class HomeScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'My Current Amount',
+                                    'Amount',
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),

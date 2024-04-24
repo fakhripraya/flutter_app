@@ -11,5 +11,7 @@ class HomeState with _$HomeState {
     @Default('') String reportTitle,
     @Default(UserModel()) UserModel user,
     @Default(false) bool isReportCreateLoading,
+    @Default([]) List<TransactionModel> expenses,
+    @Default([]) List<TransactionModel> incomes,
   }) = _HomeState;
 }

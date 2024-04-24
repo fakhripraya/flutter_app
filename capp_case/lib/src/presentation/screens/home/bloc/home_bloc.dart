@@ -2,7 +2,6 @@ import 'package:app_core/app_core.dart';
 import 'package:capp_case/src/core/utils/util.dart';
 import 'package:capp_case/src/presentation/screens/home/bloc/home_event.dart';
 import 'package:capp_case/src/presentation/screens/home/bloc/home_state.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
@@ -27,6 +26,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(const HomeState());
 
   void _started(HomeStarted e, Emitter<HomeState> emit) async {
+    final expense = await _transactionUseCase.getExpenses(null, state.user.id);
+    final incomes = await _transactionUseCase.getIncomes(null, state.user.id);
+
+    emit(state.copyWith(expenses: expense, incomes: incomes));
+
     emit(state.copyWith(isReportLoading: true));
     emit(state.copyWith(user: (await _authUseCase.getProfile())!));
 
