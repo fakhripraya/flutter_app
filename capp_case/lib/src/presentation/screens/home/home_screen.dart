@@ -7,8 +7,30 @@ import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late final _bloc = context.read<HomeBloc>();
+
+  void _initial() {
+    _bloc.add(const HomeStarted());
+  }
+
+  @override
+  void initState() {
+    _initial();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   void _showCreateReport(BuildContext context) => showModalBottomSheet(
         context: context,
@@ -70,8 +92,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<HomeBloc>().add(const HomeStarted());
-
     return Scaffold(
       appBar: AppBar(
         title: Builder(
@@ -87,7 +107,6 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              /// do something
               Navigator.restorablePushNamed(context, Routes.profile);
             },
           ),
@@ -186,17 +205,34 @@ class HomeScreen extends StatelessWidget {
                           ),
                           Container(
                               alignment: Alignment.centerLeft,
-                              child: const Column(
+                              child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Amount',
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Text(
-                                    'Rp.8000.000',
+                                  Builder(
+                                    builder: (ctx) {
+                                      final incomes = ctx
+                                          .watch<HomeBloc>()
+                                          .state
+                                          .incomes
+                                          .calculate();
+                                      final expenses = ctx
+                                          .watch<HomeBloc>()
+                                          .state
+                                          .expenses
+                                          .calculate();
+                                      return Text(
+                                        (incomes - expenses).idr(),
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 24),
+                                      );
+                                    },
                                   ),
                                 ],
                               )),
@@ -262,6 +298,7 @@ class HomeScreen extends StatelessWidget {
                             onPressed: () {
                               context.read<HomeBloc>().add(HomeRemoveOneReport(
                                   context: context, report: report));
+                              context.read<HomeBloc>().add(const HomeStarted());
                             },
                             icon: const Icon(Icons.delete),
                           ),

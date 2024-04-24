@@ -26,13 +26,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(const HomeState());
 
   void _started(HomeStarted e, Emitter<HomeState> emit) async {
+    emit(state.copyWith(user: (await _authUseCase.getProfile())!));
     final expense = await _transactionUseCase.getExpenses(null, state.user.id);
     final incomes = await _transactionUseCase.getIncomes(null, state.user.id);
 
     emit(state.copyWith(expenses: expense, incomes: incomes));
 
     emit(state.copyWith(isReportLoading: true));
-    emit(state.copyWith(user: (await _authUseCase.getProfile())!));
 
     final reports = await _transactionUseCase.doGetAllReports(
       User(id: state.user.id, username: state.user.username),

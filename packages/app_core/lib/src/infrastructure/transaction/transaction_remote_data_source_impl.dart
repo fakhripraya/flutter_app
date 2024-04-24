@@ -41,11 +41,24 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
   }
 
   @override
-  Future<bool> removeReport(ReportModel report) => _reportCollection
-      .doc(report.id)
-      .delete()
-      .then((_) => true)
-      .catchError((_) => false);
+  Future<bool> removeReport(ReportModel report) {
+    _transactionCollection
+        .where('reportId', isEqualTo: report.id)
+        .get()
+        // ignore: avoid_function_literals_in_foreach_calls
+        .then((value) => value.docs.forEach((element) {
+              _transactionCollection
+                  .doc(element.id)
+                  .delete()
+                  .then((_) => true)
+                  .catchError((_) => false);
+            }));
+    return _reportCollection
+        .doc(report.id)
+        .delete()
+        .then((_) => true)
+        .catchError((_) => false);
+  }
 
   @override
   Future<bool> updateReport(ReportModel report) => _reportCollection

@@ -1,6 +1,8 @@
 import 'package:app_core/app_core.dart';
 import 'package:capp_case/src/core/constants/type_transaction.dart';
 import 'package:capp_case/src/core/utils/util.dart';
+import 'package:capp_case/src/presentation/screens/home/bloc/home_bloc.dart';
+import 'package:capp_case/src/presentation/screens/home/bloc/home_event.dart';
 import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_bloc.dart';
 import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_event.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +53,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
     _dateController.text = createdAt;
     _titleController.text = '';
     _amountController.text = '';
+    context.read<HomeBloc>().add(const HomeStarted());
   }
 
   @override
