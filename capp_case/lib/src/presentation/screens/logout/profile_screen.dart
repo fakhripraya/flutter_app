@@ -1,16 +1,17 @@
 import 'package:capp_case/src/core/constants/image_asset_path.dart';
 import 'package:capp_case/src/presentation/components/capp_button.dart';
 import 'package:capp_case/src/presentation/screens/home/bloc/home_bloc.dart';
-import 'package:capp_case/src/presentation/screens/home/bloc/home_event.dart';
+import 'package:capp_case/src/presentation/screens/logout/bloc/profile_bloc.dart';
+import 'package:capp_case/src/presentation/screens/logout/bloc/profile_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LogoutScreen extends StatelessWidget {
-  const LogoutScreen({super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    context.read<HomeBloc>().add(const HomeStarted());
+    context.read<ProfileBloc>().add(const ProfileStarted());
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -44,25 +45,38 @@ class LogoutScreen extends StatelessWidget {
                       ImageAssetPath.placeholderPFP,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 12, top: 12),
-                    child: Text(
-                      'Rizalflutter',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12, top: 12),
+                    child: Builder(
+                      builder: (ctx) {
+                        final state = ctx.watch<HomeBloc>().state;
+                        return Text(
+                          state.user.username,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 24),
+                        );
+                      },
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 12),
-                    child: Text(
-                      'Rizal@flutter.com',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: Builder(
+                      builder: (ctx) {
+                        final state = ctx.watch<HomeBloc>().state;
+                        return Text(
+                          state.user.email,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 24),
+                        );
+                      },
                     ),
                   ),
                   CAPPElevatedButton(
                     onPressed: () {
                       //do something
+                      context.read<ProfileBloc>().add(
+                            const ProfileDoLogout(),
+                          );
                     },
                     text: 'Logout',
                     backgroundColor: Colors.black,

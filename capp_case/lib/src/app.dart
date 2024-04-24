@@ -5,7 +5,8 @@ import 'package:capp_case/src/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:capp_case/src/presentation/screens/home/home_screen.dart';
 import 'package:capp_case/src/presentation/screens/login/bloc/login_bloc.dart';
 import 'package:capp_case/src/presentation/screens/login/login_screen.dart';
-import 'package:capp_case/src/presentation/screens/logout/logout_screen.dart';
+import 'package:capp_case/src/presentation/screens/logout/bloc/profile_bloc.dart';
+import 'package:capp_case/src/presentation/screens/logout/profile_screen.dart';
 import 'package:capp_case/src/presentation/screens/splash/bloc/splash_bloc.dart';
 import 'package:capp_case/src/presentation/screens/splash/splash_screen.dart';
 import 'package:capp_case/src/presentation/screens/transaction/bloc/transaction_bloc.dart';
@@ -38,6 +39,7 @@ class App extends StatelessWidget {
         _provider(getItCappCase<LoginBloc>()),
         _provider(getItCappCase<HomeBloc>()),
         _provider(getItCappCase<TransactionBloc>()),
+        _provider(getItCappCase<ProfileBloc>()),
       ],
       child: MaterialApp(
         theme: CustomTheme.theme,
@@ -47,7 +49,7 @@ class App extends StatelessWidget {
         routes: {
           Routes.splash: (_) => const SplashScreen(),
           Routes.login: (_) => const LoginScreen(),
-          Routes.logout: (_) => const LogoutScreen(),
+          Routes.profile: (_) => const ProfileScreen(),
           Routes.home: (_) => const HomeScreen(),
           Routes.transaction: (_) => const TransactionScreen(),
         },
