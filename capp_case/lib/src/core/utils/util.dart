@@ -37,7 +37,11 @@ extension IntUtils on int {
 }
 
 extension StringDateFormat on String {
-  String dateFormat() {
+  String dateFormat({bool disableDay = false}) {
+    if (disableDay) {
+      return DateFormat("MMMM yyyy").format(DateTime.parse(this));
+    }
+
     return DateFormat("EEEE, dd MMMM yyyy").format(DateTime.parse(this));
   }
 }

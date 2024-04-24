@@ -106,12 +106,18 @@ class _TransactionScreenState extends State<TransactionScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text(
-            '12 APRIL 2024',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
+          Builder(
+            builder: (ctx) {
+              final report = ctx.watch<TransactionBloc>().state.report;
+
+              return Text(
+                report.title.toCapital(),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
+              );
+            },
           ),
           const SizedBox(height: 16),
           Row(
