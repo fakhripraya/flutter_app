@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
             icon: const Icon(Icons.settings),
             onPressed: () {
               /// do something
-              Navigator.restorablePushNamed(context, Routes.logout);
+              Navigator.restorablePushNamed(context, Routes.profile);
             },
           ),
         ],
