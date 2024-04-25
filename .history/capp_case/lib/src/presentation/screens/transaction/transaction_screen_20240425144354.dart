@@ -443,8 +443,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                _bloc.add(TransactionUpdateOneTransaction(
-                    callback: _reset, transaction: trx));
+                _bloc.add(TransactionUpdateOneTransaction(callback: _reset));
               },
               child: const Text('Update'),
             ),

@@ -140,7 +140,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       type: state.type,
     );
 
-    final result = await _transactionUseCase.updateOneTransaction(transaction);
+    final result = await _transactionUseCase.createTransaction(transaction);
     if (!result) result;
     event.callback();
     add(const TransactionStarted());

@@ -128,22 +128,10 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     TransactionUpdateOneTransaction event,
     Emitter<TransactionState> emit,
   ) async {
-    final user = (await _authUseCase.getProfile())!;
-
-    final transaction = TransactionModel(
-      id: event.transaction.id,
-      title: state.title,
-      amount: state.amount,
-      createAt: state.createdAt,
-      reportId: state.report.id,
-      userId: user.id,
-      type: state.type,
-    );
-
-    final result = await _transactionUseCase.updateOneTransaction(transaction);
+    final result =
+        await _transactionUseCase.updateOneTransaction(event.transaction);
     if (!result) result;
     event.callback();
     add(const TransactionStarted());
-    _navigation.pop();
   }
 }

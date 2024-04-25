@@ -56,13 +56,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
     context.read<HomeBloc>().add(const HomeStarted());
   }
 
-  void _setTransaction(TransactionModel trx) {
-    _titleController.text = trx.title;
-    _amountController.text = trx.amount.toString();
-    _dateController.text = trx.createAt;
-    _dateTextController.text = trx.createAt.dateFormat();
-  }
-
   @override
   void initState() {
     _initial();
@@ -369,91 +362,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
     );
   }
 
-  void _updateTransactionForm(TransactionModel trx) {
-    _setTransaction(trx);
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      useSafeArea: true,
-      builder: (context) {
-        return ListView(
-          padding: const EdgeInsets.all(24),
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Builder(
-                  builder: (ctx) {
-                    final type =
-                        ctx.watch<TransactionBloc>().state.type.toCapital();
-
-                    return Text(
-                      'Update $type',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                      ),
-                    );
-                  },
-                ),
-                MaterialButton(
-                  shape: const CircleBorder(),
-                  minWidth: 0,
-                  padding: EdgeInsets.zero,
-                  color: Colors.black,
-                  onPressed: context.pop,
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.close,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            _textField(
-              title: 'Why is this report issued?',
-              hint: 'Write...',
-              controller: _titleController,
-            ),
-            const SizedBox(height: 16),
-            _textField(
-              title: 'Date',
-              hint: '',
-              controller: _dateTextController,
-              onPressed: _datePicker,
-              isDisable: true,
-            ),
-            const SizedBox(height: 16),
-            _textField(
-              controller: _amountController,
-              title: 'How much do you want to enter?',
-              hint: 'Enter amount',
-              inputType: TextInputType.number,
-            ),
-            const SizedBox(height: 4),
-            Builder(
-              builder: (ctx) {
-                final amount = ctx.watch<TransactionBloc>().state.amount;
-                return Text(amount.idr());
-              },
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                _bloc.add(TransactionUpdateOneTransaction(
-                    callback: _reset, transaction: trx));
-              },
-              child: const Text('Update'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   void _datePicker() {
     showModalBottomSheet(
       context: context,
@@ -523,63 +431,56 @@ class _TransactionScreenState extends State<TransactionScreen> {
   }
 
   Widget _transactionCardWidget(TransactionModel trx) {
-    return GestureDetector(
-      onTap: () {
-        _bloc.add(
-          TransactionSetType(type: trx.type),
-        );
-        _updateTransactionForm(trx);
-      },
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: Colors.black,
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: Colors.black,
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                trx.type.toCapital(),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(trx.title),
+            ],
           ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  trx.type.toCapital(),
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                trx.createAt.dateFormat(),
+                style: const TextStyle(
+                  fontSize: 12,
                 ),
-                Text(trx.title),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  trx.createAt.dateFormat(),
-                  style: const TextStyle(
-                    fontSize: 12,
-                  ),
+              ),
+              Text(
+                trx.amount.idr(),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
                 ),
-                Text(
-                  trx.amount.idr(),
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            IconButton(
-              onPressed: () {
-                context.read<TransactionBloc>().add(
-                    TransactionRemoveOneTransaction(
-                        callback: _reset, transaction: trx));
-              },
-              icon: const Icon(Icons.delete),
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+          IconButton(
+            onPressed: () {
+              context
+                  .read<HomeBloc>()
+                  .add(HomeRemoveOneReport(context: context, report: report));
+              context.read<HomeBloc>().add(const HomeStarted());
+            },
+            icon: const Icon(Icons.delete),
+          ),
+        ],
       ),
     );
   }

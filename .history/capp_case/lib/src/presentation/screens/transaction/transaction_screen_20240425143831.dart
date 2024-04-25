@@ -443,8 +443,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                _bloc.add(TransactionUpdateOneTransaction(
-                    callback: _reset, transaction: trx));
+                _bloc.add(TransactionUpdateOneTransaction(callback: _reset));
               },
               child: const Text('Update'),
             ),
@@ -523,63 +522,55 @@ class _TransactionScreenState extends State<TransactionScreen> {
   }
 
   Widget _transactionCardWidget(TransactionModel trx) {
-    return GestureDetector(
-      onTap: () {
-        _bloc.add(
-          TransactionSetType(type: trx.type),
-        );
-        _updateTransactionForm(trx);
-      },
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: Colors.black,
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: Colors.black,
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                trx.type.toCapital(),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(trx.title),
+            ],
           ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  trx.type.toCapital(),
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                trx.createAt.dateFormat(),
+                style: const TextStyle(
+                  fontSize: 12,
                 ),
-                Text(trx.title),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  trx.createAt.dateFormat(),
-                  style: const TextStyle(
-                    fontSize: 12,
-                  ),
+              ),
+              Text(
+                trx.amount.idr(),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
                 ),
-                Text(
-                  trx.amount.idr(),
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            IconButton(
-              onPressed: () {
-                context.read<TransactionBloc>().add(
-                    TransactionRemoveOneTransaction(
-                        callback: _reset, transaction: trx));
-              },
-              icon: const Icon(Icons.delete),
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+          IconButton(
+            onPressed: () {
+              context.read<TransactionBloc>().add(
+                  TransactionRemoveOneTransaction(
+                      callback: _reset, transaction: trx));
+            },
+            icon: const Icon(Icons.delete),
+          ),
+        ],
       ),
     );
   }

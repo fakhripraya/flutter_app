@@ -131,7 +131,6 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     final user = (await _authUseCase.getProfile())!;
 
     final transaction = TransactionModel(
-      id: event.transaction.id,
       title: state.title,
       amount: state.amount,
       createAt: state.createdAt,
