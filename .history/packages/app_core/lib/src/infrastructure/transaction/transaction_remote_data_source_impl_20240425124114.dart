@@ -80,20 +80,14 @@ class TransactionRemoteDataSourceImpl implements TransactionRemoteDataSource {
 
   @override
   Future<bool> removeOneTransaction(String transactionId) {
-    return _transactionCollection
-        .doc(transactionId)
-        .delete()
-        .then((_) => true)
-        .catchError((_) => false);
+    // TODO: implement removeOneTransaction
+    throw UnimplementedError();
   }
 
   @override
   Future<bool> updateOneTransaction(TransactionModel transaction) {
-    return _transactionCollection
-        .doc(transaction.id)
-        .update(transaction.toJson())
-        .then((_) => true)
-        .catchError((_) => false);
+    // TODO: implement updateOneTransaction
+    throw UnimplementedError();
   }
 
   @override

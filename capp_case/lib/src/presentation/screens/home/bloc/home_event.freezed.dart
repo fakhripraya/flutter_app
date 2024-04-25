@@ -25,9 +25,6 @@ mixin _$HomeEvent {
     required TResult Function(String value) setReportTitle,
     required TResult Function(BuildContext context, ReportModel report)
         removeOneReport,
-    required TResult Function(
-            BuildContext context, List<TransactionModel>? transaction)
-        reduceExpenses,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,9 +36,6 @@ mixin _$HomeEvent {
     TResult? Function(String value)? setReportTitle,
     TResult? Function(BuildContext context, ReportModel report)?
         removeOneReport,
-    TResult? Function(
-            BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,8 +46,6 @@ mixin _$HomeEvent {
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
     TResult Function(String value)? setReportTitle,
     TResult Function(BuildContext context, ReportModel report)? removeOneReport,
-    TResult Function(BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -66,7 +58,6 @@ mixin _$HomeEvent {
         showCreateReportBottomSheet,
     required TResult Function(HomeSetReportTitle value) setReportTitle,
     required TResult Function(HomeRemoveOneReport value) removeOneReport,
-    required TResult Function(HomeReduceExpenses value) reduceExpenses,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,7 +69,6 @@ mixin _$HomeEvent {
         showCreateReportBottomSheet,
     TResult? Function(HomeSetReportTitle value)? setReportTitle,
     TResult? Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult? Function(HomeReduceExpenses value)? reduceExpenses,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,7 +80,6 @@ mixin _$HomeEvent {
         showCreateReportBottomSheet,
     TResult Function(HomeSetReportTitle value)? setReportTitle,
     TResult Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult Function(HomeReduceExpenses value)? reduceExpenses,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -158,9 +147,6 @@ class _$HomeInitialImpl implements HomeInitial {
     required TResult Function(String value) setReportTitle,
     required TResult Function(BuildContext context, ReportModel report)
         removeOneReport,
-    required TResult Function(
-            BuildContext context, List<TransactionModel>? transaction)
-        reduceExpenses,
   }) {
     return initial();
   }
@@ -175,9 +161,6 @@ class _$HomeInitialImpl implements HomeInitial {
     TResult? Function(String value)? setReportTitle,
     TResult? Function(BuildContext context, ReportModel report)?
         removeOneReport,
-    TResult? Function(
-            BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
   }) {
     return initial?.call();
   }
@@ -191,8 +174,6 @@ class _$HomeInitialImpl implements HomeInitial {
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
     TResult Function(String value)? setReportTitle,
     TResult Function(BuildContext context, ReportModel report)? removeOneReport,
-    TResult Function(BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -211,7 +192,6 @@ class _$HomeInitialImpl implements HomeInitial {
         showCreateReportBottomSheet,
     required TResult Function(HomeSetReportTitle value) setReportTitle,
     required TResult Function(HomeRemoveOneReport value) removeOneReport,
-    required TResult Function(HomeReduceExpenses value) reduceExpenses,
   }) {
     return initial(this);
   }
@@ -226,7 +206,6 @@ class _$HomeInitialImpl implements HomeInitial {
         showCreateReportBottomSheet,
     TResult? Function(HomeSetReportTitle value)? setReportTitle,
     TResult? Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult? Function(HomeReduceExpenses value)? reduceExpenses,
   }) {
     return initial?.call(this);
   }
@@ -241,7 +220,6 @@ class _$HomeInitialImpl implements HomeInitial {
         showCreateReportBottomSheet,
     TResult Function(HomeSetReportTitle value)? setReportTitle,
     TResult Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult Function(HomeReduceExpenses value)? reduceExpenses,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -300,9 +278,6 @@ class _$HomeStartedImpl implements HomeStarted {
     required TResult Function(String value) setReportTitle,
     required TResult Function(BuildContext context, ReportModel report)
         removeOneReport,
-    required TResult Function(
-            BuildContext context, List<TransactionModel>? transaction)
-        reduceExpenses,
   }) {
     return started();
   }
@@ -317,9 +292,6 @@ class _$HomeStartedImpl implements HomeStarted {
     TResult? Function(String value)? setReportTitle,
     TResult? Function(BuildContext context, ReportModel report)?
         removeOneReport,
-    TResult? Function(
-            BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
   }) {
     return started?.call();
   }
@@ -333,8 +305,6 @@ class _$HomeStartedImpl implements HomeStarted {
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
     TResult Function(String value)? setReportTitle,
     TResult Function(BuildContext context, ReportModel report)? removeOneReport,
-    TResult Function(BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -353,7 +323,6 @@ class _$HomeStartedImpl implements HomeStarted {
         showCreateReportBottomSheet,
     required TResult Function(HomeSetReportTitle value) setReportTitle,
     required TResult Function(HomeRemoveOneReport value) removeOneReport,
-    required TResult Function(HomeReduceExpenses value) reduceExpenses,
   }) {
     return started(this);
   }
@@ -368,7 +337,6 @@ class _$HomeStartedImpl implements HomeStarted {
         showCreateReportBottomSheet,
     TResult? Function(HomeSetReportTitle value)? setReportTitle,
     TResult? Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult? Function(HomeReduceExpenses value)? reduceExpenses,
   }) {
     return started?.call(this);
   }
@@ -383,7 +351,6 @@ class _$HomeStartedImpl implements HomeStarted {
         showCreateReportBottomSheet,
     TResult Function(HomeSetReportTitle value)? setReportTitle,
     TResult Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult Function(HomeReduceExpenses value)? reduceExpenses,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -442,9 +409,6 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     required TResult Function(String value) setReportTitle,
     required TResult Function(BuildContext context, ReportModel report)
         removeOneReport,
-    required TResult Function(
-            BuildContext context, List<TransactionModel>? transaction)
-        reduceExpenses,
   }) {
     return doGetAllReports();
   }
@@ -459,9 +423,6 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     TResult? Function(String value)? setReportTitle,
     TResult? Function(BuildContext context, ReportModel report)?
         removeOneReport,
-    TResult? Function(
-            BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
   }) {
     return doGetAllReports?.call();
   }
@@ -475,8 +436,6 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
     TResult Function(String value)? setReportTitle,
     TResult Function(BuildContext context, ReportModel report)? removeOneReport,
-    TResult Function(BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
     required TResult orElse(),
   }) {
     if (doGetAllReports != null) {
@@ -495,7 +454,6 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
         showCreateReportBottomSheet,
     required TResult Function(HomeSetReportTitle value) setReportTitle,
     required TResult Function(HomeRemoveOneReport value) removeOneReport,
-    required TResult Function(HomeReduceExpenses value) reduceExpenses,
   }) {
     return doGetAllReports(this);
   }
@@ -510,7 +468,6 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
         showCreateReportBottomSheet,
     TResult? Function(HomeSetReportTitle value)? setReportTitle,
     TResult? Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult? Function(HomeReduceExpenses value)? reduceExpenses,
   }) {
     return doGetAllReports?.call(this);
   }
@@ -525,7 +482,6 @@ class _$DoGetAllReportsImpl implements DoGetAllReports {
         showCreateReportBottomSheet,
     TResult Function(HomeSetReportTitle value)? setReportTitle,
     TResult Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult Function(HomeReduceExpenses value)? reduceExpenses,
     required TResult orElse(),
   }) {
     if (doGetAllReports != null) {
@@ -615,9 +571,6 @@ class _$HomeShowCreateReportBottomSheetImpl
     required TResult Function(String value) setReportTitle,
     required TResult Function(BuildContext context, ReportModel report)
         removeOneReport,
-    required TResult Function(
-            BuildContext context, List<TransactionModel>? transaction)
-        reduceExpenses,
   }) {
     return showCreateReportBottomSheet(context);
   }
@@ -632,9 +585,6 @@ class _$HomeShowCreateReportBottomSheetImpl
     TResult? Function(String value)? setReportTitle,
     TResult? Function(BuildContext context, ReportModel report)?
         removeOneReport,
-    TResult? Function(
-            BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
   }) {
     return showCreateReportBottomSheet?.call(context);
   }
@@ -648,8 +598,6 @@ class _$HomeShowCreateReportBottomSheetImpl
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
     TResult Function(String value)? setReportTitle,
     TResult Function(BuildContext context, ReportModel report)? removeOneReport,
-    TResult Function(BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
     required TResult orElse(),
   }) {
     if (showCreateReportBottomSheet != null) {
@@ -668,7 +616,6 @@ class _$HomeShowCreateReportBottomSheetImpl
         showCreateReportBottomSheet,
     required TResult Function(HomeSetReportTitle value) setReportTitle,
     required TResult Function(HomeRemoveOneReport value) removeOneReport,
-    required TResult Function(HomeReduceExpenses value) reduceExpenses,
   }) {
     return showCreateReportBottomSheet(this);
   }
@@ -683,7 +630,6 @@ class _$HomeShowCreateReportBottomSheetImpl
         showCreateReportBottomSheet,
     TResult? Function(HomeSetReportTitle value)? setReportTitle,
     TResult? Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult? Function(HomeReduceExpenses value)? reduceExpenses,
   }) {
     return showCreateReportBottomSheet?.call(this);
   }
@@ -698,7 +644,6 @@ class _$HomeShowCreateReportBottomSheetImpl
         showCreateReportBottomSheet,
     TResult Function(HomeSetReportTitle value)? setReportTitle,
     TResult Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult Function(HomeReduceExpenses value)? reduceExpenses,
     required TResult orElse(),
   }) {
     if (showCreateReportBottomSheet != null) {
@@ -792,9 +737,6 @@ class _$HomeSetReportTitleImpl implements HomeSetReportTitle {
     required TResult Function(String value) setReportTitle,
     required TResult Function(BuildContext context, ReportModel report)
         removeOneReport,
-    required TResult Function(
-            BuildContext context, List<TransactionModel>? transaction)
-        reduceExpenses,
   }) {
     return setReportTitle(value);
   }
@@ -809,9 +751,6 @@ class _$HomeSetReportTitleImpl implements HomeSetReportTitle {
     TResult? Function(String value)? setReportTitle,
     TResult? Function(BuildContext context, ReportModel report)?
         removeOneReport,
-    TResult? Function(
-            BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
   }) {
     return setReportTitle?.call(value);
   }
@@ -825,8 +764,6 @@ class _$HomeSetReportTitleImpl implements HomeSetReportTitle {
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
     TResult Function(String value)? setReportTitle,
     TResult Function(BuildContext context, ReportModel report)? removeOneReport,
-    TResult Function(BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
     required TResult orElse(),
   }) {
     if (setReportTitle != null) {
@@ -845,7 +782,6 @@ class _$HomeSetReportTitleImpl implements HomeSetReportTitle {
         showCreateReportBottomSheet,
     required TResult Function(HomeSetReportTitle value) setReportTitle,
     required TResult Function(HomeRemoveOneReport value) removeOneReport,
-    required TResult Function(HomeReduceExpenses value) reduceExpenses,
   }) {
     return setReportTitle(this);
   }
@@ -860,7 +796,6 @@ class _$HomeSetReportTitleImpl implements HomeSetReportTitle {
         showCreateReportBottomSheet,
     TResult? Function(HomeSetReportTitle value)? setReportTitle,
     TResult? Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult? Function(HomeReduceExpenses value)? reduceExpenses,
   }) {
     return setReportTitle?.call(this);
   }
@@ -875,7 +810,6 @@ class _$HomeSetReportTitleImpl implements HomeSetReportTitle {
         showCreateReportBottomSheet,
     TResult Function(HomeSetReportTitle value)? setReportTitle,
     TResult Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult Function(HomeReduceExpenses value)? reduceExpenses,
     required TResult orElse(),
   }) {
     if (setReportTitle != null) {
@@ -986,9 +920,6 @@ class _$HomeRemoveOneReportImpl implements HomeRemoveOneReport {
     required TResult Function(String value) setReportTitle,
     required TResult Function(BuildContext context, ReportModel report)
         removeOneReport,
-    required TResult Function(
-            BuildContext context, List<TransactionModel>? transaction)
-        reduceExpenses,
   }) {
     return removeOneReport(context, report);
   }
@@ -1003,9 +934,6 @@ class _$HomeRemoveOneReportImpl implements HomeRemoveOneReport {
     TResult? Function(String value)? setReportTitle,
     TResult? Function(BuildContext context, ReportModel report)?
         removeOneReport,
-    TResult? Function(
-            BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
   }) {
     return removeOneReport?.call(context, report);
   }
@@ -1019,8 +947,6 @@ class _$HomeRemoveOneReportImpl implements HomeRemoveOneReport {
     TResult Function(BuildContext context)? showCreateReportBottomSheet,
     TResult Function(String value)? setReportTitle,
     TResult Function(BuildContext context, ReportModel report)? removeOneReport,
-    TResult Function(BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
     required TResult orElse(),
   }) {
     if (removeOneReport != null) {
@@ -1039,7 +965,6 @@ class _$HomeRemoveOneReportImpl implements HomeRemoveOneReport {
         showCreateReportBottomSheet,
     required TResult Function(HomeSetReportTitle value) setReportTitle,
     required TResult Function(HomeRemoveOneReport value) removeOneReport,
-    required TResult Function(HomeReduceExpenses value) reduceExpenses,
   }) {
     return removeOneReport(this);
   }
@@ -1054,7 +979,6 @@ class _$HomeRemoveOneReportImpl implements HomeRemoveOneReport {
         showCreateReportBottomSheet,
     TResult? Function(HomeSetReportTitle value)? setReportTitle,
     TResult? Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult? Function(HomeReduceExpenses value)? reduceExpenses,
   }) {
     return removeOneReport?.call(this);
   }
@@ -1069,7 +993,6 @@ class _$HomeRemoveOneReportImpl implements HomeRemoveOneReport {
         showCreateReportBottomSheet,
     TResult Function(HomeSetReportTitle value)? setReportTitle,
     TResult Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult Function(HomeReduceExpenses value)? reduceExpenses,
     required TResult orElse(),
   }) {
     if (removeOneReport != null) {
@@ -1088,201 +1011,5 @@ abstract class HomeRemoveOneReport implements HomeEvent {
   ReportModel get report;
   @JsonKey(ignore: true)
   _$$HomeRemoveOneReportImplCopyWith<_$HomeRemoveOneReportImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$HomeReduceExpensesImplCopyWith<$Res> {
-  factory _$$HomeReduceExpensesImplCopyWith(_$HomeReduceExpensesImpl value,
-          $Res Function(_$HomeReduceExpensesImpl) then) =
-      __$$HomeReduceExpensesImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({BuildContext context, List<TransactionModel>? transaction});
-}
-
-/// @nodoc
-class __$$HomeReduceExpensesImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$HomeReduceExpensesImpl>
-    implements _$$HomeReduceExpensesImplCopyWith<$Res> {
-  __$$HomeReduceExpensesImplCopyWithImpl(_$HomeReduceExpensesImpl _value,
-      $Res Function(_$HomeReduceExpensesImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? context = null,
-    Object? transaction = freezed,
-  }) {
-    return _then(_$HomeReduceExpensesImpl(
-      context: null == context
-          ? _value.context
-          : context // ignore: cast_nullable_to_non_nullable
-              as BuildContext,
-      transaction: freezed == transaction
-          ? _value._transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as List<TransactionModel>?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$HomeReduceExpensesImpl implements HomeReduceExpenses {
-  const _$HomeReduceExpensesImpl(
-      {required this.context, final List<TransactionModel>? transaction})
-      : _transaction = transaction;
-
-  @override
-  final BuildContext context;
-  final List<TransactionModel>? _transaction;
-  @override
-  List<TransactionModel>? get transaction {
-    final value = _transaction;
-    if (value == null) return null;
-    if (_transaction is EqualUnmodifiableListView) return _transaction;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'HomeEvent.reduceExpenses(context: $context, transaction: $transaction)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$HomeReduceExpensesImpl &&
-            (identical(other.context, context) || other.context == context) &&
-            const DeepCollectionEquality()
-                .equals(other._transaction, _transaction));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, context, const DeepCollectionEquality().hash(_transaction));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HomeReduceExpensesImplCopyWith<_$HomeReduceExpensesImpl> get copyWith =>
-      __$$HomeReduceExpensesImplCopyWithImpl<_$HomeReduceExpensesImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() started,
-    required TResult Function() doGetAllReports,
-    required TResult Function(BuildContext context) showCreateReportBottomSheet,
-    required TResult Function(String value) setReportTitle,
-    required TResult Function(BuildContext context, ReportModel report)
-        removeOneReport,
-    required TResult Function(
-            BuildContext context, List<TransactionModel>? transaction)
-        reduceExpenses,
-  }) {
-    return reduceExpenses(context, transaction);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? started,
-    TResult? Function()? doGetAllReports,
-    TResult? Function(BuildContext context)? showCreateReportBottomSheet,
-    TResult? Function(String value)? setReportTitle,
-    TResult? Function(BuildContext context, ReportModel report)?
-        removeOneReport,
-    TResult? Function(
-            BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
-  }) {
-    return reduceExpenses?.call(context, transaction);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? started,
-    TResult Function()? doGetAllReports,
-    TResult Function(BuildContext context)? showCreateReportBottomSheet,
-    TResult Function(String value)? setReportTitle,
-    TResult Function(BuildContext context, ReportModel report)? removeOneReport,
-    TResult Function(BuildContext context, List<TransactionModel>? transaction)?
-        reduceExpenses,
-    required TResult orElse(),
-  }) {
-    if (reduceExpenses != null) {
-      return reduceExpenses(context, transaction);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(HomeInitial value) initial,
-    required TResult Function(HomeStarted value) started,
-    required TResult Function(DoGetAllReports value) doGetAllReports,
-    required TResult Function(HomeShowCreateReportBottomSheet value)
-        showCreateReportBottomSheet,
-    required TResult Function(HomeSetReportTitle value) setReportTitle,
-    required TResult Function(HomeRemoveOneReport value) removeOneReport,
-    required TResult Function(HomeReduceExpenses value) reduceExpenses,
-  }) {
-    return reduceExpenses(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HomeInitial value)? initial,
-    TResult? Function(HomeStarted value)? started,
-    TResult? Function(DoGetAllReports value)? doGetAllReports,
-    TResult? Function(HomeShowCreateReportBottomSheet value)?
-        showCreateReportBottomSheet,
-    TResult? Function(HomeSetReportTitle value)? setReportTitle,
-    TResult? Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult? Function(HomeReduceExpenses value)? reduceExpenses,
-  }) {
-    return reduceExpenses?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(HomeInitial value)? initial,
-    TResult Function(HomeStarted value)? started,
-    TResult Function(DoGetAllReports value)? doGetAllReports,
-    TResult Function(HomeShowCreateReportBottomSheet value)?
-        showCreateReportBottomSheet,
-    TResult Function(HomeSetReportTitle value)? setReportTitle,
-    TResult Function(HomeRemoveOneReport value)? removeOneReport,
-    TResult Function(HomeReduceExpenses value)? reduceExpenses,
-    required TResult orElse(),
-  }) {
-    if (reduceExpenses != null) {
-      return reduceExpenses(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class HomeReduceExpenses implements HomeEvent {
-  const factory HomeReduceExpenses(
-      {required final BuildContext context,
-      final List<TransactionModel>? transaction}) = _$HomeReduceExpensesImpl;
-
-  BuildContext get context;
-  List<TransactionModel>? get transaction;
-  @JsonKey(ignore: true)
-  _$$HomeReduceExpensesImplCopyWith<_$HomeReduceExpensesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -25,8 +25,6 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     on<TransactionSetDate>(_setDate);
     on<TransactionSetAmount>(_setAmount);
     on<TransactionCreate>(_create);
-    on<TransactionRemoveOneTransaction>(_removeOneTransaction);
-    on<TransactionUpdateOneTransaction>(_updateOneTransaction);
   }
 
   void _initial(
@@ -107,30 +105,6 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     );
 
     final result = await _transactionUseCase.createTransaction(transaction);
-    if (!result) result;
-    event.callback();
-    add(const TransactionStarted());
-    _navigation.pop();
-  }
-
-  void _removeOneTransaction(
-    TransactionRemoveOneTransaction event,
-    Emitter<TransactionState> emit,
-  ) async {
-    final result =
-        await _transactionUseCase.removeOneTransaction(event.transaction.id);
-    if (!result) result;
-    event.callback();
-    add(const TransactionStarted());
-    _navigation.pop();
-  }
-
-  void _updateOneTransaction(
-    TransactionUpdateOneTransaction event,
-    Emitter<TransactionState> emit,
-  ) async {
-    final result =
-        await _transactionUseCase.updateOneTransaction(event.transaction);
     if (!result) result;
     event.callback();
     add(const TransactionStarted());

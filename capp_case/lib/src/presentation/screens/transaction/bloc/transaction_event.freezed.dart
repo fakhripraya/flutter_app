@@ -132,3 +132,49 @@ abstract class TransactionCreate implements TransactionEvent {
 
   void Function() get callback;
 }
+
+/// @nodoc
+
+class _$TransactionRemoveOneTransactionImpl
+    implements TransactionRemoveOneTransaction {
+  const _$TransactionRemoveOneTransactionImpl(
+      {required this.transaction, required this.callback});
+
+  @override
+  final TransactionModel transaction;
+  @override
+  final void Function() callback;
+}
+
+abstract class TransactionRemoveOneTransaction implements TransactionEvent {
+  const factory TransactionRemoveOneTransaction(
+          {required final TransactionModel transaction,
+          required final void Function() callback}) =
+      _$TransactionRemoveOneTransactionImpl;
+
+  TransactionModel get transaction;
+  void Function() get callback;
+}
+
+/// @nodoc
+
+class _$TransactionUpdateOneTransactionImpl
+    implements TransactionUpdateOneTransaction {
+  const _$TransactionUpdateOneTransactionImpl(
+      {required this.transaction, required this.callback});
+
+  @override
+  final TransactionModel transaction;
+  @override
+  final void Function() callback;
+}
+
+abstract class TransactionUpdateOneTransaction implements TransactionEvent {
+  const factory TransactionUpdateOneTransaction(
+          {required final TransactionModel transaction,
+          required final void Function() callback}) =
+      _$TransactionUpdateOneTransactionImpl;
+
+  TransactionModel get transaction;
+  void Function() get callback;
+}

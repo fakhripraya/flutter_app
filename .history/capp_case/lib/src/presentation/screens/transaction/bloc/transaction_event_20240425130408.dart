@@ -46,9 +46,4 @@ abstract class TransactionEvent with _$TransactionEvent {
     required final TransactionModel transaction,
     required void Function() callback,
   }) = TransactionRemoveOneTransaction;
-
-  const factory TransactionEvent.updateOneTransaction({
-    required final TransactionModel transaction,
-    required void Function() callback,
-  }) = TransactionUpdateOneTransaction;
 }

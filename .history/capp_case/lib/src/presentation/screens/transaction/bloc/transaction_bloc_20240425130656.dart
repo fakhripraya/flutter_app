@@ -130,7 +130,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     Emitter<TransactionState> emit,
   ) async {
     final result =
-        await _transactionUseCase.updateOneTransaction(event.transaction);
+        await _transactionUseCase.removeOneTransaction(event.transaction.id);
     if (!result) result;
     event.callback();
     add(const TransactionStarted());
